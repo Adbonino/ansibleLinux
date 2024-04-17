@@ -1,10 +1,13 @@
 ---
   - name: "Reemplazar una cadena en un archivo"
     hosts: all
-
+    
+    vars:
+      gmt_time: '-6'
+     
     tasks:
     - replace:
         path: /home/abonino/archivo.txt
-        regexp: 'time: GMT-3'
+        regexp: 'time: GMT{{ gmt_time }}'
         replace: 'time: GMT-4'
         backup: yes
