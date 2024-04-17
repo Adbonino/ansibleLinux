@@ -25,4 +25,4 @@
         regexp: 'GMT-4'
         replace: 'GMT-3'
         backup: yes
-      when: archivo_contenido_str is search('-4')
+      when: archivo_contenido_str is search('GMT-4')
