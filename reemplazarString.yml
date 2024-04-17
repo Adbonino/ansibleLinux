@@ -7,7 +7,10 @@
      
     tasks:
     - replace:
-        path: /home/abonino/catalina.sh
+        path: "{{ items }}"
         regexp: '-Duser.timezone=GMT-[0-9]'
         replace: '-Duser.timezone=GMT{{ gmt_time }}'
         backup: yes
+      with_fileglob:
+        - /home/abonino/catalina.sh
+        - /home/abonino/archivo.txt
