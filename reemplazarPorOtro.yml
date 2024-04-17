@@ -15,14 +15,14 @@
     - name: Reemplazar valor -3 con -4 y viceversa
       replace:
         path: /home/abonino/archivo.txt
-        regexp: '(^|\s)GMT-3(\s|$)'
-        replace: '\1GMT-4\2'
+        regexp: 'GMT-3'
+        replace: 'GMT-4'
         backup: yes
       when: archivo_contenido_str is search('GMT-3')
 
     - replace:
         path: ruta/del/archivo.txt
-        regexp: '(^|\s)GMT-4(\s|$)'
-        replace: '\1GMT-3\2'
+        regexp: 'GMT-4'
+        replace: 'GMT-3'
         backup: yes
       when: archivo_contenido_str is search('-4')
