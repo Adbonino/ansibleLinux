@@ -8,6 +8,6 @@
     tasks:
     - replace:
         path: /home/abonino/archivo.txt
-        regexp: 'time: GMT-\.[0-9]'
+        regexp: 'time: GMT-[0-9]'
         replace: 'time: GMT{{ gmt_time }}'
         backup: yes
