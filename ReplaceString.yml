@@ -1,0 +1,18 @@
+- name: Buscar un string usando lineinfile
+  host
+
+  tasks:
+    - name: "buscar un String"
+      become: yes
+      become_user: root
+      lineinfile:
+        path: /home/abonino/archivo.txt
+        line: "enabled: true"
+        state: present
+      check:mode: yes
+      resgister: presence
+      failed_when: presence is changed
+      
+    - name: "si la tarea esta presente en el archivo"
+      debug: msg= "La cadena esta presente en el archivo"
+      when: presence in not change
