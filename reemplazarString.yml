@@ -11,6 +11,6 @@
         regexp: '-Duser.timezone=GMT-[0-9]'
         replace: '-Duser.timezone=GMT{{ gmt_time }}'
         backup: yes
-      with_fileglob:
+      loop:
         - /home/abonino/archivo_copia.sh
         - /home/abonino/archivo.txt
