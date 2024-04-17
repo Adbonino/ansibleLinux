@@ -21,7 +21,7 @@
       when: archivo_contenido_str is search('GMT-3')
 
     - replace:
-        path: ruta/del/archivo.txt
+        path: /home/abonino/archivo.txt
         regexp: 'GMT-4'
         replace: 'GMT-3'
         backup: yes
