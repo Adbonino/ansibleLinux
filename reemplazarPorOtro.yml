@@ -1,0 +1,27 @@
+---
+  - name: Modificar valor en archivo de texto
+   
+    tasks:
+    - name: Leer el contenido del archivo
+      slurp:
+        path: /home/abonino/archivo.txt
+      register: archivo_contenido
+
+    - name: Convertir el contenido del archivo a una cadena
+      set_fact:
+        archivo_contenido_str: "{{ archivo_contenido['content'] | b64decode }}"
+
+    - name: Reemplazar valor -3 con -4 y viceversa
+      replace:
+        path: /home/abonino/archivo.txt
+        regexp: '(^|\s)GMT-3(\s|$)'
+        replace: '\1GMT-4\2'
+        backup: yes
+      when: archivo_contenido_str is search('GMT-3')
+
+    - replace:
+        path: ruta/del/archivo.txt
+        regexp: '(^|\s)GMT-4(\s|$)'
+        replace: '\1GMT-3\2'
+        backup: yes
+      when: archivo_contenido_str is search('-4')
