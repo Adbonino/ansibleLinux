@@ -1,5 +1,6 @@
 ---
   - name: Modificar valor en archivo de texto
+    hosts: all
    
     tasks:
     - name: Leer el contenido del archivo
