@@ -3,7 +3,7 @@
     hosts: all
     
     vars:
-      gmt_time: '-6'
+      gmt_time: '-4'
      
     tasks:
     - replace:
