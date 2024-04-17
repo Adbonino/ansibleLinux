@@ -1,5 +1,8 @@
 ---
   - name: "Reemplazar una cadena en un archivo"
+    hosts: all
+
+    tasks:
     - replace:
         path: /home/abonino/archivo.txt
         regexp: 'time: GMT-3'
