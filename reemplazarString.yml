@@ -1,1 +1,7 @@
-
+---
+  - name: "Reemplazar una cadena en un archivo"
+    - replace:
+      path: /home/abonino/archivo.txt
+      regexp: 'time: GMT-3'
+      replace: 'time: GMT-4'
+      backup: yes
