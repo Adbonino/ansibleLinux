@@ -1,0 +1,23 @@
+---
+  - name: "Armar un documento con la configuracion horario de los servidores"
+    hosts: all
+    become: true
+    
+    tasks:
+
+      - name: consultar confg de horario
+        shell: "date"
+        register: out_date
+
+      - name: Generar salida
+        set_fact:
+          salida: "{{ salida|default([]) + [out_date.stdout] }}"
+
+    - name: Mostrar salida
+      hosts: localhost
+
+      tasks:
+
+        - name: Mostrar horarios
+          debug:
+            msg: "{ salidas }"
