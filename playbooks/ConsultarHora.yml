@@ -15,8 +15,7 @@
         delegate_to: localhost
 
   - name: Mostrar salida
-    hosts: localhost
-
+    
     tasks:
 
       - name: Mostrar horarios
