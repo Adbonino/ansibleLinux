@@ -1,0 +1,10 @@
+---
+  - name: "Reemplazar una cadena en un archivo"
+    hosts: all
+    
+    tasks:
+    
+    - name: Configurar archivo de sitio
+      template:
+        src: templates/site.conf.j2
+        dest: "/etc/httpd/conf.d/{{ ansible_hostanme }}.conf"

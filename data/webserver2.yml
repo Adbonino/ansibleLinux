@@ -1,0 +1,3 @@
+hostname: "webserver2"
+service: "servidor web numero 2"
+path: "/home/abonino"
