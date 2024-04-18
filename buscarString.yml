@@ -1,6 +1,6 @@
 ---
   - name: Buscar un string usando lineinfile
-    host
+    host: all
 
     tasks:
       - name: "buscar un String"
