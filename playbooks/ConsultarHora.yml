@@ -19,12 +19,11 @@
           msg: "{{ salida }}"
 
       - name: Guardar la salida en un archivo temporal
-        copy:
-          content: "{{ ansible_hostname }}: {{  out_date.stdout }}"
-          dest: /tmp/command_output.txt
-          mode: '0644'
+        lineinfile:
+          line: "{{ ansible_hostname }}: {{  out_date.stdout }}"
+          path: /tmp/command_output.txt
+          create: yes
         delegate_to: localhost
-        run_once: true
 
   - name: Sending an e-mail using Gmail SMTP servers
     hosts: localhost
