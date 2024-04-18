@@ -7,7 +7,7 @@
 
     - name: Mostrar nombre del servidor
       debug:
-        msg: "nombre del servidor: {{ ansible_hostanme }}"
+        msg: "nombre del servidor: {{ ansible_hostname }}"
     
     - name: Instalar HTTPD
       yum:
