@@ -23,8 +23,8 @@
           content: "{{ ansible_hostname }}: {{  out_date.stdout }}"
           dest: /tmp/command_output.txt
           mode: '0644'
-          delegate_to: localhost
-          run_once: true
+        delegate_to: localhost
+        run_once: true
 
   - name: Sending an e-mail using Gmail SMTP servers
     hosts: localhost
