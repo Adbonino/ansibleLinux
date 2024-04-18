@@ -7,7 +7,7 @@
 
       - name: cargar variables de un archivo
         include_vars:
-          file: data/webserver1.yaml
+          file: data/{{ ansible_hostname }}.yaml
 
       - name: Configurar archivo de sitio
         template:
