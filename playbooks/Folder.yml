@@ -1,6 +1,7 @@
 ---
   - name: "Reemplazar una cadena en un archivo"
     hosts: all
+    become: true
     
     vars:
       gmt_time: '-4'
