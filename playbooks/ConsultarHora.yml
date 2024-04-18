@@ -11,7 +11,8 @@
 
       - name: Generar salida
         set_fact:
-          salida: "{{ salida|default([]) + [out_date.stdout] }}"
+          salida: "{{ salida|default([]) + [{ 'host': ansible_hostname, 'output': out_date.stdout }] }}"
+        delegate_to: localhost
 
   - name: Mostrar salida
     hosts: localhost
