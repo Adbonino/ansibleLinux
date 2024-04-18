@@ -12,7 +12,6 @@
       - name: Generar salida
         set_fact:
           salida: "{{ salida|default([]) + [{ 'host': ansible_hostname, 'output': out_date.stdout }] }}"
-        delegate_to: localhost
 
       - name: Mostrar horarios
         debug:
