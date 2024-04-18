@@ -17,7 +17,16 @@
         debug:
           msg: "{{ salida }}"
 
-      - name: Sending an e-mail using Gmail SMTP servers
+  - name: Sending an e-mail using Gmail SMTP servers
+    hosts: localhost
+    gather_facts: no
+
+    tasks:
+      - name: concatenar salidas
+        set_fact:
+          full_output: "{{ salida | join('\n') }}"
+
+      - name: enviar mail
         community.general.mail:
           host: smtp.gmail.com
           port: 587
@@ -25,5 +34,5 @@
           password: lbruwodaqnzpepdb
           to: Adrian Bonino <adrian.bonino@la.logicalis.com>
           subject: Ansible-report
-          body: "{{ salida }}"
+          body: "{{ full_output }}"
         delegate_to: localhost
