@@ -3,8 +3,10 @@
     hosts: all
     
     tasks:
-    
+
       - name: Configurar archivo de sitio
         template:
           src: templates/serverconfig.j2
           dest: "/home/abonino/{{ ansible_hostname }}.conf"
+        vars:
+          data: "{{ lookup('fie', 'data/webserver1.yaml') }}" 
