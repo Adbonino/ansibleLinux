@@ -15,9 +15,9 @@
         name: httpd
         state: present
     
-    - name: Copiar el archivo Index.html
-      copy: 
-        src: index.html 
+    - name: Armar archivo Index.html
+      template: 
+        src: index.j2 
         dest: /var/www/html/index.html 
         owner: apache 
         group: apache 
