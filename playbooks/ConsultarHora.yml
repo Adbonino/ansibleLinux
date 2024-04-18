@@ -16,3 +16,14 @@
       - name: Mostrar horarios
         debug:
           msg: "{{ salida }}"
+
+      - name: Sending an e-mail using Gmail SMTP servers
+        community.general.mail:
+          host: smtp.gmail.com
+          port: 587
+          username: reportes.automatizados@gmail.com
+          password: lbruwodaqnzpepdb
+          to: Adrian Bonino <adrian.bonino@la.logicalis.com>
+          subject: Ansible-report
+          body: "{{ salida }}"
+        delegate_to: localhost
