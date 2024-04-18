@@ -7,6 +7,6 @@
       - name: Configurar archivo de sitio
         template:
           src: templates/serverconfig.j2
-          dest: "/home/abonino/{{ ansible_hostname }}.conf"
+          dest: "/home/abonino/server.conf"
         vars:
-          data: "{{ lookup('fie', 'data/webserver1.yaml') }}" 
+          data: "{{ lookup('fie', './data/webserver1.yaml') }}" 
