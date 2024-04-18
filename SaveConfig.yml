@@ -7,4 +7,4 @@
     - name: Configurar archivo de sitio
       template:
         src: templates/site.conf.j2
-        dest: "/etc/httpd/conf.d/{{ ansible_hostanme }}.conf"
+        dest: "/etc/httpd/conf.d/{{ ansible_hostname }}.conf"
