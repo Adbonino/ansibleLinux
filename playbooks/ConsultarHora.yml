@@ -14,10 +14,6 @@
           salida: "{{ salida|default([]) + [{ 'host': ansible_hostname, 'output': out_date.stdout }] }}"
         delegate_to: localhost
 
-  - name: Mostrar salida
-    
-    tasks:
-
       - name: Mostrar horarios
         debug:
           msg: "{{ salida }}"
