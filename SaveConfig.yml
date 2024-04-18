@@ -4,9 +4,12 @@
     
     tasks:
 
+      - name: cargar variables de un archivo
+        include_vars:
+          file: data/webserver1.yaml
+
       - name: Configurar archivo de sitio
         template:
           src: templates/serverconfig.j2
           dest: "/home/abonino/server.conf"
-        vars:
-          data: "{{ lookup('fie', './data/webserver1.yaml') }}" 
+       
