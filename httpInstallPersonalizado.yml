@@ -1,1 +1,37 @@
 
+---
+- name: Instalar y configurar HTTPD en CentOS
+  hosts: all
+  become: true
+  
+  tasks:
+
+    - name: Mostrar nombre del servidor
+      debug:
+        msg: "nombre del servidor: {{ ansible_hostname }}"
+    
+    - name: Instalar HTTPD
+      yum:
+        name: httpd
+        state: present
+    
+    - name: Copiar el archivo Index.html
+      copy: 
+        src: index.html 
+        dest: /var/www/html/index.html 
+        owner: apache 
+        group: apache 
+        mode: 0644
+
+    - name: Habilitar servicio HTTPD
+      systemd:
+        name: httpd
+        enabled: yes
+        state: started
+
+    - name: Abrir el puerto 80 en el firewall
+      firewalld:
+        port: 80/tcp
+        permanent: true
+        state: enabled
+        immediate: yes
