@@ -43,5 +43,9 @@
           password: lbruwodaqnzpepdb
           to: Adrian Bonino <adrian.bonino@la.logicalis.com>
           subject: Ansible-report
-          body: "{{ file_content['content'] | b64decode }}"
+          body: "
+          Listado de horas:
+          --------------------------------------------
+          
+          {{ file_content['content'] | b64decode }}"
         delegate_to: localhost
