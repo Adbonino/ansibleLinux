@@ -12,6 +12,7 @@
       - name: mostrar Facts
         debug: 
           var: ansible_facts
+        register: out_date
 
       - name: Guardar la salida en un archivo temporal
         lineinfile:
