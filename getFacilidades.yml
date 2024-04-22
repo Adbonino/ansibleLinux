@@ -5,15 +5,14 @@
     
     tasks:
 
-      #- name: consultar confg de horario
-      #  shell: "date"
-      #  register: out_date
+      - name: consultar confg de horario
+        shell: "date"
+        register: out_date
 
       - name: mostrar Facts
         debug: 
           var: ansible_facts
-        register: out_date
-
+      
       - name: Guardar la salida en un archivo temporal
         lineinfile:
           line: "{{ ansible_hostname }}: {{  out_date.stdout }}"
