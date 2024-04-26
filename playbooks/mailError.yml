@@ -5,11 +5,6 @@
     
     tasks:
 
-      - name: Leer contenido del archivo temporal
-        slurp:
-          src: /tmp/command_output.txt
-        register: file_content
-
       - name: enviar mail
         community.general.mail:
           host: smtp.gmail.com
