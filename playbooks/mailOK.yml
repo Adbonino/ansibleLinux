@@ -22,5 +22,5 @@
 
           ----------------------------------------------------------------
 
-          {{ file_content['content'] | b64decode }}"
+          La tarea se realizo correctamente"
         delegate_to: localhost
