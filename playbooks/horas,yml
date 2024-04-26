@@ -1,0 +1,17 @@
+---
+  - name: "Armar un documento con la configuracion horario de los servidores"
+    hosts: all
+    become: true
+    
+    tasks:
+
+      - name: consultar confg de horario
+        shell: "date"
+        register: out_date
+
+      - name: Guardar la salida en un archivo temporal
+        lineinfile:
+          line: "{{ ansible_hostname }}: {{  out_date.stdout }}"
+          path: /tmp/command_output.txt
+          create: yes
+        delegate_to: localhost
