@@ -17,5 +17,6 @@
 
           ----------------------------------------------------------------
 
-          La tarea se realizo correctamente"
+          La tarea se realizo correctamente
+          {{ salida_playbook.stdout }}"
         delegate_to: localhost

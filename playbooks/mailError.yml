@@ -17,5 +17,6 @@
 
           ----------------------------------------------------------------
 
-          La tarea no se realizao correctamente"
+          La tarea no se realizao correctamente
+           {{ salida_playbook.stdout }}"
         delegate_to: localhost
