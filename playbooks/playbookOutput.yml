@@ -1,8 +1,6 @@
 ---
 - name: Ejemplo de envío de resultado de playbook por correo
-  hosts: localhost
-  gather_facts: no
   tasks:
     - name: Ejecutar playbook y registrar la salida
-      include_tasks: horas.yml
+      include_playbook: horas.yml
       register: salida_playbook
