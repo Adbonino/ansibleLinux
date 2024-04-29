@@ -15,5 +15,5 @@
     - name: mostrar salida 
       debug: 
         msg: "La IP tiene un formato valido y es publica"
-      when: private AND public 
+      when: private and public 
       
