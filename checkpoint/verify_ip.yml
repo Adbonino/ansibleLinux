@@ -31,9 +31,9 @@
 
     - set_fact:
         ip_en_lista: "{{ ip_en_lista | bool }}"
-    # - name: mostrar ip_en_lista 
-    #  debug: 
-    #    var: ip_en_lista   
+    - name: mostrar ip_en_lista 
+      debug: 
+        var: ip_en_lista   
           
     - name: mostrar salida 
       debug: 
