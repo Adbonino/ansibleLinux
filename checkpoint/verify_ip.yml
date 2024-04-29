@@ -50,7 +50,7 @@
       when: ip_en_lista == " True "
 
     - name: realizar un ping a 8.8.8.8
-      command: ping -c 8.8.8.8
+      command: "ping -c 8.8.8.8"
       register: ping_result 
       ignore_errors: true
 
