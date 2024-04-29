@@ -14,7 +14,7 @@
 
     - name: Verificar Si la IP esta en una lista
       set_fact:
-        ip_en_lista: " {{ IP in lista_ips }}"
+        ip_en_lista: " {{ IP in lista_ips }} "
       vars:
         lista_ips:
           - 51.34.1.1
@@ -29,5 +29,5 @@
     - name: mostrar si esta en la lista 
       debug: 
         msg: "La IP esta en la lista de IPs "
-      when: ip_en_lista
+      when: ip_en_lista == true
       
