@@ -7,10 +7,18 @@
     - name: Check a valid IPv4 address
       ansible.builtin.set_fact:
         private: "{{ IP is ansible.utils.ipv4 }}"
-      
+    
+    - name: mostrar private 
+      debug: 
+        var: private
+       
     - name: Check a public IP address
       ansible.builtin.set_fact:
         public: "{{ IP is ansible.utils.public }}"
+
+    - name: mostrar public 
+      debug: 
+        var: public
 
     - name: Verificar Si la IP esta en una lista
       set_fact:
