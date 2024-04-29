@@ -14,6 +14,7 @@
         public: "{{ IP is ansible.utils.public }}"
     
     - name: mostrar salida 
-      debug: msg= "La IP tiene un formato valido y es publica"
+      debug: 
+        msg: "La IP tiene un formato valido y es publica"
       when: private AND public 
       delegate_to: localhost
