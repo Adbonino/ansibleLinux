@@ -7,15 +7,13 @@
     - name: Check a valid IPv4 address
       ansible.builtin.set_fact:
         private: "{{ IP is ansible.utils.ipv4 }}"
-      delegate_to: localhost
-
+      
     - name: Check a public IP address
       ansible.builtin.set_fact:
         public: "{{ IP is ansible.utils.public }}"
-      delegate_to: localhost
-    
+          
     - name: mostrar salida 
       debug: 
         msg: "La IP tiene un formato valido y es publica"
       when: private AND public 
-      delegate_to: localhost
+      
