@@ -1,0 +1,53 @@
+- hosts: localhost
+  vars:
+    checkpoint_mgmt_server: "mgmt_server_ip"
+    checkpoint_username: "admin"
+    checkpoint_password: "your_password"
+    object_name: "IP_to_block"
+    ip_to_block: "192.168.1.100"
+  tasks:
+    - name: Agregar IP al objeto
+      community.checkpoint.cp_mgmt_host:
+        name: "{{ object_name }}"
+        ip_address: "{{ ip_to_block }}"
+        color: red
+        state: present
+        server: "{{ checkpoint_mgmt_server }}"
+        username: "{{ checkpoint_username }}"
+        password: "{{ checkpoint_password }}"
+      register: object_result
+
+    - name: Crear regla de bloqueo
+      community.checkpoint.cp_mgmt_access_rule:
+        name: "Bloquear IP"
+        action: drop
+        source: "any"
+        destination: "{{ object_name }}"
+        service: "any"
+        enabled: true
+        install_on: "Policy Targets"
+        state: present
+        server: "{{ checkpoint_mgmt_server }}"
+        username: "{{ checkpoint_username }}"
+        password: "{{ checkpoint_password }}"
+      when: object_result.changed
+
+
+
+- hosts: localhost
+  vars:
+    checkpoint_mgmt_server: "mgmt_server_ip"
+    checkpoint_username: "admin"
+    checkpoint_password: "your_password"
+    access_object_name: "access"
+    ip_to_add: "192.168.1.100"
+  tasks:
+    - name: Agregar IP al objeto "access"
+      community.checkpoint.cp_mgmt_host:
+        name: "{{ access_object_name }}"
+        ip_address: "{{ ip_to_add }}"
+        color: red
+        state: present
+        server: "{{ checkpoint_mgmt_server }}"
+        username: "{{ checkpoint_username }}"
+        password: "{{ checkpoint_password }}"

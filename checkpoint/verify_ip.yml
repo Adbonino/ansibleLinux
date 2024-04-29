@@ -48,4 +48,13 @@
       debug: 
         msg: "La IP esta en la lista de IPs "
       when: ip_en_lista == " True "
+
+    - name: realizar un ping
+      ping: 
+        data: "8.8.8.8"
+
+    - name: monstrar mensaje de exito
+      debug:
+        msg: "Ping exitoso"
+      when: ansible_ping.success == true
       
