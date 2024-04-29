@@ -29,6 +29,10 @@
           - 51.34.2.2
           - 51.35.2.2
 
+    - name: mostrar ip_en_lista 
+      debug: 
+        var: ip_en_lista 
+
     - set_fact:
         ip_en_lista: "{{ ip_en_lista | bool }}"
     - name: mostrar ip_en_lista 
