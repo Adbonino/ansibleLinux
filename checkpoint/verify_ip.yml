@@ -4,12 +4,12 @@
   become: true
 
   tasks:
-    - name: Check if 10.0.0.0/8 is a valid IPv4 address
+    - name: Check a valid IPv4 address
       ansible.builtin.set_fact:
         private: "{{ IP is ansible.utils.ipv4 }}"
       delegate_to: localhost
 
-    - name: Check if 8.8.8.8 is a public IP address
+    - name: Check a public IP address
       ansible.builtin.set_fact:
         public: "{{ IP is ansible.utils.public }}"
     
