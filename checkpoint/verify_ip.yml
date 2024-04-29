@@ -52,7 +52,7 @@
     # chmod u+s $(which ping)
     - name: realizar un ping a 8.8.8.8
       ansible.builtin.ping:
-      hosts: 8.8.8.8
+        data: 8.8.8.8
       register: ping_result
       ignore_errors: true
 
