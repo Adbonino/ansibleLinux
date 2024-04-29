@@ -22,7 +22,7 @@
 
     - name: Verificar Si la IP esta en una lista
       ansible.builtin.set_fact:
-        ip_en_lista: " {{ IP in lista_ips }} "
+        ip_en_lista: " {{ IP in lista_ips | bool }} "
       vars:
         lista_ips:
           - 51.34.1.1
