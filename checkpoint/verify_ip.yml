@@ -8,27 +8,29 @@
       ansible.builtin.set_fact:
         private: "{{ IP is ansible.utils.ipv4 }}"
     
-    - name: mostrar private 
-      debug: 
-        var: private
+    # - name: mostrar private 
+    #   debug: 
+    #     var: private
        
     - name: Check a public IP address
       ansible.builtin.set_fact:
         public: "{{ IP is ansible.utils.public }}"
 
-    - name: mostrar public 
-      debug: 
-        var: public
+    # - name: mostrar public 
+    #   debug: 
+    #     var: public
 
     - name: Verificar Si la IP esta en una lista
       ansible.builtin.set_fact:
-        ip_en_lista: " {{ IP in lista_ips | bool }} "
+        ip_en_lista: " {{ IP in lista_ips }} "
       vars:
         lista_ips:
           - 51.34.1.1
           - 51.34.2.2
           - 51.35.2.2
 
+    - set_fact:
+        ip_en_lista: "{{ ip_en_lista | bool }}"
     - name: mostrar ip_en_lista 
       debug: 
         var: ip_en_lista   
