@@ -50,11 +50,11 @@
       when: ip_en_lista == " True "
 
     - name: realizar un ping a 8.8.8.8
-      command: ping 8.8.8.8
-      register: ping_result 
-      ignore_errors: true
+      ping:
+      # register: ping_result
+      # ignore_errors: true
 
-    - debug:
-        var: ping_result.stdout_lines
+    # - debug:
+    #     var: ping_result.stdout_lines
       
       
