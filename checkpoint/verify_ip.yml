@@ -12,4 +12,5 @@
     - name: mostrar salida 
       debug:
         var: data
+      when: data 
       delegate_to: localhost
