@@ -14,7 +14,7 @@
 
     - name: Verificar Si la IP esta en una lista
       set_fact:
-        ip_en_lista: " {{ IP | ipaddr('match', item) | bool }}""
+        ip_en_lista: " {{ IP | ipaddr('match', item) | bool }}"
       loop "{{ lista_ips }}"
       vars:
         lista_ips:
