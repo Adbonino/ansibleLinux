@@ -33,5 +33,5 @@
     - name: mostrar si esta en la lista 
       debug: 
         msg: "La IP esta en la lista de IPs "
-      when: ip_en_lista == true
+      when: ip_en_lista 
       
