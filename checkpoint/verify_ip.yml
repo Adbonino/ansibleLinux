@@ -57,6 +57,5 @@
       ignore_errors: true
 
     - debug:
-        var: ping_result.stdout_lines
-      
+        var: ping_result
       
