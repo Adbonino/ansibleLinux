@@ -11,4 +11,4 @@
     
     - name: mostrar salida 
       debug:
-        var: data.stdout
+        var: salida.stdout
