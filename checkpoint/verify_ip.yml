@@ -12,6 +12,7 @@
     - name: Check a public IP address
       ansible.builtin.set_fact:
         public: "{{ IP is ansible.utils.public }}"
+      delegate_to: localhost
     
     - name: mostrar salida 
       debug: 
