@@ -11,9 +11,24 @@
     - name: Check a public IP address
       ansible.builtin.set_fact:
         public: "{{ IP is ansible.utils.public }}"
+
+    - name: Verificar Si la IP esta en una lista
+      set_fact:
+        ip_en_lista: " {{ IP | ipaddr('match', item) | bool }}""
+      loop "{{ lista_ips }}"
+      vars:
+        lista_ips:
+          - 51.34.1.1
+          - 51.34.2.2
+          - 51.35.2.2
           
     - name: mostrar salida 
       debug: 
         msg: "La IP tiene un formato valido y es publica"
       when: private and public 
+
+    - name: mostrar si esta en la lista 
+      debug: 
+        msg: "La IP esta en la lista de IPs "
+      when: ip_en_lista
       
