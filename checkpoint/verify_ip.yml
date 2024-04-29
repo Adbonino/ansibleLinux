@@ -49,12 +49,13 @@
         msg: "La IP esta en la lista de IPs "
       when: ip_en_lista == " True "
 
+    # chmod u+s $(which ping)
     - name: realizar un ping a 8.8.8.8
-      ping:
-      # register: ping_result
-      # ignore_errors: true
+      command: ping 8.8.8.8
+      register: ping_result
+      ignore_errors: true
 
-    # - debug:
-    #     var: ping_result.stdout_lines
+    - debug:
+      var: ping_result.stdout_lines
       
       
