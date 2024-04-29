@@ -51,7 +51,7 @@
 
     # chmod u+s $(which ping)
     - name: realizar un ping a 8.8.8.8
-      command: ping 8.8.8.8
+      command: "/usr/bin/ping 8.8.8.8"
       register: ping_result
       ignore_errors: true
 
