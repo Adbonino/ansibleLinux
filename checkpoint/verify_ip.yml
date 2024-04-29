@@ -54,8 +54,7 @@
       register: ping_result 
       ignore_errors: true
 
-    - name: monstrar mensaje de exito
-      debug:
-        msg: "Ping exitoso"
-      when: ping_result is succeeded
+    - debug:
+        var: ping_result.stdout_lines
+      
       
