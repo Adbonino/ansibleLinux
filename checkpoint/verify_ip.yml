@@ -1,0 +1,8 @@
+---
+- name: verificacion de IPs - Format
+  hosts: all
+
+
+- name: Check if 10.0.0.0/8 is a valid IPv4 address
+  ansible.builtin.set_fact:
+    data: "{{ '10.0.0.0/8' is ansible.utils.ipv4 }}"
