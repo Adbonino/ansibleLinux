@@ -1,6 +1,6 @@
 ---
 - name: verificacion de IPs - Format
-  hosts: all
+  hosts: localhost
   become: true
 
   tasks:
