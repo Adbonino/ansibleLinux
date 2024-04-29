@@ -21,7 +21,7 @@
         var: public
 
     - name: Verificar Si la IP esta en una lista
-      set_fact:
+      ansible.builtin.set_fact:
         ip_en_lista: " {{ IP in lista_ips }} "
       vars:
         lista_ips:
