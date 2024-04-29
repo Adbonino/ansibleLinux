@@ -20,6 +20,10 @@
           - 51.34.1.1
           - 51.34.2.2
           - 51.35.2.2
+
+    - name: mostrar ip_en_lista 
+      debug: 
+        var: ip_en_lista   
           
     - name: mostrar salida 
       debug: 
