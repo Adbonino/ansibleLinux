@@ -1,0 +1,16 @@
+---
+- name: Verificar conectividad a Internet
+  hosts: localhost
+  gather_facts: no  # Evitar que Ansible recopile automáticamente información sobre el host
+
+  tasks:
+    - name: Verificar conexión a una URL en Internet
+      uri:
+        url: "https://www.google.com"
+        timeout: 5  # Tiempo máximo de espera para la respuesta, en segundos
+      register: resultado
+
+    - name: Mostrar resultado
+      debug:
+        msg: "El host tiene conexión a Internet"
+      when: resultado.status == 200  # Si la respuesta es 200 (OK), se muestra el mensaje

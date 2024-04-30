@@ -50,12 +50,12 @@
       when: ip_en_lista == " True "
 
     # chmod u+s $(which ping)
-    - name: realizar un ping a 8.8.8.8
-      ansible.builtin.ping:
-       data: 8.8.8.8
-      register: ping_result
-      ignore_errors: true
+    #  - name: realizar un ping a 8.8.8.8
+    #   ansible.builtin.ping:
+    #    data: 8.8.8.8
+    #   register: ping_result
+    #   ignore_errors: true
 
-    - debug:
-        var: ping_result
+    # - debug:
+    #     var: ping_result
       
