@@ -12,5 +12,6 @@
 
     - name: Mostrar resultado
       debug:
-        msg: "El host tiene conexión a Internet"
+        #msg: "El host tiene conexión a Internet"
+        var: resultado
       when: resultado.status == 200  # Si la respuesta es 200 (OK), se muestra el mensaje
