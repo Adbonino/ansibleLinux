@@ -1,0 +1,25 @@
+---
+- name: Mostrar objeto BANNED y sus IPs
+  hosts: localhost
+  gather_facts: no
+  vars:
+    mgmt_server_ip: "mgmt_server_ip"
+    mgmt_server_user: "admin"
+    mgmt_server_password: "your_password"
+    
+  tasks:
+    - name: Ejecutar script para obtener detalles del objeto BANNED
+      check_point.mgmt.cp_mgmt_run_script:
+        script_name: "show_banned_ips"
+        script: |
+          mgmt_cli show group name BANNED -r true --format json
+        targets:
+          - "{{ mgmt_server_ip }}"
+        server: "{{ mgmt_server_ip }}"
+        user: "{{ mgmt_server_user }}"
+        password: "{{ mgmt_server_password }}"
+      register: script_result
+
+    - name: Mostrar resultado del script
+      debug:
+        var: script_result

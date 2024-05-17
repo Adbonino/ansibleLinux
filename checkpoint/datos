@@ -44,10 +44,17 @@
   tasks:
     - name: Agregar IP al objeto "access"
       community.checkpoint.cp_mgmt_host:
-        name: "{{ access_object_name }}"
+        name: "{{ access_object_name }}" 
         ip_address: "{{ ip_to_add }}"
         color: red
         state: present
         server: "{{ checkpoint_mgmt_server }}"
         username: "{{ checkpoint_username }}"
         password: "{{ checkpoint_password }}"
+
+
+
+
+
+
+...
