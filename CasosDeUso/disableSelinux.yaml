@@ -13,5 +13,7 @@
   
   handlers:
     - name: Reiniciar el servidor
-      reboot:
+      command: reboot
+      async: 1
+      poll: 0
       when: selinux_changed.changed
