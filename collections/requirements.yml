@@ -3,3 +3,4 @@ collections:
 - community.general
 - cisco.nxos 
 - ansible.netcommon
+- check_point.mgmt

@@ -1,0 +1,10 @@
+---
+- name: Copiar archivo a varios hosts
+  hosts: hosts
+  gather_facts: no
+
+  tasks:
+    - name: Copiar archivo.txt a los hosts
+      copy:
+        src: file.config   
+        dest: /home/ansible
