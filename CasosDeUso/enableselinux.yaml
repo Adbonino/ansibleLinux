@@ -1,0 +1,11 @@
+---
+- name: Habilitar SELinux de forma permanente
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Modificar SELinux en /etc/selinux/config
+      lineinfile:
+        path: /etc/selinux/config
+        regexp: '^SELINUX='
+        line: 'SELINUX=enforcing'

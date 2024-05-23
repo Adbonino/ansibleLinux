@@ -1,0 +1,10 @@
+---
+- name: Cambiar la configuración de SELinux
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Cambiar SELinux a modo permissive
+      selinux:
+        policy: targeted
+        state: permissive

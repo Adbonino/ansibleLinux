@@ -8,3 +8,4 @@
       copy:
         src: file.config   
         dest: /home/ansible
+        # recursive: yes  para copiar directorios completos en forma recursiva

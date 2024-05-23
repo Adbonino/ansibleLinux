@@ -1,0 +1,12 @@
+---
+- name: Ver la configuración de SELinux
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Obtener el estado de SELinux
+      command: getenforce
+      register: selinux_status
+
+    - debug:
+        msg: "El estado de SELinux es {{ selinux_status.stdout }}"
