@@ -9,3 +9,9 @@
         path: /etc/selinux/config
         regexp: '^SELINUX='
         line: 'SELINUX=disabled'
+      register: selinux_changed
+  
+  handlers:
+    - name: Reiniciar el servidor
+      reboot:
+      when: selinux_changed.changed
