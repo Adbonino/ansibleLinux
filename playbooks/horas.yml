@@ -16,7 +16,7 @@
 
       - name: Guardar la salida en un archivo temporal
         lineinfile:
-          line: "{{ ansible_hostname }}: {{  out_date.stdout }}"
+          line: "{{ ansible_hostname }}: {{  out_date }}"
           path: /tmp/command_output.txt
           create: yes
         delegate_to: localhost
