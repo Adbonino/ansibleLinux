@@ -7,7 +7,7 @@
       - name: consultar confg de horario
         shell: "date"
         register: out_date
-        when: ansible_facts['os_family'] == 'Debian' or ansible_facts['os_family'] == 'RedHat'
+        when: ansible_facts['os_family'] == 'RedHat'
         
       - name: Ejecutar comando PowerShell para obtener la hora actual
         win_command: powershell -Command "Get-Date -Format 'yyyy-MM-dd HH:mm:ss'"
