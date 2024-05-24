@@ -8,10 +8,39 @@
       - name: consultar confg de horario
         shell: "date"
         register: out_date
+        when: ansible_facts['os_family'] == 'Debian' or ansible_facts['os_family'] == 'RedHat'
+        
+      - name: Ejecutar comando PowerShell para obtener la hora actual
+        win_command: powershell -Command "Get-Date -Format 'yyyy-MM-dd HH:mm:ss'"
+        register: out_date
+        when:  ansible_facts['os_family'] == 'Windows'
 
       - name: Guardar la salida en un archivo temporal
         lineinfile:
           line: "{{ ansible_hostname }}: {{  out_date.stdout }}"
           path: /tmp/command_output.txt
           create: yes
+        delegate_to: localhost
+
+  - name: Sending an e-mail using Gmail SMTP servers
+    hosts: localhost
+    gather_facts: no
+
+    tasks:
+      - name: Leer contenido del archivo temporal
+        slurp:
+          src: /tmp/command_output.txt
+        register: file_content
+
+      - name: enviar mail
+        community.general.mail:
+          host: smtp.gmail.com
+          port: 587
+          username: reportes.automatizados@gmail.com
+          password: dgmgnirbrcrttphr
+          to: Adrian Bonino <adrian.bonino@la.logicalis.com>
+          subject: Ansible-report
+          body: "Listado de horas:
+
+            {{ file_content['content'] | b64decode }}"
         delegate_to: localhost

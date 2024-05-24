@@ -36,7 +36,5 @@
           subject: Ansible-report
           body: "Listado de horas:
 
-          ----------------------------------------------------------------
-
-          {{ file_content['content'] | b64decode }}"
+            {{ file_content['content'] | b64decode }}"
         delegate_to: localhost
