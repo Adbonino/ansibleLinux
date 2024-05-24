@@ -8,4 +8,4 @@
 
     - name: Mostrar la hora actual
       debug:
-        msg: "La hora actual del servidor es: {{ current_time.stdout }}"
+        msg: "La hora actual del servidor es: {{ current_time }}"
