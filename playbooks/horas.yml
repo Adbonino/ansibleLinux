@@ -21,4 +21,25 @@
           create: yes
         delegate_to: localhost
 
-  
+  - name: Sending an e-mail using Gmail SMTP servers
+    hosts: localhost
+    gather_facts: no
+
+    tasks:
+      - name: Leer contenido del archivo temporal
+        slurp:
+          src: /tmp/command_output.txt
+        register: file_content
+
+      - name: enviar mail
+        community.general.mail:
+          host: smtp.gmail.com
+          port: 587
+          username: reportes.automatizados@gmail.com
+          password: dgmgnirbrcrttphr
+          to: Adrian Bonino <adrian.bonino@la.logicalis.com>
+          subject: Ansible-report
+          body: "Listado de horas:
+
+            {{ file_content['content'] | b64decode }}"
+        delegate_to: localhost
