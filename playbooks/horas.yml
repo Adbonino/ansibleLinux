@@ -1,7 +1,6 @@
 ---
   - name: "Armar un documento con la configuracion horario de los servidores"
     hosts: all
-    become: true
     
     tasks:
 
