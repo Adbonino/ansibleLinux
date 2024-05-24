@@ -1,0 +1,11 @@
+---
+- name: Obtener la hora actual de un servidor Windows
+  hosts: all
+  tasks:
+    - name: Ejecutar comando PowerShell para obtener la hora actual
+      win_command: powershell -Command "Get-Date -Format 'yyyy-MM-dd HH:mm:ss'"
+      register: current_time
+
+    - name: Mostrar la hora actual
+      debug:
+        msg: "La hora actual del servidor es: {{ current_time.stdout }}"
