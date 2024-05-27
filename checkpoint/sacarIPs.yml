@@ -13,6 +13,10 @@
       set_fact:
         group_data: "{{ group_data_file.content | b64decode | from_json }}"
 
+    - name: mostrar diccionario
+      debug:
+        var: group_data
+
     - name: Extraer direcciones IPv4
       set_fact:
         ipv4_addresses: "{{ group_data.members | map(attribute='ipv4-address') | list }}"
