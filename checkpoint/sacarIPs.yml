@@ -6,7 +6,7 @@
   tasks:
     - name: Leer el archivo JSON
       slurp:
-        src: /ruta/a/group_data.json
+        src: group_data.json
       register: group_data_file
 
     - name: Convertir contenido JSON en diccionario
