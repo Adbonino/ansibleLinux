@@ -2,15 +2,21 @@
 - name: Extract IPv4 addresses from BANNED group file
   hosts: localhost
   gather_facts: no
-  vars_files:
-    - BANNED.json
 
   tasks:
-    - name: Extract IPv4 addresses
-      set_fact:
-        ipv4_addresses: "{{ BANNED.members | map(attribute='ipv4-address') | list }}"
+    - name: Leer el archivo JSON
+      slurp:
+        src: /ruta/a/group_data.json
+      register: group_data_file
 
-    - name: Display IPv4 addresses
+    - name: Convertir contenido JSON en diccionario
+      set_fact:
+        group_data: "{{ group_data_file.content | b64decode | from_json }}"
+
+    - name: Extraer direcciones IPv4
+      set_fact:
+        ipv4_addresses: "{{ group_data.members | map(attribute='ipv4-address') | list }}"
+
+    - name: Mostrar direcciones IPv4
       debug:
-        msg: "Banned IP: {{ item }}"
-      loop: "{{ ipv4_addresses }}"
+        msg: "Direcciones IPv4: {{ ipv4_addresses }}"
