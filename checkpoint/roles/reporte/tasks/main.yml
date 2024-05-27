@@ -2,6 +2,7 @@
         slurp:
           src: /tmp/command_output.txt
         register: file_content
+        delegate_to: localhost
 
       - name: enviar mail
         community.general.mail:
