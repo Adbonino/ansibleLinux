@@ -1,0 +1,6 @@
+---
+- name: playbook principal
+  
+  roles:
+    - { role: verificacion }
+    - { role: reporte }
