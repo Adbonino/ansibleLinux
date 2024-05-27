@@ -1,23 +1,26 @@
 ---
-- name: Check if IP is in the banned list
+- name: Extract IPv4 addresses from JSON
   hosts: localhost
+  gather_facts: no
+
   vars:
-    banned_ips_file: group_data.json
-    ip_to_check: "65.49.1.58"
+    json_file: "group_data.json"  # Cambia esto por la ruta de tu archivo JSON
+
   tasks:
-    - name: Load banned IPs
-      include_vars:
-        file: "{{ banned_ips_file }}"
-        name: banned_data
+    - name: Leer el archivo JSON
+      ansible.builtin.slurp:
+        src: "{{ json_file }}"
+      register: json_content
 
-    - name: Check if the IP is banned
-      set_fact:
-        is_banned: "{{ ip_to_check in banned_ips_list }}"
-      vars:
-        banned_ips_list: "{{ banned_data.msg.ansible_facts.group.members | map(attribute='ipv4-address') | list }}"
+    - name: Convertir el contenido a JSON
+      ansible.builtin.set_fact:
+        data: "{{ json_content.content | b64decode | from_json }}"
 
-    - name: Display the result
-      debug:
-        msg: >
-          The IP {{ ip_to_check }} is 
-          {% if is_banned %} banned {% else %} not banned {% endif %}.
+    - name: Extraer las direcciones IPv4
+      ansible.builtin.set_fact:
+        ipv4_addresses: "{{ data.msg.ansible_facts.group.members | map(attribute='ipv4-address') | list }}"
+
+    - name: Mostrar las direcciones IPv4
+      ansible.builtin.debug:
+        msg: "{{ ipv4_addresses }}"
+
