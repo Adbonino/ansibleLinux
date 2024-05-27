@@ -3,6 +3,13 @@
   hosts: localhost
   become: true
 
+  vars:
+        lista_ips:
+          - 51.34.1.1
+          - 51.34.2.2
+          - 51.35.2.2
+
+
   tasks:
     - name: Check a valid IPv4 address
       ansible.builtin.set_fact:
