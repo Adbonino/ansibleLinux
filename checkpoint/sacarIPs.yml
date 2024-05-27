@@ -8,7 +8,7 @@
   tasks:
     - name: Extract IPv4 addresses
       set_fact:
-        ipv4_addresses: "{{ banned_group.members | map(attribute='ipv4-address') | list }}"
+        ipv4_addresses: "{{ BANNED.members | map(attribute='ipv4-address') | list }}"
 
     - name: Display IPv4 addresses
       debug:
