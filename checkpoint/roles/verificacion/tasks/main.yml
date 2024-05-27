@@ -1,6 +1,6 @@
     - name: Check a valid IPv4 address
       ansible.builtin.set_fact:
-        is_private: "{{ IP is ansible.utils.ipv4 }}"
+        is_formateada: "{{ IP is ansible.utils.ipv4 }}"
     
     - name: Check a public IP address
       ansible.builtin.set_fact:
@@ -13,15 +13,15 @@
     - name: armar mensaje
       ansible.builtin.set_fact:
         message: >
-          {% if is_private and is_public and is_in_list %}
-            The IP {{ IP }} is private, public, and in the list!
-          {% elif is_private and is_public %}
-            The IP {{ IP }} is private and public.
-          {% elif is_private and is_in_list %}
+          {% if is_formateada and is_public and is_in_list %}
+            The IP {{ IP }} is formateada, public, and in the list!
+          {% elif is_formateada and is_public %}
+            The IP {{ IP }} is formateada and public.
+          {% elif is_formateada and is_in_list %}
             The IP {{ IP }} is private and in the list.
           {% elif is_public and is_in_list %}
             The IP {{ IP }} is public and in the list.
-          {% elif is_private %}
+          {% elif is_formateada %}
             The IP {{ IP }} is private.
           {% elif is_public %}
             The IP {{ IP }} is public.
