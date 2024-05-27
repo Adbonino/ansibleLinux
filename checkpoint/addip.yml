@@ -1,0 +1,19 @@
+---
+- name: Add IP to BANNED object in Check Point
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Add IP to BANNED object
+      check_point.mgmt.cp_mgmt_group:
+        name: "BANNED"
+        members:
+          - "{{ ip_to_ban }}"
+        state: present
+        auto_publish_session: yes
+      vars:
+        ansible_host: "your_checkpoint_mgmt_server"
+        ansible_user: "your_checkpoint_user"
+        ansible_password: "your_checkpoint_password"
+        ansible_port: 443
+        validate_certs: no
+      delegate_to: localhost

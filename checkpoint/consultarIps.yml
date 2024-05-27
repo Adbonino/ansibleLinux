@@ -1,0 +1,13 @@
+---
+- name: Get list of IPs in BANNED group in Check Point
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Retrieve BANNED group details
+      check_point.mgmt.cp_mgmt_group_facts:
+        name: "BANNED"
+      register: banned_group
+
+    - name: Display list of IPs in BANNED group
+      debug:
+        msg: "{{ banned_group.ansible_facts.object.members }}"
