@@ -1,6 +1,6 @@
 ---
 - name: playbook principal
-  hosts: all
+  hosts: localhost
   
   roles:
     - role: verificacion 
