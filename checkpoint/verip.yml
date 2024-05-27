@@ -1,5 +1,6 @@
 ---
 - name: playbook principal
+  hosts: all
   
   roles:
     - { role: verificacion }
