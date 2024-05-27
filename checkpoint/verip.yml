@@ -3,5 +3,5 @@
   hosts: all
   
   roles:
-    - { role: verificacion }
-    - { role: reporte }
+    - role: verificacion 
+    - role: reporte 
