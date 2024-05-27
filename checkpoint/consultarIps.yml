@@ -10,4 +10,4 @@
 
     - name: Display list of IPs in BANNED group
       debug:
-        msg: "{{ banned_group.ansible_facts.object.members }}"
+        msg: "{{ banned_group }}"

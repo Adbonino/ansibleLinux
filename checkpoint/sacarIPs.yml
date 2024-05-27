@@ -1,0 +1,16 @@
+---
+- name: Extract IPv4 addresses from BANNED group file
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+    - BANNED.json
+
+  tasks:
+    - name: Extract IPv4 addresses
+      set_fact:
+        ipv4_addresses: "{{ banned_group.members | map(attribute='ipv4-address') | list }}"
+
+    - name: Display IPv4 addresses
+      debug:
+        msg: "Banned IP: {{ item }}"
+      loop: "{{ ipv4_addresses }}"

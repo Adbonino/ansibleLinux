@@ -1,0 +1,15 @@
+tasks:
+    - name: Retrieve group members
+      check_point.mgmt.cp_mgmt_group_facts:
+        name: "BANNED"
+      register: group_facts
+
+    - name: Get IPs of group members
+      check_point.mgmt.cp_mgmt_host_facts:
+        name: "{{ item }}"
+      loop: "{{ group_facts.members['BANNED'].members }}"
+      register: ip_facts
+
+    - name: Display list of IPs in BANNED group
+      debug:
+        msg: "{{ ip_facts.results | map(attribute='ansible_facts.object.ipv4-address') | list }}"
