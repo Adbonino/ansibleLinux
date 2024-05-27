@@ -8,7 +8,7 @@
 
     - name: Verificar Si la IP esta en una lista
       ansible.builtin.set_fact:
-        is_in_lista: " {{ IP in lista_ips }} "
+        is_in_list: " {{ IP in lista_ips }} "
 
     - name: armar mensaje
       ansible.builtin.set_fact:
