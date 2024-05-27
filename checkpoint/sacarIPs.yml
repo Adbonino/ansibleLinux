@@ -1,26 +1,23 @@
 ---
-- name: Extract IPv4 addresses from BANNED group file
+- name: Check if IP is in the banned list
   hosts: localhost
-  gather_facts: no
-
+  vars:
+    banned_ips_file: group_data.json
+    ip_to_check: "65.49.1.58"
   tasks:
-    - name: Leer el archivo JSON
-      slurp:
-        src: group_data.json
-      register: group_data_file
+    - name: Load banned IPs
+      include_vars:
+        file: "{{ banned_ips_file }}"
+        name: banned_data
 
-    - name: Convertir contenido JSON en diccionario
+    - name: Check if the IP is banned
       set_fact:
-        group_data: "{{ group_data_file.content | b64decode | from_json }}"
+        is_banned: "{{ ip_to_check in banned_ips_list }}"
+      vars:
+        banned_ips_list: "{{ banned_data.msg.ansible_facts.group.members | map(attribute='ipv4-address') | list }}"
 
-    - name: mostrar diccionario
+    - name: Display the result
       debug:
-        var: group_data
-
-    - name: Extraer direcciones IPv4
-      set_fact:
-        ipv4_addresses: "{{ group_data.members | map(attribute='ipv4-address') | list }}"
-
-    - name: Mostrar direcciones IPv4
-      debug:
-        msg: "Direcciones IPv4: {{ ipv4_addresses }}"
+        msg: >
+          The IP {{ ip_to_check }} is 
+          {% if is_banned %} banned {% else %} not banned {% endif %}.
