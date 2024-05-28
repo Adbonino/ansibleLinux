@@ -22,7 +22,7 @@
     #  loop: "{{ ips }}"
 
     - name: verificar formatos de las ips
-    - block:
+      block:
          - name: verificar formato de ips
            ansible.builtin.set_fact:
              is_formateada: "{{ item is ansible.utils.ipv4 }}"
