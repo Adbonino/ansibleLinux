@@ -50,21 +50,21 @@
 
 
    
-    #- name: agregar linea al archivo si la Ip es falsa
-    #  lineinfile:
-    #   line: "{{ item }}: no es una ip valida"
-    #    path: /tmp/salida.txt
-    #  when: not is_formateada
-    #  loop: "{{ ips }}"
-    #  loop_control:
-    #    loop_var: item
+    - name: agregar linea al archivo si la Ip es falsa
+      lineinfile:
+       line: "{{ item }}: no es una ip valida"
+       path: /tmp/salida.txt
+      when: not is_formateada
+      loop: "{{ ips_no_validas }}"
+      loop_control:
+        loop_var: item
 
-    #- name: Leer contenido del archivo
-    #  slurp:
-    #    path: /tmp/archivo.txt
-    #  register: archivo_contenido
+    - name: Leer contenido del archivo
+      slurp:
+        path: /tmp/archivo.txt
+      register: archivo_contenido
 
-    #- name: Mostrar contenido del archivo
-    #  debug:
-    #    msg: "Contenido del archivo: {{ archivo_contenido.content | b64decode }}"  
+    - name: Mostrar contenido del archivo
+      debug:
+        msg: "Contenido del archivo: {{ archivo_contenido.content | b64decode }}"  
   
