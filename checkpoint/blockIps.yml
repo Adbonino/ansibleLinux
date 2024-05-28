@@ -18,7 +18,7 @@
         - name: Verificar formaro de IPs
           assert:
             that:
-              - item | ipaddr
+              - item | "{{ IP is ansible.utils.ipv4 }}"
             fail_msg: "La IP '{{ item }}' está mal escrita."
           loop: "{{ ips }}"
           loop_control:
