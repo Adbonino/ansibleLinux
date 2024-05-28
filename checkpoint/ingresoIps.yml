@@ -20,16 +20,17 @@
           is_valid: "{{ item | ipaddr }}"
           type: "{{ 'privada' if item | ipaddr | ipaddr('private') else 'pública' if item | ipaddr | ipaddr('public') else 'desconocida' }}"
       loop: "{{ ips }}"
-      when: item != ''
       loop_control:
-        loop_var: item_result
+        loop_var: item_ip
       register: results
 
-    - name: Agregar resultados válidos a la lista de resultados de IP
+    - name: Filtrar resultados válidos
       set_fact:
-        ip_results: "{{ ip_results + [item_result] }}"
+        ip_results: "{{ ip_results + [item] }}"
       loop: "{{ results.results }}"
-      when: item_result.is_valid
+      loop_control:
+        loop_var: item
+      when: item.item_ip != '' and item.ip_result.is_valid
 
     - name: Mostrar resultados
       debug:
