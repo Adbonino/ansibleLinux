@@ -12,6 +12,8 @@
         ips: "{{ ip_list.split(',') | map('trim') }}"
         ips_validas: []
         ips_no_validas: []
+        ips_publicas: []
+        ips_privadas: []
 
     #- name: Mostrar cada IP de la lista
     #  debug:
@@ -39,6 +41,34 @@
     - name: mostrat ips ips_no_validas
       debug:
         var: ips_no_validas
+
+    - name: verificar si la ip es publica
+      vars:
+        is_publica: "{{ item is ansible.utils.public }}"
+      ansible.builtin.set_fact:
+        ips_publicas: "{{ ips_publicas + [item] }}"
+      when: is_publica
+      loop: "{{ ips_validas }}"
+      loop_control:
+        loop_var: item
+
+    - name: filtrar ip privadas
+      set_fact:
+        ips_privadas: "{{ ips_validas | difference(ips_piblicas) }}"
+
+    - name: mostrat ips publicas
+      debug:
+        var: ips_publicas
+    
+    - name: mostrat ips privadas
+      debug:
+        var: ips_privadas
+
+
+
+
+
+
 
     - name: crear archivo
       lineinfile:
