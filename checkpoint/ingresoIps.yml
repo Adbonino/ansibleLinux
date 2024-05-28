@@ -20,7 +20,7 @@
           type: "{{ 'privada' if item | ipaddr | ipaddr('private') else 'pública' if item | ipaddr | ipaddr('public') else 'desconocida' }}"
       loop: "{{ ips }}"
       loop_control:
-        loop_var: item_ip
+        loop_var: item
       register: results
 
     - name: Filtrar resultados válidos
