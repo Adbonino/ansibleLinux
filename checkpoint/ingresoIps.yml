@@ -2,12 +2,11 @@
 - name: Procesar lista de IPs
   hosts: localhost
   gather_facts: no
-  vars:
-    ip_list: "{{ ip_list }}"
+
   tasks:
     - name: Separar la lista de IPs en una lista de Python
       set_fact:
-        ips: "{{ ip_list.split(',') | map('trim') | select('match', '^([0-9]{1,3}\.){3}[0-9]{1,3}$') | list }}"
+        ips: "{{ ip_list.split(',') | map('trim') }}"
 
     - name: Crear la lista de resultados de IP
       set_fact:
@@ -17,20 +16,20 @@
       set_fact:
         ip_result:
           ip: "{{ item }}"
-          is_valid: "{{ item | ipaddr('address') }}"
-          type: "{{ 'privada' if item | ipaddr('address') | ipaddr('private') else 'pública' if item | ipaddr('address') | ipaddr('public') else 'desconocida' }}"
+          is_valid: "{{ item | ipaddr }}"
+          type: "{{ 'privada' if item | ipaddr | ipaddr('private') else 'pública' if item | ipaddr | ipaddr('public') else 'desconocida' }}"
       loop: "{{ ips }}"
       loop_control:
-        loop_var: item_ip
+        loop_var: item
       register: results
 
     - name: Filtrar resultados válidos
       set_fact:
-        ip_results: "{{ ip_results + [item_ip] }}"
+        ip_results: "{{ ip_results + [item_ip_result] }}"
       loop: "{{ results.results }}"
       loop_control:
         loop_var: item
-      when: item_ip.is_valid
+      when: item_ip_result.is_valid
 
     - name: Mostrar resultados
       debug:
