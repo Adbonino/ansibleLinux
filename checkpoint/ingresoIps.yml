@@ -1,0 +1,15 @@
+---
+- name: Procesar lista de IPs
+  hosts: localhost
+  gather_facts: no
+  # vars:
+  #   ip_list: "{{ ip_list }}"
+  tasks:
+    - name: Separar la lista de IPs en una lista de Python
+      set_fact:
+        ips: "{{ ip_list.split(',') }}"
+
+    - name: Mostrar cada IP
+      debug:
+        msg: "IP: {{ item }}"
+      loop: "{{ ips }}"
