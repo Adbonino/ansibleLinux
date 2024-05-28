@@ -30,7 +30,7 @@
       loop: "{{ results.results }}"
       loop_control:
         loop_var: item
-      when: item.item_ip != '' and item.ip_result.is_valid
+      when: item_ip != '' and item_result.is_valid
 
     - name: Mostrar resultados
       debug:
