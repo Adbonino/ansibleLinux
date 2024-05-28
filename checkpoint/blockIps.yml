@@ -23,8 +23,8 @@
 
     - name: verificar formatos de las ips
       ansible.builtin.set_fact:
-        #is_formateada: "{{ item is ansible.utils.ipv4 }}"
-        is_formateada: "{{ item | ipaddr }}"
+        is_formateada: "{{ item is ansible.utils.ipv4 }}"
+        #is_formateada: "{{ item | ipaddr }}"
       loop: "{{ ips }}"
       loop_control:
         loop_var: item
