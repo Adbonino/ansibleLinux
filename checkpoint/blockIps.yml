@@ -2,6 +2,8 @@
 - name: Procesar lista de IPs
   hosts: localhost
   gather_facts: no
+  vars:
+    output_file: "/tmp/salida.txt"
 
   tasks:
     - name: Separar la lista de IPs en una lista de Python
@@ -13,28 +15,23 @@
         msg: "IP: {{ item }}"
       loop: "{{ ips }}"
 
-    - name: Verificar formato de IPs y agregar comentario en un archivo 
-      block:
-        - name: Verificar formaro de IPs
-          assert:
-            that:
-              - item | "{{ IP is ansible.utils.ipv4 }}"
-            fail_msg: "La IP '{{ item }}' está mal escrita."
-          loop: "{{ ips }}"
-          loop_control:
-            loop_var: item
-        - name: Agregar línea al archivo si se encuentra una IP mal escrita
+    - name: Verificar IPs y generar líneas para el archivo de salida
+      set_fact:
+        invalid_ips: "{{ invalid_ips | default([]) }}"
+      loop: "{{ ip_list }}"
+      loop_control:
+        loop_var: ip
+      when: not ip | ipaddr('address')
+      vars:
+        line: "La IP '{{ ip }}' no es válida."
+      tasks:
+        - name: Agregar línea al archivo de salida
           lineinfile:
-            path: /tmp/archivo.txt
-            line: "IP mal escrita: {{ item }}"
-            insertafter: EOF
-          loop: "{{ ips }}"
-          loop_control:
-            loop_var: item
-          when: not item | ipaddr  # Solo ejecutar si la IP está mal escrita
-      rescue:
-        - debug:
-            msg: "Se encontró una IP mal escrita."
+            path: "{{ output_file }}"
+            line: "{{ line }}"
+          delegate_to: localhost
+
+
 
     - name: Leer contenido del archivo
       slurp:
