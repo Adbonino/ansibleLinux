@@ -15,6 +15,8 @@
     - name: Separar la lista de IPs en una lista de Python
       ansible.builtin.set_fact:
         ips: "{{ ip_list.split(',') | map('trim') }}"
+        ips_validas: []
+        ips_no_validas: []
 
     #- name: Mostrar cada IP de la lista
     #  debug:
@@ -22,17 +24,32 @@
     #  loop: "{{ ips }}"
 
     - name: verificar formatos de las ips
-      ansible.builtin.set_fact:
+      vars:
         is_formateada: "{{ item is ansible.utils.ipv4 }}"
-        #is_formateada: "{{ item | ipaddr }}"
-      lineinfile:
-        line: "{{ item }}: no es una ip valida"
-        path: /tmp/salida.txt
-      when: not is_formateada
+      ansible.builtin.set_fact:
+        ips_validas: "{{ ips_validas + [item] }}"
+      when: is_formateada
       loop: "{{ ips }}"
       loop_control:
         loop_var: item
+
+    - name: filtrar ip no ips_validas
+      set_fact:
+        ips_no_validas: "{{ ips | difference(ips_validas) }}"
+
+    - name: mostrat ips ips_validas
+      debug:
+        var: ips_validas
     
+    - name: mostrat ips ips_no_validas
+      debug:
+        var: ips_no_validas
+    
+
+
+
+
+   
     #- name: agregar linea al archivo si la Ip es falsa
     #  lineinfile:
     #   line: "{{ item }}: no es una ip valida"
@@ -42,12 +59,12 @@
     #  loop_control:
     #    loop_var: item
 
-    - name: Leer contenido del archivo
-      slurp:
-        path: /tmp/archivo.txt
-      register: archivo_contenido
+    #- name: Leer contenido del archivo
+    #  slurp:
+    #    path: /tmp/archivo.txt
+    #  register: archivo_contenido
 
-    - name: Mostrar contenido del archivo
-      debug:
-        msg: "Contenido del archivo: {{ archivo_contenido.content | b64decode }}"  
+    #- name: Mostrar contenido del archivo
+    #  debug:
+    #    msg: "Contenido del archivo: {{ archivo_contenido.content | b64decode }}"  
   
