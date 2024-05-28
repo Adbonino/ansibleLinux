@@ -6,12 +6,7 @@
     output_file: "/tmp/salida.txt"
 
   tasks:
-    - name: crear archivo
-      lineinfile:
-        line: "Salia del comando Block IPs"
-        path: /tmp/archivo.txt
-        create: yes
-    
+        
     - name: Separar la lista de IPs en una lista de Python
       ansible.builtin.set_fact:
         ips: "{{ ip_list.split(',') | map('trim') }}"
@@ -44,16 +39,17 @@
     - name: mostrat ips ips_no_validas
       debug:
         var: ips_no_validas
-    
 
-
-
-
+    - name: crear archivo
+      lineinfile:
+        line: "Salia del comando Block IPs"
+        path: /tmp/archivo.txt
+        create: yes    
    
     - name: agregar linea al archivo si la Ip es falsa
       lineinfile:
        line: "{{ item }}: no es una ip valida"
-       path: /tmp/salida.txt
+       path: /tmp/archivo.txt
       loop: "{{ ips_no_validas }}"
       loop_control:
         loop_var: item
