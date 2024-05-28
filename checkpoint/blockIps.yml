@@ -25,13 +25,14 @@
       block:
          - name: verificar formato de ips
            ansible.builtin.set_fact:
-             is_formateada: "{{ item is ansible.utils.ipv4 }}"
+             #is_formateada: "{{ item is ansible.utils.ipv4 }}"
+             is_formateada: "{{ item | ipaddr }}"
          - name: agregar linea al archivo si la Ip es falsa
            lineinfile:
               line: "{{ item }}: no es una ip valida"
               path: /tmp/command_output.txt
            when: not is_formateada
-      loop: "{{ ips }}"
+      with_items: "{{ ips }}"
       loop_control:
         loop_var: item
 
