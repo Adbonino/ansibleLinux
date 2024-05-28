@@ -25,18 +25,22 @@
       ansible.builtin.set_fact:
         is_formateada: "{{ item is ansible.utils.ipv4 }}"
         #is_formateada: "{{ item | ipaddr }}"
-      loop: "{{ ips }}"
-      loop_control:
-        loop_var: item
-    
-    - name: agregar linea al archivo si la Ip es falsa
       lineinfile:
         line: "{{ item }}: no es una ip valida"
-        path: /tmp/command_output.txt
+        path: /tmp/salida.txt
       when: not is_formateada
       loop: "{{ ips }}"
       loop_control:
         loop_var: item
+    
+    #- name: agregar linea al archivo si la Ip es falsa
+    #  lineinfile:
+    #   line: "{{ item }}: no es una ip valida"
+    #    path: /tmp/salida.txt
+    #  when: not is_formateada
+    #  loop: "{{ ips }}"
+    #  loop_control:
+    #    loop_var: item
 
     - name: Leer contenido del archivo
       slurp:
