@@ -54,7 +54,6 @@
       lineinfile:
        line: "{{ item }}: no es una ip valida"
        path: /tmp/salida.txt
-      when: not is_formateada
       loop: "{{ ips_no_validas }}"
       loop_control:
         loop_var: item
