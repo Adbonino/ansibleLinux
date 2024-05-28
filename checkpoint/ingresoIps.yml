@@ -6,7 +6,7 @@
   tasks:
     - name: Separar la lista de IPs en una lista de Python
       set_fact:
-        ips: "{{ ip_list.split(',') | map('trim') | select('match', '^([0-9]{1,3}\.){3}[0-9]{1,3}$') | list }}"
+        ips: "{{ ip_list.split(',') | map('trim') }}"
 
     - name: Crear la lista de resultados de IP
       set_fact:
