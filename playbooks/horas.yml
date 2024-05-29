@@ -36,7 +36,7 @@
       - name: Crear archivo de salida usando la plantilla
         local_action:
           module: template
-          src: output_template.txt.j2
+          src: output_template.j2
           dest: "/tmp/command_output.txt"
 
 
