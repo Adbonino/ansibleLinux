@@ -19,7 +19,7 @@
           module: copy
           content: |
             {% for host in ansible_play_hosts %}
-            {{ host }}: {% if hostvars[host].ansible_facts['os_family'] != 'Windows' %}{{ out_date_linux.stdout }}{% else %}{{ out_date_win.stdout }}{% endif %}
+            {{ host }}: {% if hostvars[host].ansible_facts['os_family'] != 'Windows' %}{{ out_date_linux }}{% else %}{{ out_date_win }}{% endif %}
             {% endfor %}
           dest: "/tmp/command_output.txt"
 
