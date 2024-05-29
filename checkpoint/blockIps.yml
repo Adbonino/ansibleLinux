@@ -4,6 +4,10 @@
   gather_facts: no
   vars:
     output_file: "/tmp/salida.txt"
+    ips_propias:
+          - 51.34.1.1
+          - 51.34.2.2
+          - 51.35.2.2
 
   tasks:
         
@@ -14,7 +18,9 @@
         ips_no_validas: []
         ips_publicas: []
         ips_privadas: []
-
+        ips_blocks: []
+        ips_owner: []
+        
     #- name: Mostrar cada IP de la lista
     #  debug:
     #    msg: "IP: {{ item }}"
@@ -64,6 +70,22 @@
       debug:
         var: ips_privadas
 
+    - name: verificar si la ip esta en la lista de ip propias
+      vars:
+        is_propia: "{{ item in ips_propias }}"
+      ansible.builtin.set_fact:
+        ips_blocks: "{{ ips_blocks + [item] }}"
+      when: is_propia
+      loop: "{{ ips_publicas }}"
+      loop_control:
+        loop_var: item
+
+    - name: filtrar ip publicas
+      set_fact:
+        ips_owner: "{{ ips_blocks | difference(ips_publicas) }}"
+
+    # Armar reporte
+
     - name: crear archivo
       lineinfile:
         line: "Salia del comando Block IPs"
@@ -94,6 +116,13 @@
       loop_control:
         loop_var: item
 
+    - name: agregar linea al archivo si la Ip publica es propia
+      lineinfile:
+       line: "{{ item }}: es una ip propia"
+       path: /tmp/archivo.txt
+      loop: "{{ ips_owner}}"
+      loop_control:
+        loop_var: item
 
     - name: agregar linea al archivo si la Ip es publica
       lineinfile:
