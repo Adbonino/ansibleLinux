@@ -15,24 +15,26 @@
         when:  ansible_facts['os_family'] == 'Windows'
 
       - name: Guardar la salida en un archivo temporal
-        lineinfile:
+        local_action:
+          module: lineinfile
           line: "{{ ansible_hostname }}: {{  out_date_linux.stdout }}"
           path: /tmp/command_output.txt
           create: yes
           state: present
           insertafter: EOF
         when:  ansible_facts['os_family'] != 'Windows'
-        delegate_to: localhost
+        #delegate_to: localhost
       
       - name: Guardar la salida en un archivo temporal
-        lineinfile:
+        local_action:
+          module: lineinfile
           line: "{{ ansible_hostname }}: {{  out_date_win.stdout }}"
           path: /tmp/command_output.txt
           create: yes
           state: present
           insertafter: EOF
         when:  ansible_facts['os_family'] == 'Windows'
-        delegate_to: localhost
+        #delegate_to: localhost
 
   - name: Sending an e-mail using Gmail SMTP servers
     hosts: localhost
