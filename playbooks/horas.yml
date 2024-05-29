@@ -5,7 +5,7 @@
     tasks:
 
       - name: consultar confg de horario
-        shell: "date"
+        shell: "date +'%Y-%m-%d %H:%M:%S'"
         register: out_date_linux
         when: ansible_facts['os_family'] != 'Windows'
         
@@ -14,14 +14,32 @@
         register: out_date_win
         when:  ansible_facts['os_family'] == 'Windows'
 
-      - name: Guardar la salida en un archivo en el controlador desde Linux
+      #- name: Guardar la salida en un archivo en el controlador desde Linux
+      #  local_action:
+      #    module: copy
+      #    content: |
+      #      {% for host in ansible_play_hosts %}
+      #      {{ host }}: {% if hostvars[host].ansible_facts['os_family'] != 'Windows' %}{{ out_date_linux }}{% else %}{{ out_date_win }}{% endif %}
+      #      {% endfor %}
+      #    dest: "/tmp/command_output.txt"
+
+      - name: Guardar la salida en un archivo temporal desde Linux
+        set_fact:
+          linux_output: "{{ out_date_linux }}"
+        when: ansible_facts['os_family'] != 'Windows'
+      
+      - name: Guardar la salida en un archivo temporal desde Windows
+        set_fact:
+          windows_output: "{{ out_date_win }}"
+        when: ansible_facts['os_family'] == 'Windows'
+
+      - name: Crear archivo de salida usando la plantilla
         local_action:
-          module: copy
-          content: |
-            {% for host in ansible_play_hosts %}
-            {{ host }}: {% if hostvars[host].ansible_facts['os_family'] != 'Windows' %}{{ out_date_linux }}{% else %}{{ out_date_win }}{% endif %}
-            {% endfor %}
+          module: template
+          src: output_template.txt.j2
           dest: "/tmp/command_output.txt"
+
+
 
       #- name: Guardar la salida en un archivo temporal
       #  local_action:

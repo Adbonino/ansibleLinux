@@ -1,0 +1,3 @@
+{% for host in ansible_play_hosts %}
+{{ host }}: {% if hostvars[host].ansible_facts['os_family'] != 'Windows' %}{{ linux_output }}{% else %}{{ windows_output }}{% endif %}
+{% endfor %}
