@@ -9,15 +9,10 @@
         register: out_date_linux
         when: ansible_facts['os_family'] != 'Windows'
 
-      - name: Guardar la salida en un archivo temporal desde Linux
-        set_fact:
-          linux_output: "{{ out_date_linux }}"
-        when: ansible_facts['os_family'] != 'Windows'
-
       - name: Guardar la salida en un archivo temporal
         local_action:
           module: lineinfile
-          line: "{{ ansible_hostname }}: {{  linux_output }}"
+          line: "{{ ansible_hostname }}: {{  out_date_linux }}"
           path: /tmp/command_output.txt
           create: yes
           state: present
@@ -31,16 +26,10 @@
         register: out_date_win
         when:  ansible_facts['os_family'] == 'Windows'
 
-             
-      - name: Guardar la salida en un archivo temporal desde Windows
-        set_fact:
-          windows_output: "{{ out_date_win }}"
-        when: ansible_facts['os_family'] == 'Windows'
-
       - name: Guardar la salida en un archivo temporal
         local_action:
           module: lineinfile
-          line: "{{ ansible_hostname }}: {{ windows_output }}"
+          line: "{{ ansible_hostname }}: {{ out_date_win }}"
           path: /tmp/command_output.txt
           create: yes
           state: present
