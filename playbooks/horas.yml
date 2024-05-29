@@ -4,21 +4,28 @@
     
     tasks:
 
+      - name: crear archivo
+        ansible.builtin.file:
+          path: /tmp/command_output.txt
+          state: present
+
       - name: consultar confg de horario
         shell: "date"
-        register: out_date
-        when: ansible_facts['os_family'] == 'RedHat'
+        register: out_date_linux
+        when: ansible_facts['os_family'] != 'Windows'
         
       - name: Ejecutar comando PowerShell para obtener la hora actual
         win_command: powershell -Command "Get-Date -Format 'yyyy-MM-dd HH:mm:ss'"
-        register: out_date
+        register: out_date_win
         when:  ansible_facts['os_family'] == 'Windows'
 
       - name: Guardar la salida en un archivo temporal
         lineinfile:
           line: "{{ ansible_hostname }}: {{  out_date }}"
           path: /tmp/command_output.txt
-          # create: yes
+          create: yes
+          state: present
+          insertafter: EOF
         delegate_to: localhost
 
   - name: Sending an e-mail using Gmail SMTP servers
