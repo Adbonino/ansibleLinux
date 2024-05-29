@@ -128,7 +128,7 @@
       lineinfile:
        line: "{{ item }}"
        path: /tmp/archivo.txt
-      loop: "{{ ips_publicas}}"
+      loop: "{{ ips_blocks}}"
       loop_control:
         loop_var: item
 
