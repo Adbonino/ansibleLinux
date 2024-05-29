@@ -18,7 +18,7 @@
         lineinfile:
           line: "{{ ansible_hostname }}: {{  out_date }}"
           path: /tmp/command_output.txt
-          create: yes
+          # create: yes
         delegate_to: localhost
 
   - name: Sending an e-mail using Gmail SMTP servers
