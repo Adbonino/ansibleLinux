@@ -8,6 +8,7 @@
         ansible.builtin.file:
           path: /tmp/command_output.txt
           state: present
+        delegate_to: localhost
 
       - name: consultar confg de horario
         shell: "date"
