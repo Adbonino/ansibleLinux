@@ -22,5 +22,5 @@
 
     - name: Mostrar las direcciones IPv4
       ansible.builtin.debug:
-        msg: "{{ ipv4_addresses }}"
+        var: ipv4_addresses 
 
