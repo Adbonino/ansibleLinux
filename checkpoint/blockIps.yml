@@ -42,8 +42,6 @@
       debug:
         var: ips_no_validas
 
-    ## HAsta aca todo bien
-    
     - name: verificar si la ip es publica
       vars:
         is_publica: "{{ item is ansible.utils.public }}"
@@ -65,12 +63,6 @@
     - name: mostrat ips privadas
       debug:
         var: ips_privadas
-
-
-
-
-
-
 
     - name: crear archivo
       lineinfile:
