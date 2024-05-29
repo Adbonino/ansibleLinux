@@ -75,7 +75,7 @@
         is_propia: "{{ item in ips_propias }}"
       ansible.builtin.set_fact:
         ips_blocks: "{{ ips_blocks + [item] }}"
-      when: is_propia
+      when: not is_propia
       loop: "{{ ips_publicas }}"
       loop_control:
         loop_var: item
