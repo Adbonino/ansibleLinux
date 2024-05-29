@@ -72,9 +72,34 @@
    
     - name: agregar linea al archivo si la Ip es falsa
       lineinfile:
-       line: "{{ item }}: no es una ip valida"
+       line: "{{ item }}: no es una ip valida, por lo que se descarta de la lista de ips ingresadas."
        path: /tmp/archivo.txt
       loop: "{{ ips_no_validas }}"
+      loop_control:
+        loop_var: item
+    
+    - name: agregar linea al archivo si la Ip es privada
+      lineinfile:
+       line: "{{ item }}: es una ip privada y es descartada de la lista de ips ingresadas."
+       path: /tmp/archivo.txt
+      loop: "{{ ips_privadas}}"
+      loop_control:
+        loop_var: item
+
+    - name: Lista de IPs publicas
+      lineinfile:
+       line: "Lista de ip publicas a bloquear"
+       path: /tmp/archivo.txt
+      loop: "{{ ips_publicas}}"
+      loop_control:
+        loop_var: item
+
+
+    - name: agregar linea al archivo si la Ip es publica
+      lineinfile:
+       line: "{{ item }}"
+       path: /tmp/archivo.txt
+      loop: "{{ ips_publicas}}"
       loop_control:
         loop_var: item
 
