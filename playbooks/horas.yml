@@ -16,7 +16,7 @@
 
       - name: Guardar la salida en un archivo temporal
         lineinfile:
-          line: "{{ ansible_hostname }}: {{  out_date_linux }}"
+          line: "{{ ansible_hostname }}: {{  out_date_linux.stdout }}"
           path: /tmp/command_output.txt
           create: yes
           state: present
@@ -26,7 +26,7 @@
       
       - name: Guardar la salida en un archivo temporal
         lineinfile:
-          line: "{{ ansible_hostname }}: {{  out_date_win }}"
+          line: "{{ ansible_hostname }}: {{  out_date_win.stdout }}"
           path: /tmp/command_output.txt
           create: yes
           state: present
