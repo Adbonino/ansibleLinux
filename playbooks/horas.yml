@@ -26,7 +26,7 @@
           create: yes
           state: present
           insertafter: EOF
-         when:  ansible_facts['os_family'] != 'Windows'
+        when:  ansible_facts['os_family'] != 'Windows'
         delegate_to: localhost
       
       - name: Guardar la salida en un archivo temporal
@@ -36,7 +36,7 @@
           create: yes
           state: present
           insertafter: EOF
-         when:  ansible_facts['os_family'] == 'Windows'
+        when:  ansible_facts['os_family'] == 'Windows'
         delegate_to: localhost
 
   - name: Sending an e-mail using Gmail SMTP servers
