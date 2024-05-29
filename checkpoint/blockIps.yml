@@ -83,6 +83,10 @@
     - name: filtrar ip publicas
       set_fact:
         ips_owner: "{{ ips_blocks | difference(ips_publicas) }}"
+    
+    - name: mostrar ips propias
+      debug:
+        var: ips_owner
 
     # Armar reporte
 
@@ -120,7 +124,7 @@
       lineinfile:
        line: "{{ item }}: es una ip propia"
        path: /tmp/archivo.txt
-      loop: "{{ ips_owner}}"
+      loop: "{{ ips_owner }}"
       loop_control:
         loop_var: item
 
