@@ -14,16 +14,17 @@
           linux_output: "{{ out_date_linux }}"
         when: ansible_facts['os_family'] != 'Windows'
 
-      - name: Guardar la salida en un archivo en el controlador desde Linux
+      - name: Guardar la salida en un archivo temporal
         local_action:
-          module: copy
-          content: |
-            {% for host in ansible_play_hosts %}
-            {{ host }}: {% if hostvars[host].ansible_facts['os_family'] != 'Windows' %}{{ linux_output }}
-            {% endfor %}
-          dest: "/tmp/command_output.txt"
-        when: ansible_facts['os_family'] != 'Windows'
-
+          module: lineinfile
+          line: "{{ ansible_hostname }}: {{  linux_output }}"
+          path: /tmp/command_output.txt
+          create: yes
+          state: present
+          insertafter: EOF
+        when:  ansible_facts['os_family'] != 'Windows'
+        #delegate_to: localhost
+      
         
       - name: Ejecutar comando PowerShell para obtener la hora actual
         win_command: powershell -Command "Get-Date -Format 'yyyy-MM-dd HH:mm:ss'"
@@ -36,50 +37,17 @@
           windows_output: "{{ out_date_win }}"
         when: ansible_facts['os_family'] == 'Windows'
 
-      - name: Guardar la salida en un archivo en el controlador desde Linux
+      - name: Guardar la salida en un archivo temporal
         local_action:
-          module: copy
-          content: |
-            {% for host in ansible_play_hosts %}
-            {{ host }}: {% if hostvars[host].ansible_facts['os_family'] == 'Windows' %}{{ windows_output: }}
-            {% endfor %}
-          dest: "/tmp/command_output.txt"
-        when: ansible_facts['os_family'] == 'Windows'
-
-
-
-
-
-      #- name: Crear archivo de salida usando la plantilla
-      #  local_action:
-      #    module: template
-      #    src: output_template.j2
-      #    dest: "/tmp/command_output.txt"
-
-
-
-      #- name: Guardar la salida en un archivo temporal
-      #  local_action:
-      #    module: lineinfile
-      #    line: "{{ ansible_hostname }}: {{  out_date_linux.stdout }}"
-      #    path: /tmp/command_output.txt
-      #    create: yes
-      #    state: present
-      #    insertafter: EOF
-      #  when:  ansible_facts['os_family'] != 'Windows'
-      #  #delegate_to: localhost
-      
-      #- name: Guardar la salida en un archivo temporal
-      #  local_action:
-      #    module: lineinfile
-      #    line: "{{ ansible_hostname }}: {{  out_date_win.stdout }}"
-      #    path: /tmp/command_output.txt
-      #    create: yes
-      #    state: present
-      #    insertafter: EOF
-      #  when:  ansible_facts['os_family'] == 'Windows'
-      #  #delegate_to: localhost
-
+          module: lineinfile
+          line: "{{ ansible_hostname }}: {{ windows_output }}"
+          path: /tmp/command_output.txt
+          create: yes
+          state: present
+          insertafter: EOF
+        when:  ansible_facts['os_family'] == 'Windows'
+        #delegate_to: localhost
+            
   - name: Sending an e-mail using Gmail SMTP servers
     hosts: localhost
     gather_facts: no
