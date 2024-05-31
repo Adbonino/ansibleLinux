@@ -25,7 +25,7 @@
 
     - name: filtrar ip publicas
       set_fact:
-        ips_owner: "{{ ips_publicas | difference(ips_blocks) }}"
+        ips_owner: "{{ ips | difference(ips_blocks) }}"
     
     - name: mostrar ips propias
       debug:
