@@ -2,7 +2,7 @@
 - name: Verificar si las ips estan o no en la lista de variables del archivo variables
   hosts: localhost
   gather_facts: no
-  vara_file:
+  vars_file:
     - variables.yml
  
   tasks:
