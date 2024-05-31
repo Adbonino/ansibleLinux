@@ -1,0 +1,39 @@
+---
+- name: Verificar si las ips estan o no en la lista de variables del archivo variables
+  hosts: localhost
+  gather_facts: no
+  vara_file:
+    - variables.yml
+ 
+  tasks:
+        
+    - name: Separar la lista de IPs en una lista de Python
+      ansible.builtin.set_fact:
+        ips: "{{ ip_list.split(',') | map('trim') }}"
+        ips_blocks: []
+        ips_owner: []
+        
+    - name: verificar si la ip esta en la lista de ip propias
+      vars:
+        is_propia: "{{ item in ips_propias }}"
+      ansible.builtin.set_fact:
+        ips_blocks: "{{ ips_blocks + [item] }}"
+      when: not is_propia
+      loop: "{{ ips }}"
+      loop_control:
+        loop_var: item
+
+    - name: filtrar ip publicas
+      set_fact:
+        ips_owner: "{{ ips_publicas | difference(ips_blocks) }}"
+    
+    - name: mostrar ips propias
+      debug:
+        var: ips_owner
+
+    - name: mostrar ips a bloquear
+      debug:
+        var: ips_blocks
+
+
+    
