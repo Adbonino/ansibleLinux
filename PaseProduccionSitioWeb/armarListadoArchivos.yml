@@ -18,8 +18,7 @@
     - name: Copiar archivos a producccion
       synchronize: 
         src: root@10.54.118.2:{{ item }}
-        dest: {{ item }} 
-        mode: pull
+        dest: { item }
         rsync_opts:
           - "--rsh='ssh -p 22'"
       loop: "{{ files }}"
