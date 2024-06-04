@@ -15,6 +15,6 @@
       delegate_to: localhost
 
     - name: Copiar archivos a producccion
-      command: scp "root@10.54.118.5:{{ item }}" "{{ item }}" 
+      command: scp "root@10.54.118.2:{{ item }}" "{{ item }}" 
       loop: "{{ files }}"
       
