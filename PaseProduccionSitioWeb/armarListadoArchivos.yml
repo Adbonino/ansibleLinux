@@ -17,9 +17,9 @@
 
     - name: Copiar archivos a producccion
       synchronize: 
-        src: root@10.54.118.2:{{ item }}
+        src: "root@10.54.118.2:{{ item }}"
         dest: "{{ item }}"
         archive: yes
-        delete: no
+        recursive: yes
       loop: "{{ files }}"
       
