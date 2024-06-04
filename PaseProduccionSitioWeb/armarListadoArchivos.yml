@@ -5,11 +5,11 @@
   tasks:
     - name: Separar la lista de Archivos ingresados en una lista de Python
       ansible.builtin.set_fact:
-        ips: "{{ ip_list.split('\n') | map('trim') }}"
+        files: "{{ files_list.split('\n') | map('trim') }}"
       delegate_to: localhost
     
     - name: Mostrar resultados
       debug:
-        msg: "IP: {{ item.ip }} - Válida: {{ item.is_valid }} - Tipo: {{ item.type }}"
-      loop: "{{ ip_results }}"
+        msg: "file: {{ item }}"
+      loop: "{{ files }}"
       delegate_to: localhost
