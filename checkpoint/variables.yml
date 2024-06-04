@@ -1,5 +1,6 @@
 ---
-ips_propias:
+# listado de ip publicas pertenencientes al BCP
+ip_propias_bcp:
   - 201.217.41.128
   - 201.217.41.129
   - 201.217.41.130

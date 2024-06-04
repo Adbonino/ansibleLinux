@@ -1,0 +1,60 @@
+---
+    - name: Setear hostname
+      set_fact: 
+        host_name: "Host_{{ ip_item }}"    
+    
+    # Crea hosts
+    - name: Ensure host object exists
+      check_point.mgmt.cp_mgmt_hosts:
+        state: merged
+        config:
+          name: "{{ host_name }}"
+          ip_address: "{{ ip_item }}"
+      register: host_response
+
+    # recupero informacion de un grupo mespecifico
+    - name: Get current members of BANNED_PRUEBA_ANSIBLE
+      check_point.mgmt.cp_mgmt_group_facts:
+        name: BANNED_PRUEBA_ANSIBLE
+      register: group_facts_response
+
+    - name: Extract member names
+      set_fact:
+        #current_members_ips: "{{ group_facts_response.ansible_facts.group.members | map(attribute='ipv4-address') | list }}"
+        #current_members: "{{ group_facts_response.ansible_facts.group.members | map(attribute='name') | list }}"
+        current_members_ips: "{{ group_facts_response['ansible_facts']['group']['members'] | map(attribute='ipv4-address') | list }}"
+        current_members: "{{ group_facts_response['ansible_facts']['group']['members'] | map(attribute='name') | list }}"
+
+    - name: Check if IP is already in the group
+      set_fact:
+        ip_exists: "{{ ip_item in current_members_ips }}"
+
+    - name: mostrar resultado de ip_exists
+      debug:
+        var: ip_exists
+    
+    - name: agregar linea al archivo si la Ip existe en ips_Propias
+      lineinfile:
+       line: "{{ ip_item }}: no se agrego pues ya era miembro del grupo"
+       path: /tmp/archivo.txt
+      when: ip_exists
+      delegate_to: localhost
+
+    - name: Add IP to BANNED_PRUEBA_ANSIBLE Group
+      check_point.mgmt.cp_mgmt_group:
+        state: present
+        name: BANNED_PRUEBA_ANSIBLE
+        members: "{{ current_members | union([host_name]) }}"  
+      when: not ip_exists
+      register: set_group_response
+
+    - name: agregar linea al archivo si la Ip no existe en ips_Propias
+      lineinfile:
+       line: "{{ ip_item }}: se agrego como miembro al grupo"
+       path: /tmp/archivo.txt
+      when: ip_exists
+      delegate_to: localhost
+
+    - name: Publish Changes
+      check_point.mgmt.cp_mgmt_publish:
+      when: set_group_response.changed

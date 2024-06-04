@@ -1,32 +1,32 @@
 ---
 - name: Procesar lista de IPs
-  hosts: localhost
+  hosts: all
+  connection: httpapi
   gather_facts: no
   vars:
     output_file: "/tmp/salida.txt"
-    ips_propias:
-          - 51.34.1.1
-          - 51.34.2.2
-          - 51.35.2.2
+  vars_files:
+    - variables.yml
 
   tasks:
         
-    - name: Separar la lista de IPs en una lista de Python
+    - name: Separar la lista de IPs ingresadas por el operador en una lista de Python
       ansible.builtin.set_fact:
         ips: "{{ ip_list.split(',') | map('trim') }}"
-        ips_validas: []
-        ips_no_validas: []
-        ips_publicas: []
-        ips_privadas: []
-        ips_blocks: []
-        ips_owner: []
-        
-    #- name: Mostrar cada IP de la lista
-    #  debug:
-    #    msg: "IP: {{ item }}"
-    #  loop: "{{ ips }}"
+        ips_validas: []       # se van a guardar las Ips bien formadas
+        ips_no_validas: []    # listado de Ips mal formadas
+        ips_publicas: []      # listado de IPs publicas 
+        ips_privadas: []      # listado de IPs privadas
+        ips_owner: []         # para guardar las IPs ingresadas que tambien estan en el listado de ip_propias_BCP
+        ips_blocks: []        # listado de IPs que se enviaran al proceso de bloqueo
+      delegate_to: localhost
 
-    - name: verificar formatos de las ips
+    - name: Mostrar listado de las IPs ingresadas por el operador
+      debug:
+        msg: "IP: {{ item }}"
+      loop: "{{ ips }}"
+
+    - name: verificar formatos de las ips ips validas
       vars:
         is_formateada: "{{ item is ansible.utils.ipv4 }}"
       ansible.builtin.set_fact:
@@ -35,18 +35,22 @@
       loop: "{{ ips }}"
       loop_control:
         loop_var: item
+      delegate_to: localhost
 
     - name: filtrar ip no ips_validas
       set_fact:
         ips_no_validas: "{{ ips | difference(ips_validas) }}"
+      delegate_to: localhost
 
-    - name: mostrat ips ips_validas
+    - name: mostrar ips ips_validas
       debug:
         var: ips_validas
+      delegate_to: localhost
     
     - name: mostrat ips ips_no_validas
       debug:
         var: ips_no_validas
+      delegate_to: localhost
 
     - name: verificar si la ip es publica
       vars:
@@ -57,45 +61,53 @@
       loop: "{{ ips_validas }}"
       loop_control:
         loop_var: item
+      delegate_to: localhost
 
     - name: filtrar ip privadas
       set_fact:
         ips_privadas: "{{ ips_validas | difference(ips_publicas) }}"
+      delegate_to: localhost
 
-    - name: mostrat ips publicas
+    - name: mostrar ips publicas
       debug:
         var: ips_publicas
+      delegate_to: localhost
     
     - name: mostrat ips privadas
       debug:
         var: ips_privadas
+      delegate_to: localhost
 
+    
     - name: verificar si la ip esta en la lista de ip propias
       vars:
-        is_propia: "{{ item in ips_propias }}"
+        is_propia: "{{ item in ip_propias_bcp }}"
       ansible.builtin.set_fact:
         ips_blocks: "{{ ips_blocks + [item] }}"
       when: not is_propia
       loop: "{{ ips_publicas }}"
       loop_control:
         loop_var: item
-
-    - name: filtrar ip publicas
+      delegate_to: localhost
+ 
+    - name: filtrar ip propias
       set_fact:
         ips_owner: "{{ ips_publicas | difference(ips_blocks) }}"
-    
+      delegate_to: localhost
+   
     - name: mostrar ips propias
       debug:
         var: ips_owner
-
-    # Armar reporte
+      delegate_to: localhost
 
     - name: crear archivo
       lineinfile:
-        line: "Salia del comando Block IPs"
+        line: "Salida del comando Block IPs"
         path: /tmp/archivo.txt
-        create: yes    
-   
+        create: yes
+      delegate_to: localhost    
+
+    # Armado de Archivo para enciar por correo electronico   
     - name: agregar linea al archivo si la Ip es falsa
       lineinfile:
        line: "{{ item }}: no es una ip valida, por lo que se descarta de la lista de ips ingresadas."
@@ -103,7 +115,17 @@
       loop: "{{ ips_no_validas }}"
       loop_control:
         loop_var: item
+      delegate_to: localhost
     
+    - name: agregar linea al archivo si la Ip es propia
+      lineinfile:
+       line: "{{ item }}: es una ip propia del BCP y es descartada de la lista de ips ingresadas."
+       path: /tmp/archivo.txt
+      loop: "{{ ips_owner}}"
+      loop_control:
+        loop_var: item
+      delegate_to: localhost
+
     - name: agregar linea al archivo si la Ip es privada
       lineinfile:
        line: "{{ item }}: es una ip privada y es descartada de la lista de ips ingresadas."
@@ -111,22 +133,14 @@
       loop: "{{ ips_privadas}}"
       loop_control:
         loop_var: item
+      delegate_to: localhost
+    
 
     - name: Lista de IPs publicas
       lineinfile:
        line: "Lista de ip publicas a bloquear"
        path: /tmp/archivo.txt
-      loop: "{{ ips_publicas}}"
-      loop_control:
-        loop_var: item
-
-    - name: agregar linea al archivo si la Ip publica es propia
-      lineinfile:
-       line: "{{ item }}: es una ip propia"
-       path: /tmp/archivo.txt
-      loop: "{{ ips_owner }}"
-      loop_control:
-        loop_var: item
+      delegate_to: localhost
 
     - name: agregar linea al archivo si la Ip es publica
       lineinfile:
@@ -135,13 +149,58 @@
       loop: "{{ ips_blocks}}"
       loop_control:
         loop_var: item
+      delegate_to: localhost
+
+
+    - name: mostrar ips ips_blocks
+      debug:
+        var: ips_blocks
+      delegate_to: localhost
 
     - name: Leer contenido del archivo
       slurp:
         path: /tmp/archivo.txt
       register: archivo_contenido
+      delegate_to: localhost
 
     - name: Mostrar contenido del archivo
       debug:
         msg: "Contenido del archivo: {{ archivo_contenido.content | b64decode }}"  
+      delegate_to: localhost            
+
+    # proceso que llama a platbook qeu agrega las ips en el Checkpoint
+    - name: Loop through IPs
+      include_tasks: add_ip_to_checkpoint.yml
+      register: salida_bloqueo
+      loop: "{{ ips_blocks }}"
+      loop_control:
+        loop_var: ip_item
+
+    - name: Ver resultado bloqueo Checkpoint
+      debug:
+        var: salida_bloqueo
+
+
+# Envio de correo electronico
+- name: Sending an e-mail using Gmail SMTP servers
+  hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - name: Leer contenido del archivo temporal
+      slurp:
+        src: /tmp/archivo.txt
+      register: file_content
+
+    - name: enviar mail
+      community.general.mail:
+          host: 192.168.0.42
+          port: 25
+          sender: 'ansible-no-reply@bcp.gov.py'
+          to: rarzamendia@bcp.gov.py,dmorinigo@bcp.gov.py
+          subject: Ansible-report
+          body: "Bloqueo de IP's       
+           {{ file_content['content'] | b64decode }}"
+
+
   
