@@ -1,6 +1,6 @@
 ---
 - name: Deploy app Instituto
-  hosts: localhost
+  hosts: WebProduccion
   gather_facts: no
   tasks:
     - name: Separar la lista de Archivos ingresados en una lista de Python
