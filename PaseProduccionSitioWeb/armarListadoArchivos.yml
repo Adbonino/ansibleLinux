@@ -16,6 +16,11 @@
       delegate_to: localhost
 
     - name: Copiar archivos a producccion
-      shell: scp -r root@10.54.118.2:{{ item }} {{ item }} 
+      synchronize: 
+        src: root@10.54.118.2:{{ item }}
+        dest: {{ item }} 
+        mode: pull
+        rsync_opts:
+          - "--rsh='ssh -p 22'"
       loop: "{{ files }}"
       
