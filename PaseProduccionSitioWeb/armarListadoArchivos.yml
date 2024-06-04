@@ -16,10 +16,6 @@
       delegate_to: localhost
 
     - name: Copiar archivos a producccion
-      synchronize: 
-        src: "root@10.54.118.2:{{ item }}"
-        dest: "{{ item }}"
-        archive: yes
-        recursive: yes
+      shell: scp root@10.54.118.5:{{ item }} {{ item }}
       loop: "{{ files }}"
       
