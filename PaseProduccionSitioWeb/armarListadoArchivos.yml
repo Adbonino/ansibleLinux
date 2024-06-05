@@ -63,4 +63,5 @@
           path: /var/www/html/V1/instituto/app/logs
           mode: '0775'
           recurse: yes
-      when: {{ cache }} == "Si"  
+
+      when: cache = "Si"  
