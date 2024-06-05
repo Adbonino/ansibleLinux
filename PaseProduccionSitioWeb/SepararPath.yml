@@ -9,8 +9,9 @@
   tasks:
     - name: Separar la ruta del archivo en el directorio y el nombre del archivo
       set_fact:
-        directory_path: "{{ file_path | split('/')[:-1] | join('/') }}"
-        file_name: "{{ file_path | basename }}"
+        parts: "{{ file_path | split('/') }}"
+        directory_path: "{{ parts[:-1] | join('/') }}"
+        file_name: "{{ parts[-1] }}"
     
     - name: Mostrar el directorio y el nombre del archivo
       debug:
