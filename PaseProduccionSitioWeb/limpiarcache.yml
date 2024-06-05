@@ -8,6 +8,8 @@
     log: "/path/to/logfile.log"
 
   tasks:
+  - name: limpieza de cache y modificacion de permisos
+    block:
     - name: Clear cache
       shell: php "{{ directorio_destino }}/app/console" cache:clear --env=prod >> "{{ log }}" 2>&1
 
@@ -45,3 +47,4 @@
         path: /var/www/html/V1/instituto/app/logs
         mode: '0775'
         recurse: yes
+  when: cache == "Si"
