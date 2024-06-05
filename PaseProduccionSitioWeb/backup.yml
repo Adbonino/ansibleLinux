@@ -1,0 +1,20 @@
+---
+  - name: Deploy app Instituto
+    hosts: WebProduccion
+    gather_facts: no
+    become: yes
+    vars:
+      directorio_origen: "/var/www/html/V1/instituto"
+      ruta_destino_backup: "/home/ansible"
+      nombre_backup: "backup_{{ ansible_date_time.date }}.tar.gz"
+
+    tasks:
+    - name: Comprimir directorio en un archivo tar.gz
+      archive:
+        path: "{{ directorio_origen }}"
+        dest: "{{ ruta_destino_backup }}/{{ nombre_backup }}"
+        format: gz
+
+    - name: Mostrar mensaje de finalización
+      debug:
+        msg: "Backup completado: {{ ruta_destino_backup }}/{{ nombre_backup }}"
