@@ -1,7 +1,7 @@
 ---
   - name: Deploy app Instituto
     hosts: WebProduccion
-    gather_facts: no
+    gather_facts: yes
     become: yes
     vars:
       directorio_origen: "/var/www/html/V1/instituto"
