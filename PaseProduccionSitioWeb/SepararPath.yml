@@ -1,10 +1,10 @@
 ---
 - name: Deploy app Instituto
-  hosts: localhost
+  hosts: WebProduccion
   gather_facts: no
   become: yes
   vars:
-    file_path: "/var/www/html/V1/instituto/scr/BCP/Internet/dir1/file1.php"
+    file_path: "/var/www/html/V1/instituto/scr/BCP/Internet/dir1/recursos/file1.php"
 
   tasks:
 
@@ -16,6 +16,17 @@
       set_fact:
         directory_path: "{{ parts[:-1] | join('/') }}"
         file_name: "{{ parts[-1] }}"
+
+    - name: Verificar si el directorio existe
+      stat:
+        path: { directory_path }
+      register: directorio_existente    
+    
+    - name: Crear el directorio si no existe
+      file:
+        path: { directory_path }
+        state: directory
+      when: not directorio_existente.stat.exists
     
     - name: Mostrar el directorio y el nombre del archivo
       debug:
