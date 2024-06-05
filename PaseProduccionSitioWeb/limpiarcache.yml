@@ -1,0 +1,47 @@
+---
+- name: Deploy app Instituto
+  hosts: WebProduccion
+  gather_facts: no
+  become: yes
+  vars:
+    directorio_destino: "/path/to/destino"
+    log: "/path/to/logfile.log"
+
+  tasks:
+    - name: Clear cache
+      shell: php "{{ directorio_destino }}/app/console" cache:clear --env=prod >> "{{ log }}" 2>&1
+
+    - name: Clear doctrine metadata cache
+      shell: php "{{ directorio_destino }}/app/console" doctrine:cache:clear-metadata --env=prod >> "{{ log }}" 2>&1
+
+    - name: Clear doctrine query cache
+      shell: php "{{ directorio_destino }}/app/console" doctrine:cache:clear-query --env=prod >> "{{ log }}" 2>&1
+
+    - name: Clear doctrine result cache
+      shell: php "{{ directorio_destino }}/app/console" doctrine:cache:clear-result --env=prod >> "{{ log }}" 2>&1
+
+    - name: Cambio dueño y grupo a /var/www/html/V1/instituto/app/cache
+      file:
+        path: /var/www/html/V1/instituto/app/cache
+        owner: apache
+        group: apache
+        recurse: yes
+
+    - name: Cambio de dueño y grupo a l/var/www/html/V1/instituto/app/logs
+      file:
+        path: /var/www/html/V1/instituto/app/logs
+        owner: apache
+        group: apache
+        recurse: yes
+
+    - name: Cambio de permisos a /var/www/html/V1/instituto/app/cache
+      file:
+        path: /var/www/html/V1/instituto/app/cache
+        mode: '0775'
+        recurse: yes
+
+    - name: Cambio de permisos a /var/www/html/V1/instituto/app/logs
+      file:
+        path: /var/www/html/V1/instituto/app/logs
+        mode: '0775'
+        recurse: yes
