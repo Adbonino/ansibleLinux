@@ -4,7 +4,7 @@
   gather_facts: no
   become: yes
   vars:
-    file_path: "/var/www/html/V1/instituto/scr/BCP/Internet/dir1/recursos/file1.php"
+    file_path: "/var/www/html/V1/instituto/scr/BCP/Internet/dir1/recursos/imagenes/logo/file1.php"
 
   tasks:
 
