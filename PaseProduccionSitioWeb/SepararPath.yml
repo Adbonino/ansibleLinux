@@ -1,6 +1,6 @@
 ---
 - name: Deploy app Instituto
-  hosts: WebProduccion
+  hosts: localhost
   gather_facts: no
   become: yes
   vars:
