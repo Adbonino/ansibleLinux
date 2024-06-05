@@ -24,7 +24,7 @@
     
     - name: Crear el directorio si no existe
       file:
-        path: "{{ directory_path }}
+        path: "{{ directory_path }}"
         state: directory
       when: not directorio_existente.stat.exists
     
