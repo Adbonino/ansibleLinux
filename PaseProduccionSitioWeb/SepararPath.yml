@@ -7,9 +7,13 @@
     file_path: "/var/www/html/V1/instituto/scr/BCP/Internet/dir1/file1.php"
 
   tasks:
-    - name: Separar la ruta del archivo en el directorio y el nombre del archivo
+
+    - name: Separar la ruta del archivo
       set_fact:
         parts: "{{ file_path | split('/') }}"
+
+    - name: Separar la ruta del archivo en el directorio y el nombre del archivo
+      set_fact:
         directory_path: "{{ parts[:-1] | join('/') }}"
         file_name: "{{ parts[-1] }}"
     
