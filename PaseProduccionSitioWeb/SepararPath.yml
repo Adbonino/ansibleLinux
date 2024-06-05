@@ -1,0 +1,19 @@
+---
+- name: Deploy app Instituto
+  hosts: WebProduccion
+  gather_facts: no
+  become: yes
+  vars:
+    file_path: "/var/www/html/V1/instituto/scr/BCP/Internet/dir1/file1.php"
+
+  tasks:
+    - name: Separar la ruta del archivo en el directorio y el nombre del archivo
+      set_fact:
+        directory_path: "{{ file_path | split('/')[:-1] | join('/') }}"
+        file_name: "{{ file_path | basename }}"
+    
+    - name: Mostrar el directorio y el nombre del archivo
+      debug:
+        msg:
+          - "Directorio: {{ directory_path }}"
+          - "Nombre del archivo: {{ file_name }}"
