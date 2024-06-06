@@ -88,16 +88,6 @@
 
   tasks:
 
-    - name: Comprimir directorio en un archivo tar.gz
-      archive:
-        path: "{{ directorio_origen }}"
-        dest: "{{ ruta_destino_backup }}/{{ nombre_backup }}"
-        format: gz
-
-    - name: Mostrar mensaje de finalización
-      debug:
-        msg: "Backup completado: {{ ruta_destino_backup }}/{{ nombre_backup }}"
-
     - name: Leer contenido del archivo
       include_vars: 
         file: /tmp/existing_files.yml
