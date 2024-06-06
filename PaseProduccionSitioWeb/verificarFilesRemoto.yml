@@ -139,7 +139,7 @@
       register: directorio_existente
 
     - name: Realizar tareas si el directorio existe
-      ansibel.builtin.block:
+      ansible.builtin.block:
         when: directorio_existente.stat.exists
         block:
           - name: Clear cache
