@@ -49,14 +49,19 @@
 
   tasks:
 
-    - name: Incluir variables desde el archivo yaml
-      include_vars:
-        file: /tmp/existing_files.yml
+    #- name: Incluir variables desde el archivo yaml
+    #  include_vars:
+    #    file: /tmp/existing_files.yml
+    #  delegate_to: localhost
+    #  register: variables
+
+    - name: Leer contenido del archivo
+      set_fact:
+        file_content: "{{ lookup('file', '/tmp/existing_files.yml') }}"
       delegate_to: localhost
-      register: variables
 
     - debug:
-        var: variables
+        var: file_content
       delegate_to: localhost
 
  
