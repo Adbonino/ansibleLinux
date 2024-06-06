@@ -26,7 +26,6 @@
       template:
         src: existing_files.j2
         dest: /tmp/existing_files.yml
-      register: salida
       delegate_to: localhost
 
     #- name: Guardar la variable en un archivo JSON
@@ -51,11 +50,11 @@
   tasks:
 
     - name: Leer contenido del archivo
-      command: cat /tmp/existing_files.yml
-      register: file_content
+      include_vars: 
+        file: /tmp/existing_files.yml
       delegate_to: localhost
 
     - name: Mostrar contenido del archivo
       debug:
-        var: file_content.stdout
-      delegate_to: localhost
+        var: existing_files
+      
