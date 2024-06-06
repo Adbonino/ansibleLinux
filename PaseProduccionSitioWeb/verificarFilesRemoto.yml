@@ -65,26 +65,12 @@
       
     - name: Separar la ruta del archivo
       set_fact:
-        parts: "{{ item | split('/')  }}"
-      register: parts_results
-      loop: "{{ existing_files }}"
+        directories_list: "{{ existing_files | map('dirname') | list }}"
       delegate_to: localhost
-
-    - name: Separar la ruta del archivo
-      set_fact:
-        directories_path: "{{ parts[:-1] | join('/')}}"
-      register: directories_results
-      loop: "{{ existing_files }}"
-      delegate_to: localhost
-
-    - name: Crear lista de adirectorios
-      set_fact:
-        existing_dirs: "{{ directories_results.results | list }}"
-      delegate_to: localhost
-
+     
     - name: mostrar listado
       debug:
-        var: directories_dirs
+        var: directories_list
       delegate_to: localhost
 
 
