@@ -22,6 +22,11 @@
         existing_files: "{{ stat_result.results | selectattr('stat.exists', 'equalto', True) | map(attribute='item') | list }}"
       delegate_to: localhost
 
+    - name: Guardar la variable en un archivo JSON
+      copy:
+        content: "{{ existing_files | to_json }}"
+        dest: /tmp/variable.json
+
     - name: Mostrar archivos que existen en el host fuente
       debug:
         msg: "Archivo '{{ item }}' existe en el host fuente"
@@ -34,6 +39,11 @@
   become: yes
 
   tasks:
+
+    - name: Incluir variables desde el archivo JSON
+      include_vars:
+        file: /tmp/variable.json
+        name: existing_files
 
     - name: Separar la ruta del archivo
       set_fact:
