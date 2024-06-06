@@ -63,6 +63,7 @@
         var: existing_files
       delegate_to: localhost
       
+    # en directories_list tengo el listado de todos los directorios
     - name: Separar la ruta del archivo
       set_fact:
         directories_list: "{{ existing_files | map('dirname') | list }}"
@@ -73,6 +74,18 @@
         var: directories_list
       delegate_to: localhost
 
+    # Chuequear que el directorio exite en produccion y si no exite crearlo
 
+    - name: Verificar existencia de directorios
+      stat:
+        path: "{{ item }}"
+      register: directory_status
+      loop: "{{ directories_list }}"
 
+    - name: Crear directorios que no existen
+      file:
+        path: "{{ item.item }}"
+        state: directory
+      when: not item.stat.exists
+      loop: "{{ directory_status.results }}"
 
