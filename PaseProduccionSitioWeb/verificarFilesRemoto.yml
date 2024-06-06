@@ -135,7 +135,7 @@
     
     - name: Verificar si el directorio existe
       ansible.builtin.stat:
-        path: "/ruta/al/directorio"
+        path: "/home/ansible/Instituto/app/console"
       register: directorio_existente
 
     - name: Realizar tareas si el directorio existe
