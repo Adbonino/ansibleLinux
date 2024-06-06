@@ -56,8 +56,7 @@
       register: variables
 
     - debug:
-        msg: "Archivo '{{ item }}'"
-      loop: "{{ existing_files }}"
+        var: variables
       delegate_to: localhost
 
  
