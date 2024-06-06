@@ -26,6 +26,7 @@
       copy:
         content: "{{ existing_files | to_json }}"
         dest: /tmp/variable.json
+      delegate_to: localhost
 
     - name: Mostrar archivos que existen en el host fuente
       debug:
@@ -44,6 +45,7 @@
       include_vars:
         file: /tmp/variable.json
         name: existing_files
+      delegate_to: localhost
 
     - name: Separar la ruta del archivo
       set_fact:
