@@ -139,9 +139,8 @@
       register: directorio_existente
 
     - name: Realizar tareas si el directorio existe
+      when: directorio_existente.stat.exists 
       block:
-        when: directorio_existente.stat.exists
-        tasks:
           - name: Clear cache
             shell: php "{{ directorio_destino }}/app/console" cache:clear --env=prod >> "{{ log }}" 2>&1
 
