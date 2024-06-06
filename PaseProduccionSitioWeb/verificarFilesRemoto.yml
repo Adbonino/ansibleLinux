@@ -89,3 +89,7 @@
       when: not item.stat.exists
       loop: "{{ directory_status.results }}"
 
+    - name: Copiar archivos a producccion
+      shell: scp root@10.54.118.2:{{ item }} {{ item }}
+      loop: "{{ existing_files }}"
+
