@@ -1,0 +1,58 @@
+---
+- name: Determinar y aplicar política en Check Point
+  hosts: localhost
+  gather_facts: no
+  vars:
+    ansible_check_point_host: "https://<check_point_mgmt_server>"
+    ansible_check_point_user: "<username>"
+    ansible_check_point_password: "<password>"
+    user_to_check: "<username_to_check>"
+    targets: ["gw1", "gw2"]  # Lista de gateways
+  tasks:
+    - name: Obtener tareas recientes
+      check_point.mgmt.cp_mgmt_show_tasks:
+        limit: 5
+        details_level: "full"
+        server: "{{ ansible_check_point_host }}"
+        user: "{{ ansible_check_point_user }}"
+        password: "{{ ansible_check_point_password }}"
+      register: tasks_result
+
+    - name: Filtrar tareas por usuario
+      set_fact:
+        user_tasks: "{{ tasks_result.tasks | selectattr('initiator', 'equalto', user_to_check) | list }}"
+
+    - name: Determinar la política correcta basada en las tareas del usuario
+      set_fact:
+        policy_package: >-
+          {% for task in user_tasks %}
+            {% for detail in task['task-details'] %}
+              {% if 'install-policy' in detail['name'] %}
+                {{ detail['value'] }}
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+      when: user_tasks | length > 0
+
+    - name: Validar que se haya determinado una política
+      fail:
+        msg: "No se pudo determinar una política para instalar."
+      when: policy_package is undefined
+
+    - name: Instalar la política correcta en Check Point
+      check_point.mgmt.cp_mgmt_install_policy:
+        policy_package: "{{ policy_package }}"
+        targets: "{{ targets }}"
+        access: true
+        threat_prevention: true
+        install_on_all_cluster_members_or_fail: true
+        wait_for_task: true
+        server: "{{ ansible_check_point_host }}"
+        user: "{{ ansible_check_point_user }}"
+        password: "{{ ansible_check_point_password }}"
+      when: policy_package is defined
+
+    - name: Mostrar mensaje de finalización
+      debug:
+        msg: "Política '{{ policy_package }}' instalada en Check Point"
+      when: policy_package is defined
