@@ -136,7 +136,7 @@
     - name: Verificar si el directorio existe
       ansible.builtin.stat:
         path: "/ruta/al/directorio"
-       register: directorio_existente
+      register: directorio_existente
 
     - name: Realizar tareas si el directorio existe
       ansibel.builtin.block:
@@ -146,7 +146,7 @@
             shell: php "{{ directorio_destino }}/app/console" cache:clear --env=prod >> "{{ log }}" 2>&1
 
           - name: Clear doctrine metadata cache
-           shell: php "{{ directorio_destino }}/app/console" doctrine:cache:clear-metadata --env=prod >> "{{ log }}" 2>&1
+            shell: php "{{ directorio_destino }}/app/console" doctrine:cache:clear-metadata --env=prod >> "{{ log }}" 2>&1
 
           - name: Clear doctrine query cache
             shell: php "{{ directorio_destino }}/app/console" doctrine:cache:clear-query --env=prod >> "{{ log }}" 2>&1
@@ -182,4 +182,4 @@
       rescue:
         - name: no se limpio el cache
           debug:
-            msg: "no se limpio el cache pues no se econtro el directorio /app/console" "
+            msg: "no se limpio el cache pues no se econtro el directorio /app/console" 
