@@ -64,9 +64,10 @@
       
     - name: Separar la ruta del archivo
       set_fact:
-        parts: "{{ item | split('/') | list }}"
+        - parts: "{{ item | split('/')  }}"
+        - directories_path: "{{ parts[:-1] | join('/') | list }}"
       loop: "{{ existing_files }}"
 
     - name: mostrar listado
       debug:
-        var: parts
+        var: directories_path
