@@ -70,7 +70,7 @@
 
     - name: Separar la ruta del archivo
       set_fact:
-        directories_path: "{{ parts[:-1] | join('/') | list }}"
+        directories_path: "{{ parts[:-1] | join('/')}}"
       register: directories_results
       loop: "{{ existing_files }}"
 
