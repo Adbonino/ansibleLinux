@@ -139,9 +139,9 @@
       register: directorio_existente
 
     - name: Realizar tareas si el directorio existe
-      ansible.builtin.block:
+      block:
         when: directorio_existente.stat.exists
-        block:
+        tasks:
           - name: Clear cache
             shell: php "{{ directorio_destino }}/app/console" cache:clear --env=prod >> "{{ log }}" 2>&1
 
