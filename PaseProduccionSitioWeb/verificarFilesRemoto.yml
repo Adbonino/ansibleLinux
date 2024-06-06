@@ -43,13 +43,14 @@
 
   tasks:
 
-    - name: Incluir variables desde el archivo JSON
+    - name: Incluir variables desde el archivo yaml
       include_vars:
         file: /tmp/variable.yml
       delegate_to: localhost
       register: variables
 
     - debug:
-        var: variables
+        var: existing_files
+      delegate_to: localhost
 
  
