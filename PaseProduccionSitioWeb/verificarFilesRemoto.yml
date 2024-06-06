@@ -23,8 +23,12 @@
       delegate_to: localhost
 
     - name: Crear archivo de varible
-      template:
-        src: existing_files.j2
+      copy:
+        content: |
+          existing_files:
+          {% for file_path in existing_files %}
+            - "{{ file_path }}"
+          {% endfor %}
         dest: /tmp/existing_files.yml
       delegate_to: localhost
 
