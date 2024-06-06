@@ -59,6 +59,7 @@
       set_fact:
         directories_path: "{{ parts[:-1] | join('/') | list }}"
       loop: "{{ existing_files }}"
+      delegate_to: localhost
 
     - name: Mostrar archivos que existen en el host fuente
       debug:
