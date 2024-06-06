@@ -35,7 +35,8 @@
 
     - name: Separar la ruta del archivo
       set_fact:
-        parts: "{{ file_path | split('/') }}"
+        parts: "{{ items | split('/') | list }}"
+      loop: "{{ existing_files }}"
       delegate_to: localhost
 
     - name: Separar la ruta del archivo en el directorio y el nombre del archivo
