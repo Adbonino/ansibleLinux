@@ -45,20 +45,24 @@
       include_vars:
         file: /tmp/variable.yml
       delegate_to: localhost
+      register: variables
 
-    - name: Separar la ruta del archivo
-      set_fact:
-        parts: "{{ items | split('/') | list }}"
-      loop: "{{ existing_files }}"
-      delegate_to: localhost
+    - debug:
+        var: variabless
 
-    - name: Separar la ruta del archivo en el directorio y el nombre del archivo
-      set_fact:
-        directories_path: "{{ parts[:-1] | join('/') | list }}"
-      loop: "{{ existing_files }}"
+    #- name: Separar la ruta del archivo
+    #  set_fact:
+    #    parts: "{{ items | split('/') | list }}"
+    #  loop: "{{ existing_files }}"
+    #  delegate_to: localhost
 
-    - name: Mostrar archivos que existen en el host fuente
-      debug:
-        msg: "Directorio: '{{ item }}' "
-      loop: "{{ existing_files }}"
-      delegate_to: localhost
+    #- name: Separar la ruta del archivo en el directorio y el nombre del archivo
+    #  set_fact:
+    #    directories_path: "{{ parts[:-1] | join('/') | list }}"
+    #  loop: "{{ existing_files }}"
+
+    #- name: Mostrar archivos que existen en el host fuente
+    #  debug:
+    #    msg: "Directorio: '{{ item }}' "
+    #  loop: "{{ existing_files }}"
+    #  delegate_to: localhost
