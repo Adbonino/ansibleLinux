@@ -26,8 +26,13 @@
       template:
         src: existing_files.j2
         dest: /tmp/existing_files.yml
+      register: salida
       delegate_to: localhost
-    
+
+    - name: mostrar archivo
+      debug:
+        var: salida
+
     #- name: Guardar la variable en un archivo JSON
     #  copy:
     #    content: |
@@ -55,13 +60,13 @@
     #  delegate_to: localhost
     #  register: variables
 
-    - name: Leer contenido del archivo
-      set_fact:
-        file_content: "{{ lookup('file', '/tmp/existing_files.yml')  | from_yaml }}"
-      delegate_to: localhost
+    #- name: Leer contenido del archivo
+    #  set_fact:
+    #    file_content: "{{ lookup('file', '/tmp/existing_files.yml')  | from_yaml }}"
+    #  delegate_to: localhost
 
-    - debug:
-        var: file_content
-      delegate_to: localhost
+    #- debug:
+    #    var: file_content
+    #  delegate_to: localhost
 
  
