@@ -24,7 +24,9 @@
 
     - name: Guardar la variable en un archivo JSON
       copy:
-        content: "{{ existing_files | to_yaml }}"
+        content: |
+          existing_files:
+            - "{{ existing_files }}"
         dest: /tmp/variable.yml
       delegate_to: localhost
 
