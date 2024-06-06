@@ -1,0 +1,29 @@
+---
+- name: Verificar si todos los archivos existen de Desarrollo
+  hosts: WebDesarrollo
+  gather_facts: no
+  become: yes
+   
+  tasks:
+    
+    - name: Separar la lista de Archivos ingresados en una lista de Python
+      ansible.builtin.set_fact:
+        files: "{{ files_list.split('\n') | map('trim') }}"
+      delegate_to: localhost
+             
+    - name: Verificar si los archivos existen en el servidor de desarrollo
+      ansible.builtin.stat:
+        path: "{{ item }}"
+      register: stat_result
+      loop: "{{ files }}"
+    
+    - name: Crear lista de archivos existentes
+      set_fact:
+        existing_files: "{{ stat_result.results | selectattr('stat.exists', 'equalto', True) | map(attribute='item') | list }}"
+
+    - name: Mostrar archivos que existen en el host fuente
+      debug:
+        msg: "Archivo '{{ item }}' existe en el host fuente"
+      loop: "{{ existing_files }}"
+
+    

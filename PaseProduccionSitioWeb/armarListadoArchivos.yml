@@ -19,6 +19,9 @@
       loop: "{{ files }}"
       delegate_to: localhost
 
+    - Revisar que todos los directorios existan 
+
+
     - name: Copiar archivos a producccion
       shell: scp root@10.54.118.2:{{ item }} {{ item }}
       loop: "{{ files }}"
