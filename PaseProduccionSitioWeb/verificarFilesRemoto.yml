@@ -20,11 +20,13 @@
     - name: Crear lista de archivos existentes
       set_fact:
         existing_files: "{{ stat_result.results | selectattr('stat.exists', 'equalto', True) | map(attribute='item') | list }}"
+      delegate_to: localhost
 
     - name: Mostrar archivos que existen en el host fuente
       debug:
         msg: "Archivo '{{ item }}' existe en el host fuente"
       loop: "{{ existing_files }}"
+      delegate_to: localhost
 
 - name: Verificar que los directorios existen y sino crearlos
   hosts: WebProduccion
@@ -48,6 +50,7 @@
       debug:
         msg: "Directorio: '{{ item }}' "
       loop: "{{ existing_files }}"
+      delegate_to: localhost
 
     
         
