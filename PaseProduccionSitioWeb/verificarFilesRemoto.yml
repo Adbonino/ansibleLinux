@@ -57,7 +57,7 @@
 
     - name: Leer contenido del archivo
       set_fact:
-        file_content: "{{ lookup('file', '/tmp/existing_files.yml') }}"
+        file_content: "{{ lookup('file', '/tmp/existing_files.yml')  | from_yaml }}"
       delegate_to: localhost
 
     - debug:
