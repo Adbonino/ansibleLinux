@@ -1,0 +1,5 @@
+# existing_files.j2
+existing_files:
+{%- for file_path in existing_files %}
+  - "{{ file_path }}"
+{%- endfor %}

@@ -22,13 +22,19 @@
         existing_files: "{{ stat_result.results | selectattr('stat.exists', 'equalto', True) | map(attribute='item') | list }}"
       delegate_to: localhost
 
-    - name: Guardar la variable en un archivo JSON
-      copy:
-        content: |
-          existing_files:
-            - "{{ existing_files }}"
-        dest: /tmp/variable.yml
+    - name: Crear archivo de varible
+      template:
+        src: existing_files.j2
+        dest: /tmp/existing_files.yml
       delegate_to: localhost
+    
+    #- name: Guardar la variable en un archivo JSON
+    #  copy:
+    #    content: |
+    #      existing_files:
+    #        - "{{ existing_files }}"
+    #    dest: /tmp/variable.yml
+    #  delegate_to: localhost
 
     - name: Mostrar archivos que existen en el host fuente
       debug:
@@ -45,7 +51,7 @@
 
     - name: Incluir variables desde el archivo yaml
       include_vars:
-        file: /tmp/variable.yml
+        file: /tmp/existing_files.yml
       delegate_to: localhost
       register: variables
 
