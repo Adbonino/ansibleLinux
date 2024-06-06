@@ -24,11 +24,8 @@
 
     - name: Guardar la variable en un archivo JSON
       copy:
-        content: |
-          existing_files:
-            - "{{ item }}"
+        content: existing_files
         dest: /tmp/variable.yml
-        loop: existing_files
       delegate_to: localhost
 
     - name: Mostrar archivos que existen en el host fuente
@@ -51,6 +48,6 @@
       register: variables
 
     - debug:
-        var: existing_files
+        var: variables
 
  
