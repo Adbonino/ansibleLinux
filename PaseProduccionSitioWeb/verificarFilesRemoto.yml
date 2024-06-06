@@ -62,3 +62,11 @@
       debug:
         var: existing_files
       
+    - name: Separar la ruta del archivo
+      set_fact:
+        parts: "{{ file_path | split('/') | list }}"
+      loop: "{{ existing_files }}"
+
+    - name: mostrar listado
+      debug:
+        var: parts
