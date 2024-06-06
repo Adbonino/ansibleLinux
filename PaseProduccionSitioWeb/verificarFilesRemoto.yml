@@ -53,7 +53,9 @@
     - name: Leer contenido del archivo
       command: cat /tmp/existing_files.yml
       register: file_content
+      delegate_to: localhost
 
     - name: Mostrar contenido del archivo
       debug:
         var: file_content.stdout
+      delegate_to: localhost
