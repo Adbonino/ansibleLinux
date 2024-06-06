@@ -29,10 +29,6 @@
       register: salida
       delegate_to: localhost
 
-    - name: mostrar archivo
-      debug:
-        var: salida
-
     #- name: Guardar la variable en un archivo JSON
     #  copy:
     #    content: |
@@ -54,19 +50,11 @@
 
   tasks:
 
-    #- name: Incluir variables desde el archivo yaml
-    #  include_vars:
-    #    file: /tmp/existing_files.yml
-    #  delegate_to: localhost
-    #  register: variables
+    - name: Cargar variables desde el archivo YAML
+      include_vars:
+        file: /tmp/existing_files.yml
+      delegate_to: localhost
 
-    #- name: Leer contenido del archivo
-    #  set_fact:
-    #    file_content: "{{ lookup('file', '/tmp/existing_files.yml')  | from_yaml }}"
-    #  delegate_to: localhost
-
-    #- debug:
-    #    var: file_content
-    #  delegate_to: localhost
-
- 
+    - name: Mostrar variables cargadas
+      debug:
+        var: existing_files
