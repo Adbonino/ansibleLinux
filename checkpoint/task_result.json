@@ -1,0 +1,2296 @@
+{
+  "tasks_result": {
+    "ansible_facts": {
+      "tasks": {
+        "tasks": [
+          {
+            "uid": "5cc20b40-d631-419a-a57c-f86df361e05b",
+            "type": "task",
+            "domain": {
+              "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+              "name": "SMC User",
+              "domain-type": "domain"
+            },
+            "task-id": "f1daaa1e-2ed7-43e0-988e-86b0e4fd576d",
+            "task-name": "Policy installation - Standard",
+            "status": "succeeded",
+            "progress-percentage": 100,
+            "start-time": {
+              "posix": 1714748303891,
+              "iso-8601": "2024-05-03T10:58-0400"
+            },
+            "last-update-time": {
+              "posix": 1714748386250,
+              "iso-8601": "2024-05-03T10:59-0400"
+            },
+            "suppressed": false,
+            "task-details": [
+              {
+                "uid": "a7f285a0-4cae-49ec-8eae-a4483b16d0a2",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded with warnings",
+                "statusDescription": "Succeeded with Warnings",
+                "taskNotification": "5cc20b40-d631-419a-a57c-f86df361e05b",
+                "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "e790c906-43de-4886-8f3c-9f19b0a4e355",
+                  "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "warn",
+                    "stage": "legacy policy load",
+                    "messages": [
+                      {
+                        "type": "warn",
+                        "message": "IPS blades are active on multiple layers.\nIPS: IPS, Standard Threat Prevention.\nR80 Gateway (or above) may have enforcement conflicts. See sk114434."
+                      }
+                    ]
+                  }
+                ],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1714748339727,
+                    "iso-8601": "2024-05-03T10:58-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1714748304225,
+                    "iso-8601": "2024-05-03T10:58-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-ALT",
+                "revision": "e790c906-43de-4886-8f3c-9f19b0a4e355"
+              },
+              {
+                "uid": "a921e9da-7c65-46e7-8519-6c8e9909ddb1",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "5cc20b40-d631-419a-a57c-f86df361e05b",
+                "gatewayId": "25673932-9238-46f7-ba04-b441d49e5b9c",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "e790c906-43de-4886-8f3c-9f19b0a4e355",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1714748354603,
+                    "iso-8601": "2024-05-03T10:59-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1714748304277,
+                    "iso-8601": "2024-05-03T10:58-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-01",
+                "revision": "e790c906-43de-4886-8f3c-9f19b0a4e355"
+              },
+              {
+                "uid": "8f4fa35c-ab92-4c93-904f-74435168c2df",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded with warnings",
+                "statusDescription": "Succeeded with Warnings",
+                "taskNotification": "5cc20b40-d631-419a-a57c-f86df361e05b",
+                "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "e790c906-43de-4886-8f3c-9f19b0a4e355",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "warn",
+                    "stage": "legacy policy load",
+                    "messages": [
+                      {
+                        "type": "warn",
+                        "message": "Anti-Bot, Anti-Virus, IPS, Threat-Emulation, Threat-Extraction, Zero-Phishing blades are active on multiple layers.\nAnti-Bot: IPS, Standard Threat Prevention.\nAnti-Virus: IPS, Standard Threat Prevention.\nIPS: IPS, Standard Threat Prevention.\nThreat-Emulation: IPS, Standard Threat Prevention.\nThreat-Extraction: IPS, Standard Threat Prevention.\nZero-Phishing: IPS, Standard Threat Prevention.\nR80 Gateway (or above) may have enforcement conflicts. See sk114434."
+                      }
+                    ]
+                  }
+                ],
+                "cluster": true,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1714748354571,
+                    "iso-8601": "2024-05-03T10:59-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1714748304261,
+                    "iso-8601": "2024-05-03T10:58-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-CLUSTER",
+                "revision": "e790c906-43de-4886-8f3c-9f19b0a4e355"
+              },
+              {
+                "uid": "606598af-506e-4ad6-a4fc-ec0af5db7d7a",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "5cc20b40-d631-419a-a57c-f86df361e05b",
+                "gatewayId": "919764e9-6a47-48f0-9b3e-6f17112817f1",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "e790c906-43de-4886-8f3c-9f19b0a4e355",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1714748354586,
+                    "iso-8601": "2024-05-03T10:59-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1714748304288,
+                    "iso-8601": "2024-05-03T10:58-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-02",
+                "revision": "e790c906-43de-4886-8f3c-9f19b0a4e355"
+              },
+              {
+                "uid": "846dd9ae-49c1-4db8-b192-a1b836011a76",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded with warnings",
+                "statusDescription": "Succeeded with Warnings",
+                "taskNotification": "5cc20b40-d631-419a-a57c-f86df361e05b",
+                "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "e790c906-43de-4886-8f3c-9f19b0a4e355",
+                  "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "candidate_worksessions_not_eligible",
+                  "detailedReason": [
+                    "Failed to run pre install fast install checks."
+                  ]
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "warn",
+                    "stage": "legacy policy load",
+                    "messages": [
+                      {
+                        "type": "warn",
+                        "message": "Layer 'Application': Rule 9 will not be enforced properly, because of deprecated application(s) : UCBrowser"
+                      },
+                      {
+                        "type": "warn",
+                        "message": "Layer 'Application': Rule 10 will not be enforced properly, because of deprecated application(s) : Supports VoIP , Orkut Widgets , BitTorrent protocol , Adds other software , Virtual Worlds , Share photos , Orkut Games , Streaming Media Protocols , Windows Messenger protocol , IRC protocol , Tunnels , Allows remote connect , Share links , Micro blogging , Web Desktop , Share Music , MySpace Lifestyle , MySpace Utilities , Voice Mail , Orkut Entertainment , Supports File Transfer , Share Files , MySpace Sports , Port agility , Sends mail , Supports video/webcam , Allows remote control , Opens ports , Orkut Utilities , Torrent Trackers , Gnutella protocol , Business Applications , Content Provider and Sharing , Orkut Popular , Yahoo Messenger protocol , Share videos , Used for Web-Based Support , Web Based Instant Messaging , Communication Standard , MySpace Games , Facebook Popular , MySpace Popular , Orkut Lifestyle , Supports IM , Orkut Sports , Supports Streaming , Transmits Information , Facebook File Sharing , MySpace Entertainment"
+                      },
+                      {
+                        "type": "warn",
+                        "message": "Layer 'Application': Rule 10 : Source and Destination are ANY, with Services & Applications set to specific applications.\nBest Practice: set Destination to Internet."
+                      },
+                      {
+                        "type": "warn",
+                        "message": "Anti-Spoofing is not configured for some interfaces and gateways. This will allow address spoofing through these gateways.,,Anti-Spoofing should be configured on the following objects:,.Gateway: NGFW-BCP-ALT, Interface: eth2,.Gateway: NGFW-BCP-ALT, Interface: Mgmt,.Gateway: NGFW-BCP-ALT, Interface: eth5.515,.Gateway: NGFW-BCP-02, Interface: eth8,.Gateway: NGFW-BCP-02, Interface: bond1.26,.Gateway: NGFW-BCP-02, Interface: Mgmt,.Gateway: NGFW-BCP-02, Interface: eth1-01,.Gateway: NGFW-BCP-02, Interface: vpnt10,.Gateway: NGFW-BCP-02, Interface: bond1.513,.Gateway: NGFW-BCP-02, Interface: bond1.35,.Gateway: NGFW-BCP-02, Interface: eth2,.Gateway: NGFW-BCP-02, Interface: bond1.514,.Gateway: NGFW-BCP-01, Interface: eth1-01,.Gateway: NGFW-BCP-01, Interface: Mgmt,.Gateway: NGFW-BCP-01, Interface: eth8,.Gateway: NGFW-BCP-01, Interface: bond1.26,....,.To see all the objects that need configuring look in the SmartDashboard, SmartDefense tab, under Anti Spoofing Configuration Status."
+                      }
+                    ]
+                  }
+                ],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1714748379006,
+                    "iso-8601": "2024-05-03T10:59-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1714748304309,
+                    "iso-8601": "2024-05-03T10:58-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-ALT",
+                "revision": "e790c906-43de-4886-8f3c-9f19b0a4e355"
+              },
+              {
+                "uid": "e5bf5eaa-2e44-458c-817f-a91b57ac06d7",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "5cc20b40-d631-419a-a57c-f86df361e05b",
+                "gatewayId": "919764e9-6a47-48f0-9b3e-6f17112817f1",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "e790c906-43de-4886-8f3c-9f19b0a4e355",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "candidate_worksessions_not_eligible",
+                  "detailedReason": [
+                    "Failed to run pre install fast install checks."
+                  ]
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1714748385330,
+                    "iso-8601": "2024-05-03T10:59-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1714748304325,
+                    "iso-8601": "2024-05-03T10:58-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-02",
+                "revision": "e790c906-43de-4886-8f3c-9f19b0a4e355"
+              },
+              {
+                "uid": "10c937d3-3856-4d74-93eb-28e1571d83f3",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded with warnings",
+                "statusDescription": "Succeeded with Warnings",
+                "taskNotification": "5cc20b40-d631-419a-a57c-f86df361e05b",
+                "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "e790c906-43de-4886-8f3c-9f19b0a4e355",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "candidate_worksessions_not_eligible",
+                  "detailedReason": [
+                    "Failed to run pre install fast install checks."
+                  ]
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "warn",
+                    "stage": "legacy policy load",
+                    "messages": [
+                      {
+                        "type": "warn",
+                        "message": "Layer 'Application': Rule 9 will not be enforced properly, because of deprecated application(s) : UCBrowser"
+                      },
+                      {
+                        "type": "warn",
+                        "message": "Layer 'Application': Rule 10 will not be enforced properly, because of deprecated application(s) : Supports VoIP , Orkut Widgets , BitTorrent protocol , Adds other software , Virtual Worlds , Share photos , Orkut Games , Streaming Media Protocols , Windows Messenger protocol , IRC protocol , Tunnels , Allows remote connect , Share links , Micro blogging , Web Desktop , Share Music , MySpace Lifestyle , MySpace Utilities , Voice Mail , Orkut Entertainment , Supports File Transfer , Share Files , MySpace Sports , Port agility , Sends mail , Supports video/webcam , Allows remote control , Opens ports , Orkut Utilities , Torrent Trackers , Gnutella protocol , Business Applications , Content Provider and Sharing , Orkut Popular , Yahoo Messenger protocol , Share videos , Used for Web-Based Support , Web Based Instant Messaging , Communication Standard , MySpace Games , Facebook Popular , MySpace Popular , Orkut Lifestyle , Supports IM , Orkut Sports , Supports Streaming , Transmits Information , Facebook File Sharing , MySpace Entertainment"
+                      },
+                      {
+                        "type": "warn",
+                        "message": "Layer 'Application': Rule 10 : Source and Destination are ANY, with Services & Applications set to specific applications.\nBest Practice: set Destination to Internet."
+                      },
+                      {
+                        "type": "warn",
+                        "message": "Anti-Spoofing is not configured for some interfaces and gateways. This will allow address spoofing through these gateways.,,Anti-Spoofing should be configured on the following objects:,.Gateway: NGFW-BCP-ALT, Interface: eth2,.Gateway: NGFW-BCP-ALT, Interface: Mgmt,.Gateway: NGFW-BCP-ALT, Interface: eth5.515,.Gateway: NGFW-BCP-02, Interface: eth8,.Gateway: NGFW-BCP-02, Interface: bond1.26,.Gateway: NGFW-BCP-02, Interface: Mgmt,.Gateway: NGFW-BCP-02, Interface: eth1-01,.Gateway: NGFW-BCP-02, Interface: vpnt10,.Gateway: NGFW-BCP-02, Interface: bond1.513,.Gateway: NGFW-BCP-02, Interface: bond1.35,.Gateway: NGFW-BCP-02, Interface: eth2,.Gateway: NGFW-BCP-02, Interface: bond1.514,.Gateway: NGFW-BCP-01, Interface: eth1-01,.Gateway: NGFW-BCP-01, Interface: Mgmt,.Gateway: NGFW-BCP-01, Interface: eth8,.Gateway: NGFW-BCP-01, Interface: bond1.26,....,.To see all the objects that need configuring look in the SmartDashboard, SmartDefense tab, under Anti Spoofing Configuration Status."
+                      }
+                    ]
+                  }
+                ],
+                "cluster": true,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1714748385319,
+                    "iso-8601": "2024-05-03T10:59-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1714748304245,
+                    "iso-8601": "2024-05-03T10:58-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-CLUSTER",
+                "revision": "e790c906-43de-4886-8f3c-9f19b0a4e355"
+              },
+              {
+                "uid": "bd402e36-a6cd-442c-983b-7f57b96805ee",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "5cc20b40-d631-419a-a57c-f86df361e05b",
+                "gatewayId": "25673932-9238-46f7-ba04-b441d49e5b9c",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "e790c906-43de-4886-8f3c-9f19b0a4e355",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "candidate_worksessions_not_eligible",
+                  "detailedReason": [
+                    "Failed to run pre install fast install checks."
+                  ]
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1714748385343,
+                    "iso-8601": "2024-05-03T10:59-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1714748304183,
+                    "iso-8601": "2024-05-03T10:58-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-01",
+                "revision": "e790c906-43de-4886-8f3c-9f19b0a4e355"
+              }
+            ],
+            "comments": "2 installations succeeded",
+            "color": "black",
+            "icon": "General/globalsNa",
+            "tags": [],
+            "meta-info": {
+              "lock": "unlocked",
+              "validation-state": "ok",
+              "last-modify-time": {
+                "posix": 1714748386255,
+                "iso-8601": "2024-05-03T10:59-0400"
+              },
+              "last-modifier": "System",
+              "creation-time": {
+                "posix": 1714748303895,
+                "iso-8601": "2024-05-03T10:58-0400"
+              },
+              "creator": "System"
+            },
+            "read-only": false,
+            "available-actions": {
+              "edit": "true",
+              "delete": "true",
+              "clone": "false"
+            }
+          },
+          {
+            "uid": "8c3a7239-3d80-410a-8ce8-c974d86b218d",
+            "type": "task",
+            "domain": {
+              "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+              "name": "SMC User",
+              "domain-type": "domain"
+            },
+            "task-id": "98a0b983-39fe-4dd5-9259-90f9d6bdd7c2",
+            "task-name": "Policy installation - Standard",
+            "status": "succeeded",
+            "progress-percentage": 100,
+            "start-time": {
+              "posix": 1716995949236,
+              "iso-8601": "2024-05-29T11:19-0400"
+            },
+            "last-update-time": {
+              "posix": 1716995997678,
+              "iso-8601": "2024-05-29T11:19-0400"
+            },
+            "suppressed": false,
+            "task-details": [
+              {
+                "uid": "0152d6ad-e47a-4c42-8477-26a34135e666",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded with warnings",
+                "statusDescription": "Succeeded with Warnings",
+                "taskNotification": "8c3a7239-3d80-410a-8ce8-c974d86b218d",
+                "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "f1938c5f-06be-42fb-afb8-b34dbc016031",
+                  "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  },
+                  {
+                    "type": "warn",
+                    "stage": "legacy policy load",
+                    "messages": [
+                      {
+                        "type": "warn",
+                        "message": "IPS blades are active on multiple layers.\nIPS: IPS, Standard Threat Prevention.\nR80 Gateway (or above) may have enforcement conflicts. See sk114434."
+                      }
+                    ]
+                  }
+                ],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716995972814,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716995949392,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-ALT",
+                "revision": "f1938c5f-06be-42fb-afb8-b34dbc016031"
+              },
+              {
+                "uid": "0b4487af-77c9-40e0-b772-714eaf010f78",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "8c3a7239-3d80-410a-8ce8-c974d86b218d",
+                "gatewayId": "919764e9-6a47-48f0-9b3e-6f17112817f1",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "f1938c5f-06be-42fb-afb8-b34dbc016031",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716995994602,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716995949424,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-02",
+                "revision": "f1938c5f-06be-42fb-afb8-b34dbc016031"
+              },
+              {
+                "uid": "a07990e6-e85c-45f9-aabd-151b1f3cf1fd",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "8c3a7239-3d80-410a-8ce8-c974d86b218d",
+                "gatewayId": "919764e9-6a47-48f0-9b3e-6f17112817f1",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "f1938c5f-06be-42fb-afb8-b34dbc016031",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716995996623,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716995949453,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-02",
+                "revision": "f1938c5f-06be-42fb-afb8-b34dbc016031"
+              },
+              {
+                "uid": "f6413b55-3158-45ba-97a1-032bbfbab4de",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "8c3a7239-3d80-410a-8ce8-c974d86b218d",
+                "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "f1938c5f-06be-42fb-afb8-b34dbc016031",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  }
+                ],
+                "cluster": true,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716995994593,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716995949508,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-CLUSTER",
+                "revision": "f1938c5f-06be-42fb-afb8-b34dbc016031"
+              },
+              {
+                "uid": "e211d66e-c145-42a4-b9a3-070636878f7f",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded with warnings",
+                "statusDescription": "Succeeded with Warnings",
+                "taskNotification": "8c3a7239-3d80-410a-8ce8-c974d86b218d",
+                "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "f1938c5f-06be-42fb-afb8-b34dbc016031",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  },
+                  {
+                    "type": "warn",
+                    "stage": "legacy policy load",
+                    "messages": [
+                      {
+                        "type": "warn",
+                        "message": "Anti-Bot, Anti-Virus, IPS, Threat-Emulation, Threat-Extraction, Zero-Phishing blades are active on multiple layers.\nAnti-Bot: IPS, Standard Threat Prevention.\nAnti-Virus: IPS, Standard Threat Prevention.\nIPS: IPS, Standard Threat Prevention.\nThreat-Emulation: IPS, Standard Threat Prevention.\nThreat-Extraction: IPS, Standard Threat Prevention.\nZero-Phishing: IPS, Standard Threat Prevention.\nR80 Gateway (or above) may have enforcement conflicts. See sk114434."
+                      }
+                    ]
+                  }
+                ],
+                "cluster": true,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716995996611,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716995949483,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-CLUSTER",
+                "revision": "f1938c5f-06be-42fb-afb8-b34dbc016031"
+              },
+              {
+                "uid": "d115ce77-2f86-492b-ac7e-4fef718bc056",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "8c3a7239-3d80-410a-8ce8-c974d86b218d",
+                "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "f1938c5f-06be-42fb-afb8-b34dbc016031",
+                  "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  }
+                ],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716995966679,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716995949439,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-ALT",
+                "revision": "f1938c5f-06be-42fb-afb8-b34dbc016031"
+              },
+              {
+                "uid": "7dea4076-19c7-43c8-a17c-cd6f02a9a3f2",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "8c3a7239-3d80-410a-8ce8-c974d86b218d",
+                "gatewayId": "25673932-9238-46f7-ba04-b441d49e5b9c",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "f1938c5f-06be-42fb-afb8-b34dbc016031",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716995994613,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716995949470,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-01",
+                "revision": "f1938c5f-06be-42fb-afb8-b34dbc016031"
+              },
+              {
+                "uid": "38a3da42-e1b4-41a5-a65f-e3fab46ce4a0",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "8c3a7239-3d80-410a-8ce8-c974d86b218d",
+                "gatewayId": "25673932-9238-46f7-ba04-b441d49e5b9c",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "f1938c5f-06be-42fb-afb8-b34dbc016031",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716995996639,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716995949495,
+                    "iso-8601": "2024-05-29T11:19-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-01",
+                "revision": "f1938c5f-06be-42fb-afb8-b34dbc016031"
+              }
+            ],
+            "comments": "2 installations succeeded",
+            "color": "black",
+            "icon": "General/globalsNa",
+            "tags": [],
+            "meta-info": {
+              "lock": "unlocked",
+              "validation-state": "ok",
+              "last-modify-time": {
+                "posix": 1716995997681,
+                "iso-8601": "2024-05-29T11:19-0400"
+              },
+              "last-modifier": "System",
+              "creation-time": {
+                "posix": 1716995949238,
+                "iso-8601": "2024-05-29T11:19-0400"
+              },
+              "creator": "System"
+            },
+            "read-only": false,
+            "available-actions": {
+              "edit": "true",
+              "delete": "true",
+              "clone": "false"
+            }
+          },
+          {
+            "uid": "519e002b-9dbb-4063-b91f-a7c9b9374193",
+            "type": "task",
+            "domain": {
+              "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+              "name": "SMC User",
+              "domain-type": "domain"
+            },
+            "task-id": "483337f9-bfe5-4d51-afd7-0f6c7c08fb03",
+            "task-name": "Policy installation - Standard",
+            "status": "succeeded",
+            "progress-percentage": 100,
+            "start-time": {
+              "posix": 1716997654582,
+              "iso-8601": "2024-05-29T11:47-0400"
+            },
+            "last-update-time": {
+              "posix": 1716997690898,
+              "iso-8601": "2024-05-29T11:48-0400"
+            },
+            "suppressed": false,
+            "task-details": [
+              {
+                "uid": "35c4658a-7dfd-4278-aaab-37faa2604c13",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "519e002b-9dbb-4063-b91f-a7c9b9374193",
+                "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "49651342-2c0e-40d7-824b-6f84f7461b55",
+                  "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  }
+                ],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997660649,
+                    "iso-8601": "2024-05-29T11:47-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997654792,
+                    "iso-8601": "2024-05-29T11:47-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-ALT",
+                "revision": "49651342-2c0e-40d7-824b-6f84f7461b55"
+              },
+              {
+                "uid": "fe65500e-f45e-47d7-9028-25df40d6822e",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded with warnings",
+                "statusDescription": "Succeeded with Warnings",
+                "taskNotification": "519e002b-9dbb-4063-b91f-a7c9b9374193",
+                "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "49651342-2c0e-40d7-824b-6f84f7461b55",
+                  "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  },
+                  {
+                    "type": "warn",
+                    "stage": "legacy policy load",
+                    "messages": [
+                      {
+                        "type": "warn",
+                        "message": "IPS blades are active on multiple layers.\nIPS: IPS, Standard Threat Prevention.\nR80 Gateway (or above) may have enforcement conflicts. See sk114434."
+                      }
+                    ]
+                  }
+                ],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997675485,
+                    "iso-8601": "2024-05-29T11:47-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997654832,
+                    "iso-8601": "2024-05-29T11:47-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-ALT",
+                "revision": "49651342-2c0e-40d7-824b-6f84f7461b55"
+              },
+              {
+                "uid": "e8651070-66c3-471d-8878-226c9be5b7df",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "519e002b-9dbb-4063-b91f-a7c9b9374193",
+                "gatewayId": "919764e9-6a47-48f0-9b3e-6f17112817f1",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "49651342-2c0e-40d7-824b-6f84f7461b55",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997689790,
+                    "iso-8601": "2024-05-29T11:48-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997654726,
+                    "iso-8601": "2024-05-29T11:47-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-02",
+                "revision": "49651342-2c0e-40d7-824b-6f84f7461b55"
+              },
+              {
+                "uid": "8866418a-e1fa-45d6-a378-879333acc154",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded with warnings",
+                "statusDescription": "Succeeded with Warnings",
+                "taskNotification": "519e002b-9dbb-4063-b91f-a7c9b9374193",
+                "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "49651342-2c0e-40d7-824b-6f84f7461b55",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  },
+                  {
+                    "type": "warn",
+                    "stage": "legacy policy load",
+                    "messages": [
+                      {
+                        "type": "warn",
+                        "message": "Anti-Bot, Anti-Virus, IPS, Threat-Emulation, Threat-Extraction, Zero-Phishing blades are active on multiple layers.\nAnti-Bot: IPS, Standard Threat Prevention.\nAnti-Virus: IPS, Standard Threat Prevention.\nIPS: IPS, Standard Threat Prevention.\nThreat-Emulation: IPS, Standard Threat Prevention.\nThreat-Extraction: IPS, Standard Threat Prevention.\nZero-Phishing: IPS, Standard Threat Prevention.\nR80 Gateway (or above) may have enforcement conflicts. See sk114434."
+                      }
+                    ]
+                  }
+                ],
+                "cluster": true,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997689780,
+                    "iso-8601": "2024-05-29T11:48-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997654733,
+                    "iso-8601": "2024-05-29T11:47-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-CLUSTER",
+                "revision": "49651342-2c0e-40d7-824b-6f84f7461b55"
+              },
+              {
+                "uid": "1b9aeb0e-19b4-4bf0-a0e6-6b7a8d8bd1da",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "519e002b-9dbb-4063-b91f-a7c9b9374193",
+                "gatewayId": "919764e9-6a47-48f0-9b3e-6f17112817f1",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "49651342-2c0e-40d7-824b-6f84f7461b55",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997661526,
+                    "iso-8601": "2024-05-29T11:47-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997654801,
+                    "iso-8601": "2024-05-29T11:47-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-02",
+                "revision": "49651342-2c0e-40d7-824b-6f84f7461b55"
+              },
+              {
+                "uid": "e148ad0d-cdaf-4c60-9ed4-536fd6b8c1d5",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "519e002b-9dbb-4063-b91f-a7c9b9374193",
+                "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "49651342-2c0e-40d7-824b-6f84f7461b55",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  }
+                ],
+                "cluster": true,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997661519,
+                    "iso-8601": "2024-05-29T11:47-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997654772,
+                    "iso-8601": "2024-05-29T11:47-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-CLUSTER",
+                "revision": "49651342-2c0e-40d7-824b-6f84f7461b55"
+              },
+              {
+                "uid": "53167a18-da48-4c43-90b2-217011a3b9e3",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "519e002b-9dbb-4063-b91f-a7c9b9374193",
+                "gatewayId": "25673932-9238-46f7-ba04-b441d49e5b9c",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "49651342-2c0e-40d7-824b-6f84f7461b55",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997689801,
+                    "iso-8601": "2024-05-29T11:48-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997654842,
+                    "iso-8601": "2024-05-29T11:47-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-01",
+                "revision": "49651342-2c0e-40d7-824b-6f84f7461b55"
+              },
+              {
+                "uid": "d89be42d-124a-4086-9bf4-579368ac1ede",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "519e002b-9dbb-4063-b91f-a7c9b9374193",
+                "gatewayId": "25673932-9238-46f7-ba04-b441d49e5b9c",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "49651342-2c0e-40d7-824b-6f84f7461b55",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997661535,
+                    "iso-8601": "2024-05-29T11:47-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997654816,
+                    "iso-8601": "2024-05-29T11:47-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-01",
+                "revision": "49651342-2c0e-40d7-824b-6f84f7461b55"
+              }
+            ],
+            "comments": "2 installations succeeded",
+            "color": "black",
+            "icon": "General/globalsNa",
+            "tags": [],
+            "meta-info": {
+              "lock": "unlocked",
+              "validation-state": "ok",
+              "last-modify-time": {
+                "posix": 1716997690905,
+                "iso-8601": "2024-05-29T11:48-0400"
+              },
+              "last-modifier": "System",
+              "creation-time": {
+                "posix": 1716997654583,
+                "iso-8601": "2024-05-29T11:47-0400"
+              },
+              "creator": "System"
+            },
+            "read-only": false,
+            "available-actions": {
+              "edit": "true",
+              "delete": "true",
+              "clone": "false"
+            }
+          },
+          {
+            "uid": "2bfd2c5b-cbb2-459d-b350-e0583982ee14",
+            "type": "task",
+            "domain": {
+              "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+              "name": "SMC User",
+              "domain-type": "domain"
+            },
+            "task-id": "e3a9dae7-4e58-4fe7-9b35-cc7a3bc99a58",
+            "task-name": "Policy installation - Standard",
+            "status": "succeeded",
+            "progress-percentage": 100,
+            "start-time": {
+              "posix": 1716997355287,
+              "iso-8601": "2024-05-29T11:42-0400"
+            },
+            "last-update-time": {
+              "posix": 1716997390166,
+              "iso-8601": "2024-05-29T11:43-0400"
+            },
+            "suppressed": false,
+            "task-details": [
+              {
+                "uid": "4223c8a2-68ee-4357-80c9-2f42c6410e2e",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "2bfd2c5b-cbb2-459d-b350-e0583982ee14",
+                "gatewayId": "25673932-9238-46f7-ba04-b441d49e5b9c",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "7274ff39-ed9d-44ce-95d3-910e2bd7b812",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997362081,
+                    "iso-8601": "2024-05-29T11:42-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997355819,
+                    "iso-8601": "2024-05-29T11:42-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-01",
+                "revision": "7274ff39-ed9d-44ce-95d3-910e2bd7b812"
+              },
+              {
+                "uid": "b98bd0d7-8222-4825-9da9-8bc7c25ebff0",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded with warnings",
+                "statusDescription": "Succeeded with Warnings",
+                "taskNotification": "2bfd2c5b-cbb2-459d-b350-e0583982ee14",
+                "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "7274ff39-ed9d-44ce-95d3-910e2bd7b812",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  },
+                  {
+                    "type": "warn",
+                    "stage": "legacy policy load",
+                    "messages": [
+                      {
+                        "type": "warn",
+                        "message": "Anti-Bot, Anti-Virus, IPS, Threat-Emulation, Threat-Extraction, Zero-Phishing blades are active on multiple layers.\nAnti-Bot: IPS, Standard Threat Prevention.\nAnti-Virus: IPS, Standard Threat Prevention.\nIPS: IPS, Standard Threat Prevention.\nThreat-Emulation: IPS, Standard Threat Prevention.\nThreat-Extraction: IPS, Standard Threat Prevention.\nZero-Phishing: IPS, Standard Threat Prevention.\nR80 Gateway (or above) may have enforcement conflicts. See sk114434."
+                      }
+                    ]
+                  }
+                ],
+                "cluster": true,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997389561,
+                    "iso-8601": "2024-05-29T11:43-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997355919,
+                    "iso-8601": "2024-05-29T11:42-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-CLUSTER",
+                "revision": "7274ff39-ed9d-44ce-95d3-910e2bd7b812"
+              },
+              {
+                "uid": "aafb67cc-642c-451f-9bd6-bfec75dc713c",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded with warnings",
+                "statusDescription": "Succeeded with Warnings",
+                "taskNotification": "2bfd2c5b-cbb2-459d-b350-e0583982ee14",
+                "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "7274ff39-ed9d-44ce-95d3-910e2bd7b812",
+                  "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  },
+                  {
+                    "type": "warn",
+                    "stage": "legacy policy load",
+                    "messages": [
+                      {
+                        "type": "warn",
+                        "message": "IPS blades are active on multiple layers.\nIPS: IPS, Standard Threat Prevention.\nR80 Gateway (or above) may have enforcement conflicts. See sk114434."
+                      }
+                    ]
+                  }
+                ],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997375566,
+                    "iso-8601": "2024-05-29T11:42-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997355869,
+                    "iso-8601": "2024-05-29T11:42-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-ALT",
+                "revision": "7274ff39-ed9d-44ce-95d3-910e2bd7b812"
+              },
+              {
+                "uid": "9aeb29b5-c306-43f5-95ac-f7b49f1a5bf7",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "2bfd2c5b-cbb2-459d-b350-e0583982ee14",
+                "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "7274ff39-ed9d-44ce-95d3-910e2bd7b812",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  }
+                ],
+                "cluster": true,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997362063,
+                    "iso-8601": "2024-05-29T11:42-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997355899,
+                    "iso-8601": "2024-05-29T11:42-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-CLUSTER",
+                "revision": "7274ff39-ed9d-44ce-95d3-910e2bd7b812"
+              },
+              {
+                "uid": "561ed9bb-309d-4250-aad1-82f43ffd473a",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "2bfd2c5b-cbb2-459d-b350-e0583982ee14",
+                "gatewayId": "919764e9-6a47-48f0-9b3e-6f17112817f1",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "7274ff39-ed9d-44ce-95d3-910e2bd7b812",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997362073,
+                    "iso-8601": "2024-05-29T11:42-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997355845,
+                    "iso-8601": "2024-05-29T11:42-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-02",
+                "revision": "7274ff39-ed9d-44ce-95d3-910e2bd7b812"
+              },
+              {
+                "uid": "45837651-33b1-48da-9e90-e73fa065baa3",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "2bfd2c5b-cbb2-459d-b350-e0583982ee14",
+                "gatewayId": "25673932-9238-46f7-ba04-b441d49e5b9c",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "7274ff39-ed9d-44ce-95d3-910e2bd7b812",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997389584,
+                    "iso-8601": "2024-05-29T11:43-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997355884,
+                    "iso-8601": "2024-05-29T11:42-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-01",
+                "revision": "7274ff39-ed9d-44ce-95d3-910e2bd7b812"
+              },
+              {
+                "uid": "7c675095-6cc6-4912-904b-1823e3c7667b",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "2bfd2c5b-cbb2-459d-b350-e0583982ee14",
+                "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "7274ff39-ed9d-44ce-95d3-910e2bd7b812",
+                  "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  }
+                ],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997361378,
+                    "iso-8601": "2024-05-29T11:42-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997355911,
+                    "iso-8601": "2024-05-29T11:42-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-ALT",
+                "revision": "7274ff39-ed9d-44ce-95d3-910e2bd7b812"
+              },
+              {
+                "uid": "06d64ad9-65e3-4ef8-8e2c-3fb78a5a8e17",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "2bfd2c5b-cbb2-459d-b350-e0583982ee14",
+                "gatewayId": "919764e9-6a47-48f0-9b3e-6f17112817f1",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "7274ff39-ed9d-44ce-95d3-910e2bd7b812",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716997389571,
+                    "iso-8601": "2024-05-29T11:43-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716997355854,
+                    "iso-8601": "2024-05-29T11:42-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-02",
+                "revision": "7274ff39-ed9d-44ce-95d3-910e2bd7b812"
+              }
+            ],
+            "comments": "2 installations succeeded",
+            "color": "black",
+            "icon": "General/globalsNa",
+            "tags": [],
+            "meta-info": {
+              "lock": "unlocked",
+              "validation-state": "ok",
+              "last-modify-time": {
+                "posix": 1716997390178,
+                "iso-8601": "2024-05-29T11:43-0400"
+              },
+              "last-modifier": "System",
+              "creation-time": {
+                "posix": 1716997355290,
+                "iso-8601": "2024-05-29T11:42-0400"
+              },
+              "creator": "System"
+            },
+            "read-only": false,
+            "available-actions": {
+              "edit": "true",
+              "delete": "true",
+              "clone": "false"
+            }
+          },
+          {
+            "uid": "d304e487-f580-4558-b2f6-c700070b61be",
+            "type": "task",
+            "domain": {
+              "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+              "name": "SMC User",
+              "domain-type": "domain"
+            },
+            "task-id": "7f7e0a66-121f-42ef-bfad-b2bb24ba7b43",
+            "task-name": "Policy installation - Standard",
+            "status": "succeeded",
+            "progress-percentage": 100,
+            "start-time": {
+              "posix": 1716996589796,
+              "iso-8601": "2024-05-29T11:29-0400"
+            },
+            "last-update-time": {
+              "posix": 1716996627102,
+              "iso-8601": "2024-05-29T11:30-0400"
+            },
+            "suppressed": false,
+            "task-details": [
+              {
+                "uid": "095b31ab-2e7a-4e55-8090-6fb012dcd2c1",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded with warnings",
+                "statusDescription": "Succeeded with Warnings",
+                "taskNotification": "d304e487-f580-4558-b2f6-c700070b61be",
+                "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "a34a9f64-15b9-43f8-a110-ba3d39df9be4",
+                  "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  },
+                  {
+                    "type": "warn",
+                    "stage": "legacy policy load",
+                    "messages": [
+                      {
+                        "type": "warn",
+                        "message": "IPS blades are active on multiple layers.\nIPS: IPS, Standard Threat Prevention.\nR80 Gateway (or above) may have enforcement conflicts. See sk114434."
+                      }
+                    ]
+                  }
+                ],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716996611805,
+                    "iso-8601": "2024-05-29T11:30-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716996589973,
+                    "iso-8601": "2024-05-29T11:29-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-ALT",
+                "revision": "a34a9f64-15b9-43f8-a110-ba3d39df9be4"
+              },
+              {
+                "uid": "ae470f2a-dbab-4855-ace3-b3ca8bb05afd",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "d304e487-f580-4558-b2f6-c700070b61be",
+                "gatewayId": "919764e9-6a47-48f0-9b3e-6f17112817f1",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "a34a9f64-15b9-43f8-a110-ba3d39df9be4",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716996626230,
+                    "iso-8601": "2024-05-29T11:30-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716996590020,
+                    "iso-8601": "2024-05-29T11:29-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-02",
+                "revision": "a34a9f64-15b9-43f8-a110-ba3d39df9be4"
+              },
+              {
+                "uid": "37bb58a7-e5f8-450a-a301-156fa4d0dbd7",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "d304e487-f580-4558-b2f6-c700070b61be",
+                "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "a34a9f64-15b9-43f8-a110-ba3d39df9be4",
+                  "gatewayId": "f2b220b4-3eb7-446d-9032-6c3de019be5b",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  }
+                ],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716996596040,
+                    "iso-8601": "2024-05-29T11:29-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716996590059,
+                    "iso-8601": "2024-05-29T11:29-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-ALT",
+                "revision": "a34a9f64-15b9-43f8-a110-ba3d39df9be4"
+              },
+              {
+                "uid": "db2f43db-f96e-405e-8b3a-f6ef87d623a8",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "d304e487-f580-4558-b2f6-c700070b61be",
+                "gatewayId": "25673932-9238-46f7-ba04-b441d49e5b9c",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "a34a9f64-15b9-43f8-a110-ba3d39df9be4",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716996597811,
+                    "iso-8601": "2024-05-29T11:29-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716996590032,
+                    "iso-8601": "2024-05-29T11:29-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-01",
+                "revision": "a34a9f64-15b9-43f8-a110-ba3d39df9be4"
+              },
+              {
+                "uid": "5416d44a-0bbd-4123-83e3-a836cf13f306",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "d304e487-f580-4558-b2f6-c700070b61be",
+                "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "a34a9f64-15b9-43f8-a110-ba3d39df9be4",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  }
+                ],
+                "cluster": true,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716996597792,
+                    "iso-8601": "2024-05-29T11:29-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716996590082,
+                    "iso-8601": "2024-05-29T11:29-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-CLUSTER",
+                "revision": "a34a9f64-15b9-43f8-a110-ba3d39df9be4"
+              },
+              {
+                "uid": "d4226e54-a881-4924-97af-53b1da8ca4bf",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "d304e487-f580-4558-b2f6-c700070b61be",
+                "gatewayId": "919764e9-6a47-48f0-9b3e-6f17112817f1",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                "fastInstallStatus": {
+                  "worksessionId": "a34a9f64-15b9-43f8-a110-ba3d39df9be4",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "87a69c6d-f415-4ab6-9ae0-a611111ab898",
+                  "status": "eligible",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716996597799,
+                    "iso-8601": "2024-05-29T11:29-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716996590045,
+                    "iso-8601": "2024-05-29T11:29-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-02",
+                "revision": "a34a9f64-15b9-43f8-a110-ba3d39df9be4"
+              },
+              {
+                "uid": "9272151a-e75f-4a1c-b395-0069f7234c3a",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded with warnings",
+                "statusDescription": "Succeeded with Warnings",
+                "taskNotification": "d304e487-f580-4558-b2f6-c700070b61be",
+                "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "a34a9f64-15b9-43f8-a110-ba3d39df9be4",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [
+                  {
+                    "type": "info",
+                    "stage": "modern verification",
+                    "messages": []
+                  },
+                  {
+                    "type": "warn",
+                    "stage": "legacy policy load",
+                    "messages": [
+                      {
+                        "type": "warn",
+                        "message": "Anti-Bot, Anti-Virus, IPS, Threat-Emulation, Threat-Extraction, Zero-Phishing blades are active on multiple layers.\nAnti-Bot: IPS, Standard Threat Prevention.\nAnti-Virus: IPS, Standard Threat Prevention.\nIPS: IPS, Standard Threat Prevention.\nThreat-Emulation: IPS, Standard Threat Prevention.\nThreat-Extraction: IPS, Standard Threat Prevention.\nZero-Phishing: IPS, Standard Threat Prevention.\nR80 Gateway (or above) may have enforcement conflicts. See sk114434."
+                      }
+                    ]
+                  }
+                ],
+                "cluster": true,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716996626224,
+                    "iso-8601": "2024-05-29T11:30-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716996590075,
+                    "iso-8601": "2024-05-29T11:29-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-CLUSTER",
+                "revision": "a34a9f64-15b9-43f8-a110-ba3d39df9be4"
+              },
+              {
+                "uid": "263690b0-d921-4193-bf54-9b5ba3cd1d78",
+                "domain": {
+                  "uid": "41e821a0-3720-11e3-aa6e-0800200c9fde",
+                  "name": "SMC User",
+                  "domain-type": "domain"
+                },
+                "color": "black",
+                "statusCode": "succeeded",
+                "statusDescription": "Succeeded",
+                "taskNotification": "d304e487-f580-4558-b2f6-c700070b61be",
+                "gatewayId": "25673932-9238-46f7-ba04-b441d49e5b9c",
+                "clusterGroupId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                "fastInstallStatus": {
+                  "worksessionId": "a34a9f64-15b9-43f8-a110-ba3d39df9be4",
+                  "gatewayId": "3cf483ef-2d67-4042-be22-e5f8183587e9",
+                  "policyId": "dc005ff3-c35e-4df6-84fc-543dbed6aaf9",
+                  "status": "blade_not_supported",
+                  "detailedReason": []
+                },
+                "runningStages": [],
+                "waitingStages": [],
+                "stagesInfo": [],
+                "cluster": false,
+                "meta-info": {
+                  "validation-state": "ok",
+                  "last-modify-time": {
+                    "posix": 1716996626244,
+                    "iso-8601": "2024-05-29T11:30-0400"
+                  },
+                  "last-modifier": "System",
+                  "creation-time": {
+                    "posix": 1716996590003,
+                    "iso-8601": "2024-05-29T11:29-0400"
+                  },
+                  "creator": "System"
+                },
+                "tags": [],
+                "icon": "General/globalsNa",
+                "comments": "",
+                "display-name": "",
+                "gatewayName": "NGFW-BCP-01",
+                "revision": "a34a9f64-15b9-43f8-a110-ba3d39df9be4"
+              }
+            ],
+            "comments": "2 installations succeeded",
+            "color": "black",
+            "icon": "General/globalsNa",
+            "tags": [],
+            "meta-info": {
+              "lock": "unlocked",
+              "validation-state": "ok",
+              "last-modify-time": {
+                "posix": 1716996627115,
+                "iso-8601": "2024-05-29T11:30-0400"
+              },
+              "last-modifier": "System",
+              "creation-time": {
+                "posix": 1716996589799,
+                "iso-8601": "2024-05-29T11:29-0400"
+              },
+              "creator": "System"
+            },
+            "read-only": false,
+            "available-actions": {
+              "edit": "true",
+              "delete": "true",
+              "clone": "false"
+            }
+          }
+        ],
+        "from": 1,
+        "to": 5,
+        "total": 70
+      }
+    },
+    "failed": false,
+    "changed": false
+  },
+  "_ansible_verbose_always": true,
+  "_ansible_no_log": false,
+  "changed": false
+}
