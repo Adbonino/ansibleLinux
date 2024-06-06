@@ -16,7 +16,7 @@
         path: "{{ item }}"
       register: stat_result
       loop: "{{ files }}"
-      delegate_to: '10.54.118.2'
+      delegate_to: 10.54.118.2
     
     - name: Crear lista de archivos existentes
       set_fact:
