@@ -50,11 +50,10 @@
 
   tasks:
 
-    - name: Cargar variables desde el archivo YAML
-      include_vars:
-        file: /tmp/existing_files.yml
-      delegate_to: localhost
+    - name: Leer contenido del archivo
+      command: cat /tmp/existing_files.yml
+      register: file_content
 
-    - name: Mostrar variables cargadas
+    - name: Mostrar contenido del archivo
       debug:
-        var: existing_files
+        var: file_content.stdout
