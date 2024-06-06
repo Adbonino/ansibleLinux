@@ -86,6 +86,9 @@
   gather_facts: no
   become: yes
 
+  vars: 
+    directorio_destino: "/home/ansible"
+
   tasks:
 
     - name: Leer contenido del archivo
@@ -128,3 +131,55 @@
       shell: scp root@10.54.118.2:{{ item }} {{ item }}
       loop: "{{ existing_files }}"
 
+    # Limpiar cache si es necesario
+    
+    - name: Verificar si el directorio existe
+      ansible.builtin.stat:
+        path: "/ruta/al/directorio"
+       register: directorio_existente
+
+    - name: Realizar tareas si el directorio existe
+      ansibel.builtin.block:
+        when: directorio_existente.stat.exists
+        block:
+          - name: Clear cache
+            shell: php "{{ directorio_destino }}/app/console" cache:clear --env=prod >> "{{ log }}" 2>&1
+
+          - name: Clear doctrine metadata cache
+           shell: php "{{ directorio_destino }}/app/console" doctrine:cache:clear-metadata --env=prod >> "{{ log }}" 2>&1
+
+          - name: Clear doctrine query cache
+            shell: php "{{ directorio_destino }}/app/console" doctrine:cache:clear-query --env=prod >> "{{ log }}" 2>&1
+
+          - name: Clear doctrine result cache
+            shell: php "{{ directorio_destino }}/app/console" doctrine:cache:clear-result --env=prod >> "{{ log }}" 2>&1
+
+          - name: Cambio dueño y grupo a /var/www/html/V1/instituto/app/cache
+            file:
+              path: /var/www/html/V1/instituto/app/cache
+              owner: apache
+              group: apache
+              recurse: yes
+
+          - name: Cambio de dueño y grupo a l/var/www/html/V1/instituto/app/logs
+            file:
+              path: /var/www/html/V1/instituto/app/logs
+              owner: apache
+              group: apache
+              recurse: yes
+
+          - name: Cambio de permisos a /var/www/html/V1/instituto/app/cache
+            file:
+              path: /var/www/html/V1/instituto/app/cache
+              mode: '0775'
+              recurse: yes
+
+          - name: Cambio de permisos a /var/www/html/V1/instituto/app/logs
+            file:
+              path: /var/www/html/V1/instituto/app/logs
+              mode: '0775'
+              recurse: yes 
+      rescue:
+        - name: no se limpio el cache
+          debug:
+            msg: "no se limpio el cache pues no se econtro el directorio /app/console" "
