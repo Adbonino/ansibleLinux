@@ -46,12 +46,57 @@
       loop: "{{ existing_files }}"
       delegate_to: localhost
 
+- name: Realizar backup asíncrono
+  hosts: WebProduccion
+  gather_facts: no
+  become: yes
+
+  vars:
+      directorio_origen: "/home/ansible/Instituto"
+      ruta_destino_backup: "/home/ansible"
+      nombre_backup: "backup_{{ ansible_date_time.date }}.tar.gz"
+
+  tasks:
+
+    - name: Comprimir directorio en un archivo tar.gz
+      archive:
+        path: "{{ directorio_origen }}"
+        dest: "{{ ruta_destino_backup }}/{{ nombre_backup }}"
+        format: gz
+      async: 3600
+      poll: 0
+      register: backup_result
+    
+    #- name: Iniciar backup asíncrono
+    #  command: /path/to/backup_script.sh
+    #  async: 3600  # Ejemplo de tiempo de espera en segundos (1 hora)
+    #  poll: 0
+    #  register: backup_result
+
+    - name: Esperar a que termine el backup
+      async_status:
+        jid: "{{ backup_result.ansible_job_id }}"
+      register: backup_status
+      until: backup_status.finished
+      retries: 60  # Número de intentos para verificar el estado del backup
+      delay: 10    # Intervalo de espera entre intentos
+
 - name: Verificar que los directorios existen y sino crearlos
   hosts: WebProduccion
   gather_facts: no
   become: yes
 
   tasks:
+
+    - name: Comprimir directorio en un archivo tar.gz
+      archive:
+        path: "{{ directorio_origen }}"
+        dest: "{{ ruta_destino_backup }}/{{ nombre_backup }}"
+        format: gz
+
+    - name: Mostrar mensaje de finalización
+      debug:
+        msg: "Backup completado: {{ ruta_destino_backup }}/{{ nombre_backup }}"
 
     - name: Leer contenido del archivo
       include_vars: 
