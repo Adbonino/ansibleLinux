@@ -1,6 +1,6 @@
 ---
 - name: Verificar si todos los archivos existen de Desarrollo
-  hosts: all
+  hosts: WebDesarrollo
   gather_facts: no
   become: yes
    
@@ -16,17 +16,34 @@
         path: "{{ item }}"
       register: stat_result
       loop: "{{ files }}"
-      delegate_to: 10.54.118.2
     
     - name: Crear lista de archivos existentes
       set_fact:
         existing_files: "{{ stat_result.results | selectattr('stat.exists', 'equalto', True) | map(attribute='item') | list }}"
       delegate_to: localhost
 
+    - name: Guardar la variable en un archivo JSON
+      copy:
+        content: "{{ existing_files | to_yaml }}"
+        dest: /tmp/variable.yml
+      delegate_to: localhost
+
     - name: Mostrar archivos que existen en el host fuente
       debug:
         msg: "Archivo '{{ item }}' existe en el host fuente"
       loop: "{{ existing_files }}"
+      delegate_to: localhost
+
+- name: Verificar que los directorios existen y sino crearlos
+  hosts: WebProduccion
+  gather_facts: no
+  become: yes
+
+  tasks:
+
+    - name: Incluir variables desde el archivo JSON
+      include_vars:
+        file: /tmp/variable.yml
       delegate_to: localhost
 
     - name: Separar la ruta del archivo
@@ -39,15 +56,9 @@
       set_fact:
         directories_path: "{{ parts[:-1] | join('/') | list }}"
       loop: "{{ existing_files }}"
-      delegate_to: localhost
 
     - name: Mostrar archivos que existen en el host fuente
       debug:
         msg: "Directorio: '{{ item }}' "
       loop: "{{ existing_files }}"
       delegate_to: localhost
-
-    
-        
-
-    
