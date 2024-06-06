@@ -50,7 +50,7 @@
       register: variables
 
     - debug:
-        var: variabless
+        var: variables
 
     #- name: Separar la ruta del archivo
     #  set_fact:
