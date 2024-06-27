@@ -1,0 +1,60 @@
+---
+- name: Determine and install Check Point policy that includes the group
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: List all policy packages
+      cp_mgmt_show_packages:
+        details_level: "full"
+      register: policy_packages
+
+    - name: Debug policy packages
+      debug:
+        var: policy_packages
+
+    - name: Determine the policy to install
+      set_fact:
+        policy_to_install: "{{ item.name }}"
+      loop: "{{ policy_packages['packages'] }}"
+      when: "'My_Group' in item['access-layers'] | json_query('[*].rulebase[*].source[*].name')"
+
+    - name: Debug the policy to install
+      debug:
+        var: policy_to_install
+
+    - name: Add new host to Check Point
+      cp_mgmt_host:
+        name: "New_Host"
+        ip_address: "192.168.1.10"
+        state: present
+        auto_publish_session: false
+        session_data:
+          session_name: "Ansible Session"
+          comments: "Adding new host via Ansible"
+
+    - name: Add host to group
+      cp_mgmt_group:
+        name: "My_Group"
+        members:
+          - "New_Host"
+        state: present
+        auto_publish_session: false
+        session_data:
+          session_name: "Ansible Session"
+          comments: "Adding host to group via Ansible"
+
+    - name: Publish session
+      cp_mgmt_publish:
+        session_name: "Ansible Session"
+
+    - name: Install policy
+      cp_mgmt_install_policy:
+        policy_package: "{{ policy_to_install }}"
+        targets: "My_Gateway"
+        session_data:
+          session_name: "Ansible Session"
+      register: install_result
+
+    - name: Debug install policy result
+      debug:
+        var: install_result

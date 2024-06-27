@@ -1,0 +1,35 @@
+---
+- name: Check if host exists
+  hosts: localhost
+  gather_facts: no
+  vars:
+    host_name_to_check: "host_name_to_check"  # Nombre del host que deseas verificar
+    ip_address_to_check: "ip_address_to_check"  # Dirección IP del host que deseas verificar
+
+  tasks:
+    - name: Get host facts
+      community.check_point.cp_mgmt_hosts_facts:
+        management_server: "management.example.com"
+        username: "admin"
+        password: "your_password"
+      register: host_facts
+
+    - name: Debug host facts
+      debug:
+        var: host_facts
+
+    - name: Check if host exists
+      set_fact:
+        host_exists: "{{ host_facts.objects | selectattr('name', 'equalto', host_name_to_check) | selectattr('ipv4-address.1', 'equalto', ip_address_to_check) | list | length > 0 }}"
+
+    - name: Debug host existence
+      debug:
+        var: host_exists
+
+    - name: Create host if it doesn't exist
+      check_point.mgmt.cp_mgmt_hosts:
+        state: present
+        config:
+          name: "{{ host_name_to_check }}"
+          ip_address: "{{ ip_address_to_check }}"
+      when: not host_exists
