@@ -1,0 +1,16 @@
+- name: Obtener listado de máquinas virtuales de vCenter
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Obtener información de todas las máquinas virtuales
+      community.vmware.vmware_vm_info:
+        hostname: "10.54.100.191"
+        username: "abonino"
+        password: "4d6edd4f9478325a"
+        validate_certs: no
+      register: vminfo
+
+    - name: Mostrar el listado de máquinas virtuales
+      debug:
+        msg: "{{ item.guest_name }}"
+      loop: "{{ vminfo.virtual_machines }}"

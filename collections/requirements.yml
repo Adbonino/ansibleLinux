@@ -4,3 +4,4 @@ collections:
 - cisco.nxos 
 - ansible.netcommon
 - check_point.mgmt
+- community.vmware
