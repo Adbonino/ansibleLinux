@@ -35,7 +35,7 @@
           host: smtp.gmail.com
           port: 587
           username: reportes.automatizados@gmail.com
-          password: lbruwodaqnzpepdb
+          password: dgmgnirbrcrttphr
           to: Adrian Bonino <adrian.bonino@la.logicalis.com>
           subject: Ansible-report
           body: "Listado de horas:
