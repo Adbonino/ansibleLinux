@@ -12,6 +12,12 @@
             - /home/abonino/archivos/file2.txt
             - /home/abonino/archivos/file3.txt
 
+      #- name: Creo el archivo TAR
+      #  command: >
+      #    tar -cvf /home/abonino/backu.tar {{ archivos | join(' ') }}
+
       - name: Creo el archivo TAR
-        command: >
-          tar -cvf /home/abonino/backu.tar {{ archivos | join(' ') }}
+        archive: 
+          path: "{{ archivos }}"
+          dest: /home/abonino/archivos.tar
+          format: tar
