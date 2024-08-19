@@ -1,0 +1,17 @@
+---
+  - name: "Backupo de archivos"
+    hosts: WebDesarrollo
+    become: true
+    
+    tasks:
+
+      - name: defino los archivos aincluir
+        sset_fact:
+          archivos: 
+            - /home/abonino/archivos/file1.txt
+            - /home/abonino/archivos/file2.txt
+            - /home/abonino/archivos/file3.txt
+
+      - name: Creo el archivo TAR
+        command: >
+          tar -cvf /home/abonino/backu.tar {{ archivos | join(' ') }}
