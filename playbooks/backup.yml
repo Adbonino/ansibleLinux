@@ -6,7 +6,7 @@
     tasks:
 
       - name: defino los archivos aincluir
-        sset_fact:
+        set_fact:
           archivos: 
             - /home/abonino/archivos/file1.txt
             - /home/abonino/archivos/file2.txt
