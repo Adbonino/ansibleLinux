@@ -16,7 +16,7 @@
 
       - name: "buscar path de micrositio"
         set_fact:
-          is_present: " {{  archivos | select('search', ruta) | list | length > 0 }} "
+          is_present: "{{ archivos | select('search', ruta) | list | length > 0 }}"
         delegate_to: localhost
 
       - name: "Mostrar listado de archivos"
