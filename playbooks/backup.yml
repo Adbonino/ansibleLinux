@@ -1,6 +1,6 @@
 ---
   - name: "Backupo de archivos"
-    hosts: all
+    hosts: localhost
     become: true
     vars:
       ruta: /home/abonino
