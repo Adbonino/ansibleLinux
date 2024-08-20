@@ -1,6 +1,6 @@
 ---
   - name: "Backupo de archivos"
-    hosts: localhost
+    hosts: WebProduccion
     become: true
     vars:
       ruta: /home/abonino
@@ -17,16 +17,19 @@
       - name: "buscar path de micrositio"
         set_fact:
           is_present: " {{  archivos | select('search', ruta) | list | length > 0 }} "
+        delegate_to: localhost
 
       - name: "mostrar mensaje si existe"
         debug:
           msg: "El path esta en la lista"
         when: is_present
+        delegate_to: localhost
 
       - name: "mostrar mensaje si no existe"
         debug:
           msg: "El path no esta en la lista de archivos"
         when: not is_present
+        delegate_to: localhost
    
       #- name: Creo el archivo TAR
       #  command: >
