@@ -21,7 +21,7 @@
 
       - name: "Mostrar listaod de archivos"
         debug:
-          var: "{{ archivos }}" 
+          var: archivos 
 
       - name: "mostrar mensaje si existe"
         debug:
