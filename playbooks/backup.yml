@@ -10,9 +10,9 @@
       - name: defino los archivos aincluir
         set_fact:
           archivos: 
-            - /home/abonino/archivos/file1.txt
-            - /home/abonino/archivos/file2.txt
-            - /home/abonino/archivos/file3.txt
+            - /home/abonin/archivos/file1.txt
+            - /home/abonin2/archivos/file2.txt
+            - /home/abonin3/archivos/file3.txt
 
       - name: "buscar path de micrositio"
         set_fact:
