@@ -19,9 +19,13 @@
           is_present: " {{  archivos | select('search', ruta) | list | length > 0 }} "
         delegate_to: localhost
 
-      - name: "Mostrar listaod de archivos"
+      - name: "Mostrar listado de archivos"
         debug:
-          var: archivos 
+          msg: "{{ archivos }}" 
+
+      - name: "Mostrar ruta"
+        debug:
+          msg: "{{ ruta }}" 
 
       - name: "mostrar mensaje si existe"
         debug:
