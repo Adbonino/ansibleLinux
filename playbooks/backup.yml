@@ -1,6 +1,6 @@
 ---
   - name: "Backupo de archivos"
-    hosts: WebProduccion
+    hosts: WebDesarrollo
     become: true
     vars:
       ruta: /home/abonino
