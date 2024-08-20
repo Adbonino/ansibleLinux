@@ -3,7 +3,7 @@
     hosts: localhost
     become: true
     vars:
-      ruta: /home/abonino
+      ruta: "/home/abonino/"
     
     tasks:
 
