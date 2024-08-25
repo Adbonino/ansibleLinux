@@ -10,7 +10,7 @@
        - /var/www/html/v1/intranet/instituto/file1
        - /var/www/html/v1/intranet/otraclase/fiel5
     
- tasks:
+   tasks:
     - name: Extraer directorio base de cada archivo
       set_fact:
         base_dirs: "{{ base_dirs | default([]) + [item | dirname] }}"
