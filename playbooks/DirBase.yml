@@ -17,7 +17,7 @@
         dest: /tmp/paths.txt
 
     - name: Ejecutar el script Python para encontrar el prefijo común
-      command: python3 /home/usuario/ansible/find_common_prefix.py {{ lookup('file', '/tmp/paths.txt') }}
+      command: python3 ./find_common_prefix.py {{ lookup('file', '/tmp/paths.txt') }}
       register: common_prefix_result
 
     - name: Mostrar directorio base común
