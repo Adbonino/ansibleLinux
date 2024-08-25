@@ -11,17 +11,14 @@
        - /var/www/html/v1/intranet/otraclase/fiel5
     
   tasks:
-    - name: Extraer directorio base de cada archivo
+    - name: Convertir rutas en listas de directorios
       set_fact:
-        base_dirs: "{{ base_dirs | default([]) + [item | dirname] }}"
-      loop: "{{ files }}"
-      
-    - name: Eliminar duplicados de directorios base
-      set_fact:
-        unique_base_dirs: "{{ base_dirs | unique }}"
-      
-    - name: Mostrar directorios base únicos
-      debug:
-        msg: "Directorio base: {{ item }}"
-      loop: "{{ unique_base_dirs }}"
+        dirs_lists: "{{ files | map('split', '/') | list }}"
 
+    - name: Encontrar el prefijo común
+      set_fact:
+        common_prefix: "{{ dirs_lists[0] | intersect(dirs_lists[1:]) | join('/') }}"
+    
+    - name: Mostrar directorio base común
+      debug:
+        msg: "Directorio base común: {{ common_prefix }}"
