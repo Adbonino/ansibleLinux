@@ -1,24 +1,25 @@
 ---
-- name: "muestra el directorio base de un listado de PATH absolutos"
+- name: "Encuentra el directorio base común en un listado de PATH absolutos"
   hosts: localhost
   become: true
   vars:
-      files:
-       - /var/www/html/v1/intrenet/instituto/file1
-       - /var/www/html/v1/intrenet/instituto/file2
-       - /var/www/html/v1/intranet/otraclase/fiel4
-       - /var/www/html/v1/intranet/instituto/file1
-       - /var/www/html/v1/intranet/otraclase/fiel5
-    
-  tasks:
-    - name: Convertir rutas en listas de directorios
-      set_fact:
-        dirs_lists: "{{ files | map('split', '/') | list }}"
+    files:
+      - /var/www/html/v1/intrenet/instituto/file1
+      - /var/www/html/v1/intrenet/instituto/file2
+      - /var/www/html/v1/intranet/otraclase/fiel4
+      - /var/www/html/v1/intranet/instituto/file1
+      - /var/www/html/v1/intranet/otraclase/fiel5
 
-    - name: Encontrar el prefijo común
-      set_fact:
-        common_prefix: "{{ dirs_lists[0] | intersect(dirs_lists[1:]) | join('/') }}"
-    
+  tasks:
+    - name: Guardar archivos en un archivo temporal
+      copy:
+        content: "{{ files | join('\n') }}"
+        dest: /tmp/paths.txt
+
+    - name: Ejecutar el script Python para encontrar el prefijo común
+      command: python3 /home/usuario/ansible/find_common_prefix.py {{ lookup('file', '/tmp/paths.txt') }}
+      register: common_prefix_result
+
     - name: Mostrar directorio base común
       debug:
-        msg: "Directorio base común: {{ common_prefix }}"
+        msg: "Directorio base común: {{ common_prefix_result.stdout }}"
