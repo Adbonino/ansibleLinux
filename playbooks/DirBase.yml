@@ -1,6 +1,6 @@
 ---
 - name: "Encuentra el directorio base común en un listado de PATH absolutos"
-  hosts: localhost
+  hosts: WebDesarrollo
   become: true
   vars:
     files:
