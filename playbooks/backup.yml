@@ -1,0 +1,50 @@
+---
+  - name: "Backupo de archivos"
+    hosts: localhost
+    become: true
+    vars:
+      ruta: '/home/abonino/'
+    
+    tasks:
+
+      - name: defino los archivos aincluir
+        set_fact:
+          archivos: 
+            - /home/abonin/archivos/file1.txt
+            - /home/abonin2/archivos/file2.txt
+            - /home/abonin3/archivos/file3.txt
+
+      - name: "buscar path de micrositio"
+        set_fact:
+          is_present: "{{ archivos | select('search', ruta) | list | length > 0 }}"
+        delegate_to: localhost
+
+      - name: "Mostrar listado de archivos"
+        debug:
+          msg: "{{ archivos }}" 
+
+      - name: "Mostrar ruta"
+        debug:
+          msg: "{{ ruta }}" 
+
+      - name: "mostrar mensaje si existe"
+        debug:
+          msg: "El path esta en la lista"
+        when: is_present
+        delegate_to: localhost
+
+      - name: "mostrar mensaje si no existe"
+        debug:
+          msg: "El path no esta en la lista de archivos"
+        when: not is_present
+        delegate_to: localhost
+   
+      #- name: Creo el archivo TAR
+      #  command: >
+      #    tar -cvf /home/abonino/backu.tar {{ archivos | join(' ') }}
+
+      #- name: Creo el archivo TAR
+      #  archive: 
+      #    path: "{{ archivos }}"
+      #    dest: /home/abonino/archivos.tar
+      #    format: tar
