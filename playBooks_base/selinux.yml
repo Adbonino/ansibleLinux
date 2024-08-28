@@ -1,0 +1,28 @@
+---
+- name: Configurar y reiniciar SELinux
+  hosts: all
+  become: yes
+  tasks:
+    - name: Establecer SELinux en modo enforcing
+      ansible.posix.selinux:
+        state: enforcing
+      when: selinux_mode != 'disabled'
+      register: selinux_result
+
+    - name: Establecer SELinux en modo permissive
+      ansible.posix.selinux:
+        state: permissive
+      when: selinux_mode == 'permissive'
+      register: selinux_result
+
+    - name: Establecer SELinux en modo disabled
+      ansible.posix.selinux:
+        state: disabled
+      when: selinux_mode == 'disabled'
+      register: selinux_result
+
+    - name: Reiniciar el sistema si SELinux está en modo disabled
+      ansible.builtin.reboot:
+        reboot_timeout: 300
+      when: selinux_mode == 'disabled'
+      # Asegúrate de que no estás en modo `debug`, ya que `reboot` podría requerir una espera o confirmación
