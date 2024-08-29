@@ -7,6 +7,10 @@
     - name: Obtener el modo SELinux actual
       command: getenforce
       register: selinux_mode
+
+    - name: Obtener el modo SELinux actual
+      debug:
+        vars: selinux_mode  
     
     - name: Establecer SELinux en modo enforcing
       ansible.posix.selinux:
@@ -32,3 +36,5 @@
         reboot_timeout: 300
       when: selinux_mode == 'disabled'
       # Asegúrate de que no estás en modo `debug`, ya que `reboot` podría requerir una espera o confirmación
+
+      
