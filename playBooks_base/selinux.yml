@@ -16,7 +16,7 @@
       ansible.posix.selinux:
         state: enforcing
         policy: targeted
-      when: selinux_mode.stdout != 'disabled'
+      when: selinux_mode.stdout != 'Disabled'
       register: selinux_result
 
     - name: Establecer SELinux en modo permissive
@@ -28,13 +28,13 @@
     - name: Establecer SELinux en modo disabled
       ansible.posix.selinux:
         state: disabled
-      when: selinux_mode.stdout  == 'disabled'
+      when: selinux_mode.stdout  == 'Disabled'
       register: selinux_result
 
     - name: Reiniciar el sistema si SELinux está en modo disabled
       ansible.builtin.reboot:
         reboot_timeout: 300
-      when: selinux_mode.stdout  == 'disabled'
+      when: selinux_mode.stdout  == 'Disabled'
       # Asegúrate de que no estás en modo `debug`, ya que `reboot` podría requerir una espera o confirmación
 
       
