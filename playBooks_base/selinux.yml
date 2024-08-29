@@ -1,6 +1,6 @@
 ---
 - name: Configurar y reiniciar SELinux
-  hosts: all
+  hosts: WebDesarrollo
   become: yes
   tasks:
     - name: Establecer SELinux en modo enforcing

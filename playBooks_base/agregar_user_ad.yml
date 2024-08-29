@@ -1,0 +1,30 @@
+---
+- name: Add users to Active Directory
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Create AD users and add them to a group
+      community.general.win_ad_user:
+        name: "{{ item.Username }}"
+        given_name: "{{ item.Nombre }}"
+        surname: "{{ item.Apellidos }}"
+        user_principal_name: "{{ item.Username }}@bcp.gov.py"
+        sam_account_name: "{{ item.Username }}"
+        account_password: "{{ item.Password }}"
+        path: "OU=Personal BCP,DC=bcp,DC=gov,DC=py"
+        state: present
+        password_never_expires: no
+        change_password_at_logon: yes
+        initials: "{{ item.Codigo }}"
+        enabled: yes
+      with_items: "{{ users }}"
+      delegate_to: localhost
+
+    - name: Add users to the group
+      community.general.win_ad_group:
+        name: "WIFI_USERS"
+        members:
+          - "{{ item.Username }}"
+        state: present
+      with_items: "{{ users }}"
+      delegate_to: localhost
