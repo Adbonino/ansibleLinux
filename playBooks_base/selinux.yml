@@ -11,6 +11,7 @@
     - name: Establecer SELinux en modo enforcing
       ansible.posix.selinux:
         state: enforcing
+        policy: targeted
       when: selinux_mode != 'disabled'
       register: selinux_result
 
