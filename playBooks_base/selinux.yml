@@ -16,7 +16,7 @@
       ansible.posix.selinux:
         state: enforcing
         policy: targeted
-      when: selinux_mode.stdout = 'Disabled'
+      when: selinux_mode.stdout == 'Disabled'
       register: selinux_result
 
     #- name: Establecer SELinux en modo permissive
