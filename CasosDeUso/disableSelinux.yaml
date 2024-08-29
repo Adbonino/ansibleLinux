@@ -17,9 +17,9 @@
         path: /etc/selinux/config
         regexp: '^SELINUX='
         line: 'SELINUX=disabled'
-      when: selinux_mode.stdout == "Permissive" || selinux_mode.stdout == "Enforcing"
+      when: selinux_mode.stdout == "Permissive" or selinux_mode.stdout == "Enforcing"
 
     - name: Reiniciar el sistema si SELinux está en modo disabled
       ansible.builtin.reboot:
         reboot_timeout: 300
-      when: selinux_mode.stdout == "Permissive" || selinux_mode.stdout == "Enforcing"
+      when: selinux_mode.stdout == "Permissive" ordfg selinux_mode.stdout == "Enforcing"
