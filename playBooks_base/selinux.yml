@@ -6,9 +6,9 @@
 
     - name: Obtener el modo SELinux actual
       command: getenforce
-      register: selinux_mode
+      register: selinux_mode.stdout
 
-    - name: Obtener el modo SELinux actual
+    - name: Mostar el modo SELinux actual
       debug:
         var: selinux_mode  
     
