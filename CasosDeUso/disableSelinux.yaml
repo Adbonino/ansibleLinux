@@ -4,16 +4,22 @@
   gather_facts: no
 
   tasks:
+    - name: Obtener el modo SELinux actual
+      command: getenforce
+      register: selinux_mode
+
+    - name: Mostar el modo SELinux actual
+      debug:
+        var: selinux_mode.stdout 
+    
     - name: Modificar SELinux en /etc/selinux/config
       lineinfile:
         path: /etc/selinux/config
         regexp: '^SELINUX='
         line: 'SELINUX=disabled'
-      register: selinux_changed
-  
-  handlers:
-    - name: Reiniciar el servidor
-      command: reboot
-      async: 1
-      poll: 0
-      when: selinux_changed.changed
+      when: selinux_mode.stdout == "Permissive" || selinux_mode.stdout == "Enforcing"
+
+    - name: Reiniciar el sistema si SELinux está en modo disabled
+      ansible.builtin.reboot:
+        reboot_timeout: 300
+      when: selinux_mode.stdout == "Permissive" || selinux_mode.stdout == "Enforcing"
