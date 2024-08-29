@@ -1,6 +1,6 @@
 ---
 - name: Habilitar SELinux de forma permanente
-  hosts: all
+  hosts: WebDesarrollo
   gather_facts: no
 
   tasks:
