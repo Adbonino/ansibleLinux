@@ -3,6 +3,11 @@
   hosts: WebDesarrollo
   become: yes
   tasks:
+
+    - name: Obtener el modo SELinux actual
+      command: getenforce
+      register: selinux_mode
+    
     - name: Establecer SELinux en modo enforcing
       ansible.posix.selinux:
         state: enforcing
