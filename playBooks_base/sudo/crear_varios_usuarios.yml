@@ -22,10 +22,13 @@
       register: passwords
       delegate_to: localhost
 
+    - name: Mostrar password
+      debug:
+         msg: {{ passwrods }}
 
-    - name: Crear usuarios
-      user:
-        name: "{{ item.item }}"
-        password: "{{ (passwords.results | selectattr('item', 'equalto', item.item) | first).stdout }}"
-        state: present
-      loop: "{{ lista_de_usuarios }}"
+    #- name: Crear usuarios
+    #  user:
+    #    name: "{{ item.item }}"
+    #    password: "{{ (passwords.results | selectattr('item', 'equalto', item.item) | first).stdout }}"
+    #   state: present
+    #  loop: "{{ lista_de_usuarios }}"
