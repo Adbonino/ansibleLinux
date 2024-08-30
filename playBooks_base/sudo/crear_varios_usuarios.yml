@@ -16,21 +16,17 @@
       set_fact:
         lista_de_usuarios: "{{ usuarios.split(',') }}"
 
-    - name: Generar hash de la contraseña con openssl
-      command: "openssl passwd -1 '{{ item }}'"
-      register: hashed_password_output
-      loop: "{{ lista_de_usuarios }}"
-      delegate_to: localhost
+    - name: Generar hash de la contraseña con openssl y crear usuario
+      block:
+        - name: Crear hash
+          command: "openssl passwd -1 '{{ item }}'"
+          register: hashed_password_output
+          delegate_to: localhost
 
-    - name: Generar hash de la contraseña con openssl
-      debug: 
-        msg: "{{ hashed_password_output.stdout }}"
-      delegate_to: localhost
-
-
-    - name: Crear el usuario si no existe
-      user:
-        name: "{{ item }}"
-        password: "{{ hashed_password_output.stdout }}"
-        state: present
+        - name: Crear el usuario si no existe
+          user:
+            name: "{{ item }}"
+            password: "{{ hashed_password_output.stdout }}"
+            state: present
+            
       loop: "{{ lista_de_usuarios }}"
