@@ -45,5 +45,5 @@
 
     - name: mostar conntenido del archivo temporal
       debug:
-        msg: file_contentd
+        msg: "{{ file_content['content'] | b64decode }}"
       delegate_to: localhost
