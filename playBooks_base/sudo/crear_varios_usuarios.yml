@@ -24,7 +24,7 @@
 
     - name: Mostrar password
       debug:
-         msg: {{ passwords }}
+        msg: "{{ passwords }}"
 
     #- name: Crear usuarios
     #  user:
