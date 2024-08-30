@@ -22,10 +22,6 @@
       register: passwords
       delegate_to: localhost
 
-    - name: Mostrar password
-      debug:
-        msg: "{{ passwords }}"
-
     - name: Crear usuarios
       user:
         name: "{{ item }}"
