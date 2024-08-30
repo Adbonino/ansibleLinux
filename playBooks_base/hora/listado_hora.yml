@@ -5,11 +5,6 @@
     
     tasks:
 
-    - name: Definir path del archvivo de slaida
-      set_fact:
-        path_salida: "/tmp/listado_Hora"
-      delegate_to: localhost
-    
     - name: consultar confg de horario
       shell: "date +'%Y-%m-%d %H:%M:%S'"
       register: out_date_linux
