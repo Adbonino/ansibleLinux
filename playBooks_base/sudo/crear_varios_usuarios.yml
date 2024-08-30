@@ -26,9 +26,9 @@
       debug:
         msg: "{{ passwords }}"
 
-    #- name: Crear usuarios
-    #  user:
-    #    name: "{{ item.item }}"
-    #    password: "{{ (passwords.results | selectattr('item', 'equalto', item.item) | first).stdout }}"
-    #   state: present
-    #  loop: "{{ lista_de_usuarios }}"
+    - name: Crear usuarios
+      user:
+        name: "{{ item }}"
+        password: "{{ (passwords.results | selectattr('item', 'equalto', item) | first).stdout }}"
+        state: present
+      loop: "{{ lista_de_usuarios }}"
