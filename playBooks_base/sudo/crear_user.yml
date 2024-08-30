@@ -7,6 +7,7 @@
   tasks:
     - name: Obtener información del sistema
       command: cat /etc/os-release
+      register: os_release
     
     - name: Verificar la distribución
       set_fact:
