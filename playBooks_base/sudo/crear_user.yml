@@ -15,9 +15,15 @@
     - name: Generar hash de la contraseña con openssl
       command: "openssl passwd -1 '{{ password }}'"
       register: hashed_password_output
+      delegate_to: localhost
+
+    - name: Mostrar Hash
+      command: "openssl passwd -1 '{{ password }}'"
+      register: hashed_password_output.stdout
+      delegate_to: localhost
 
     - name: Crear el usuario si no existe
       user:
         name: "{{ nombre_de_usuario }}"
-        password: "{{ hashed_password_output }}"
+        password: "{{ hashed_password_output.stdout }}"
         state: present
