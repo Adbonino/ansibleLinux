@@ -2,10 +2,13 @@
   - name: "Listado de horarios de servidores"
     hosts: all
     become: true
-    vars:
-      path_salida: "/tmp/listado_Hora"
     
     tasks:
+
+    - name: Definir path del archvivo de slaida
+      set_fact:
+        path_salida: "/tmp/listado_Hora"
+    
     - name: consultar confg de horario
       shell: "date +'%Y-%m-%d %H:%M:%S'"
       register: out_date_linux
