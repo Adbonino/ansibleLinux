@@ -1,0 +1,39 @@
+---
+  - name: "Listado de horarios de servidores"
+    hosts: all
+    become: true
+    vars:
+      path_salida: "/tmp/"
+    
+    tasks:
+    - name: consultar confg de horario
+      shell: "date +'%Y-%m-%d %H:%M:%S'"
+      register: out_date_linux
+      when: ansible_facts['os_family'] != 'Windows'
+
+    - name: Guardar la salida en un archivo temporal
+      local_action:
+        module: lineinfile
+        line: "{{ ansible_hostname }}: {{  out_date_linux.stdout_lines }}"
+        path: "{{ path_salida }}"
+        create: yes
+        state: present
+        insertafter: EOF
+      when:  ansible_facts['os_family'] != 'Windows'
+      delegate_to: localhost
+  
+    - name: Ejecutar comando PowerShell para obtener la hora actual
+      win_command: powershell -Command "Get-Date -Format 'yyyy-MM-dd HH:mm:ss'"
+      register: out_date_win
+      when:  ansible_facts['os_family'] == 'Windows'
+
+    - name: Guardar la salida en un archivo temporal
+      local_action:
+        module: lineinfile
+        line: "{{ ansible_hostname }}: {{ out_date_win.stdout_lines }}"
+        path: "{{ path_salida }}"
+        create: yes
+        state: present
+        insertafter: EOF
+      when:  ansible_facts['os_family'] == 'Windows'
+      delegate_to: localhost
