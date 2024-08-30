@@ -36,6 +36,7 @@
           {% endif %}
         create: yes
         state: present
+      delegate_to: localhost
 
     - name: Mostrar Hash
       debug: 
@@ -49,6 +50,10 @@
         state: present
       register: creacion_user
 
+    - name: mostrar
+      debug:
+        msg: "{{ creacion_user }}"
+
     - lineinfile:
         path: "{{ path_salida }}"
         line: >
@@ -60,6 +65,7 @@
           {% endif %}
         create: yes
         state: present
+      delegate_to: localhost
 
     - name: enviar correo
       include_tasks: enviar_Salida.yml
