@@ -1,4 +1,4 @@
-- name: Configurar usuarios en función de la distribución
+- name: Crear Usuario
   hosts: all
   become: yes
   
