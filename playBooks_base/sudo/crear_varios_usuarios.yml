@@ -17,6 +17,7 @@
         lista_de_usuarios: "{{ usuarios.split(',') }}"
 
     - name: Generar hash de la contraseña con openssl y crear usuario
+      loop: "{{ lista_de_usuarios }}"
       block:
         - name: Crear hash
           command: "openssl passwd -1 '{{ item }}'"
@@ -28,5 +29,3 @@
             name: "{{ item }}"
             password: "{{ hashed_password_output.stdout }}"
             state: present
-            
-      loop: "{{ lista_de_usuarios }}"
