@@ -14,7 +14,7 @@
       local_action:
         module: lineinfile
         line: "{{ ansible_hostname }}: {{  out_date_linux.stdout_lines }}"
-        path: "/tmp/salida-txt"
+        path: "/tmp/salida.txt"
         create: yes
         state: present
         insertafter: EOF
@@ -30,7 +30,7 @@
       local_action:
         module: lineinfile
         line: "{{ ansible_hostname }}: {{ out_date_win.stdout_lines }}"
-        path: "/tmp/salida-txt"
+        path: "/tmp/salida.txt"
         create: yes
         state: present
         insertafter: EOF
@@ -39,7 +39,7 @@
 
     - name: Leer contenido del archivo temporal
       slurp:
-        src: "/tmp/salida-txt"
+        src: "/tmp/salida.txt"
       register: file_content
       delegate_to: localhost
 
