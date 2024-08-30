@@ -36,3 +36,14 @@
         insertafter: EOF
       when:  ansible_facts['os_family'] == 'Windows'
       delegate_to: localhost
+
+    - name: Leer contenido del archivo temporal
+      slurp:
+        src: "/tmp/salida-txt"
+      register: file_content
+      delegate_to: localhost
+
+    - name: mostar conntenido del archivo temporal
+      debug:
+        msg: file_contentd
+      delegate_to: localhost
