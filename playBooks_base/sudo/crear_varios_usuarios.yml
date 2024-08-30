@@ -22,6 +22,11 @@
       loop: "{{ lista_de_usuarios }}"
       delegate_to: localhost
 
+    - name: Generar hash de la contraseña con openssl
+      debug: 
+        msg: "{{ hashed_password_output.stdout }}"
+      delegate_to: localhost
+
 
     - name: Crear el usuario si no existe
       user:
