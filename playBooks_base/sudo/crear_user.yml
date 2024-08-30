@@ -1,11 +1,19 @@
 - name: Crear Usuario
   hosts: all
   become: yes
+  vars:
+    path_salida: "/tmp/crear_user.tml"
   
   tasks:
     - name: Obtener información del sistema
       command: cat /etc/os-release
       register: os_release
+    
+    - lineinfile:
+        path: "{{ path_salida }}"
+        line: "SISTEMA OPERATIVO: {{ os_release }}"
+        create: yes
+        state: present
 
     - name: Verificar la distribución
       set_fact:
@@ -17,6 +25,18 @@
       register: hashed_password_output
       delegate_to: localhost
 
+    - lineinfile:
+        path: "{{ path_salida }}"
+        line: >
+          Generacion de Hash:
+          {% if hashed_password_output.rc == 0 %}
+          OK.
+          {% else %}
+          {{ hashed_password_output.rc }}.
+          {% endif %}
+        create: yes
+        state: present
+
     - name: Mostrar Hash
       debug: 
         msg: "{{ hashed_password_output.stdout }}"
@@ -27,3 +47,22 @@
         name: "{{ nombre_de_usuario }}"
         password: "{{ hashed_password_output.stdout }}"
         state: present
+      register: creacion_user
+
+    - lineinfile:
+        path: "{{ path_salida }}"
+        line: >
+          Creacion del usurio {{nombre_de_usuario}}:
+          {% if creacion_user.rc == 0 %}
+          OK.
+          {% else %}
+          {{ creacion_user.rc }}.
+          {% endif %}
+        create: yes
+        state: present
+
+    - name: enviar correo
+      include_tasks: enviar_Salida.yml
+       
+  
+  

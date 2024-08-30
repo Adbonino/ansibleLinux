@@ -28,12 +28,3 @@
         password: "{{ (passwords.results | selectattr('item', 'equalto', item) | first).stdout }}"
         state: present
       loop: "{{ lista_de_usuarios }}"
-
-    - name: Save playbook output to file
-      copy:
-        content: "{{ playbook_output.stdout }}"
-        dest: /tmp/playbook_output.txt
-      delegate_to: localhost  
-
-    - name: Enviar mail
-      include_tasks: enviar_Salida.yml

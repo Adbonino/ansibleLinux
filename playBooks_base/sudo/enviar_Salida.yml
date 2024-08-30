@@ -5,7 +5,7 @@
   tasks:
       - name: Leer contenido del archivo temporal
         slurp:
-          src: /tmp/playbook_output.txt
+          src: "{{ path_salida }}"
         register: file_content
 
       - name: enviar mail
