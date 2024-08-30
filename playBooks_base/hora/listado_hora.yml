@@ -14,7 +14,7 @@
       local_action:
         module: lineinfile
         line: "{{ ansible_hostname }}: {{  out_date_linux.stdout_lines }}"
-        path: "{{ path_salida }}"
+        path: "/tmp/salida-txt"
         create: yes
         state: present
         insertafter: EOF
@@ -30,7 +30,7 @@
       local_action:
         module: lineinfile
         line: "{{ ansible_hostname }}: {{ out_date_win.stdout_lines }}"
-        path: "{{ path_salida }}"
+        path: "/tmp/salida-txt"
         create: yes
         state: present
         insertafter: EOF
