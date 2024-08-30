@@ -20,7 +20,7 @@
       loop: "{{ lista_de_usuarios }}"
       vars:
         password: "{{ lookup('pipe', 'openssl passwd -1 ' + item) }}"
-      block:
+      tasks:
         - name: Crear el usuario si no existe
           user:
             name: "{{ item }}"
