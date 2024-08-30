@@ -3,7 +3,7 @@
     hosts: all
     become: true
     vars:
-      path_salida: "/tmp/"
+      path_salida: "/tmp/listado_Hora"
     
     tasks:
     - name: consultar confg de horario
