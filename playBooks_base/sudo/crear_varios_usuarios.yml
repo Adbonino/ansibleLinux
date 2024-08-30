@@ -25,7 +25,7 @@
 
     - name: Crear el usuario si no existe
       user:
-        name: "{{ nombre_de_usuario }}"
+        name: "{{ item }}"
         password: "{{ hashed_password_output.stdout }}"
         state: present
       loop: "{{ lista_de_usuarios }}"
