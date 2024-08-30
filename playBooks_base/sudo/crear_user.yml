@@ -12,7 +12,12 @@
         is_redhat: "{{ 'Red Hat' in os_release.stdout or 'CentOS' in os_release.stdout or 'Fedora' in os_release.stdout }}"
         is_debian: "{{ 'Ubuntu' in os_release.stdout or 'Debian' in os_release.stdout }}"
 
+    - name: Generar hash de la contraseña con openssl
+      command: "openssl passwd -1 '{{ password }}'"
+      register: hashed_password_output
+
     - name: Crear el usuario si no existe
       user:
         name: "{{ nombre_de_usuario }}"
+        password: "{{ hashed_password_output }}"
         state: present
