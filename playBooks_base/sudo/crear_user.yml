@@ -7,18 +7,7 @@
   tasks:
     - name: Obtener información del sistema
       command: cat /etc/os-release
-      register: os_release
     
-    - name: mostrar
-      debug:
-        msg: "{{ os_release }}"
-    
-    - lineinfile:
-        path: "{{ path_salida }}"
-        line: "SISTEMA OPERATIVO: {{ os_release }}"
-        create: yes
-        state: present
-
     - name: Verificar la distribución
       set_fact:
         is_redhat: "{{ 'Red Hat' in os_release.stdout or 'CentOS' in os_release.stdout or 'Fedora' in os_release.stdout }}"
@@ -27,19 +16,6 @@
     - name: Generar hash de la contraseña con openssl
       command: "openssl passwd -1 '{{ password }}'"
       register: hashed_password_output
-      delegate_to: localhost
-
-    - lineinfile:
-        path: "{{ path_salida }}"
-        line: >
-          Generacion de Hash:
-          {% if hashed_password_output.rc == 0 %}
-          OK.
-          {% else %}
-          {{ hashed_password_output.rc }}.
-          {% endif %}
-        create: yes
-        state: present
       delegate_to: localhost
 
     - name: Mostrar Hash
@@ -52,27 +28,7 @@
         name: "{{ nombre_de_usuario }}"
         password: "{{ hashed_password_output.stdout }}"
         state: present
-      register: creacion_user
 
-    - name: mostrar
-      debug:
-        msg: "{{ creacion_user }}"
-
-    - lineinfile:
-        path: "{{ path_salida }}"
-        line: >
-          Creacion del usurio {{nombre_de_usuario}}:
-          {% if creacion_user.rc == 0 %}
-          OK.
-          {% else %}
-          {{ creacion_user.rc }}.
-          {% endif %}
-        create: yes
-        state: present
-      delegate_to: localhost
-
-    - name: enviar correo
-      include_tasks: enviar_Salida.yml
        
   
   
