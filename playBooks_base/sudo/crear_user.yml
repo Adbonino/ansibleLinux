@@ -1,0 +1,18 @@
+- name: Configurar usuarios en función de la distribución
+  hosts: all
+  become: yes
+  
+  tasks:
+    - name: Obtener información del sistema
+      command: cat /etc/os-release
+      register: os_release
+
+    - name: Verificar la distribución
+      set_fact:
+        is_redhat: "{{ 'Red Hat' in os_release.stdout or 'CentOS' in os_release.stdout or 'Fedora' in os_release.stdout }}"
+        is_debian: "{{ 'Ubuntu' in os_release.stdout or 'Debian' in os_release.stdout }}"
+
+    - name: Crear el usuario si no existe
+      user:
+        name: "{{ nombre_de_usuario }}"
+        state: present
