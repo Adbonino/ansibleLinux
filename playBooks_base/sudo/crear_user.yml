@@ -18,8 +18,8 @@
       delegate_to: localhost
 
     - name: Mostrar Hash
-      command: "openssl passwd -1 '{{ password }}'"
-      register: hashed_password_output.stdout
+      debug: 
+        msg: "{{ hashed_password_output.stdout }}"
       delegate_to: localhost
 
     - name: Crear el usuario si no existe
