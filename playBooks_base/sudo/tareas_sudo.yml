@@ -1,0 +1,32 @@
+- name: Obtener información del sistema
+  command: cat /etc/os-release
+  register: os_release
+
+- name: Verificar la distribución
+  set_fact:
+    is_redhat: "{{ 'Red Hat' in os_release.stdout or 'CentOS' in os_release.stdout or 'Fedora' in os_release.stdout }}"
+    is_debian: "{{ 'Ubuntu' in os_release.stdout or 'Debian' in os_release.stdout }}"
+
+- name: Verificar si el usuario existe
+  command: getent passwd '{{ nombre_de_usuario }}'
+  register: user_check
+  failed_when: false
+  changed_when: false
+
+- name: Añadir usuario al grupo wheel en Red Hat
+  user:
+    name: "{{ nombre_de_usuario }}"
+    groups: wheel
+    append: yes
+  when: 
+    - is_redhat
+    - user_check.rc == 0 
+
+- name: Añadir usuario al grupo sudo en Debian/Ubuntu
+  user:
+    name: "{{ nombre_de_usuario }}"
+    groups: sudo
+    append: yes
+  when: 
+    - is_debian
+    - user_check.rc == 0 

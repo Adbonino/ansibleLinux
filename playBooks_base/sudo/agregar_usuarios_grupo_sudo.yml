@@ -1,44 +1,14 @@
 - name: Añadir usuario al grupo sudo en Debian/Ubuntu
   hosts: all
   become: yes
+ 
+ 
   tasks:
 
-    - name: Obtener información del sistema
-      command: cat /etc/os-release
-      register: os_release
-
-    - name: Verificar la distribución
-      set_fact:
-        is_redhat: "{{ 'Red Hat' in os_release.stdout or 'CentOS' in os_release.stdout or 'Fedora' in os_release.stdout }}"
-        is_debian: "{{ 'Ubuntu' in os_release.stdout or 'Debian' in os_release.stdout }}"
-    
     - name: Convertir la lista de usuarios en una lista de Ansible
       set_fact:
         lista_de_usuarios: "{{ usuarios.split(',') }}"
 
-    - name: Verificar si el usuario existe
-      command: getent passwd '{{ item }}'
-      register: user_check
-      failed_when: false
-      changed_when: false
+    - name: agregar usuario de sudo
+      include_tasks: tareas_sudo.yml
       loop: "{{ lista_de_usuarios }}"
-
-    - name: Añadir usuario al grupo wheel en Red Hat
-      user:
-        name: "{{ item }}"
-        groups: wheel
-        append: yes
-      when: 
-        - is_redhat
-        - user_check.rc == 0 
-      loop: "{{ lista_de_usuarios }}"
-
-    - name: Añadir usuario al grupo sudo en Debian/Ubuntu
-      user:
-        name: "{{ item }}"
-        groups: sudo
-        append: yes
-      when: 
-        - is_debian
-        - user_check.rc == 0
-      loop: "{{ lista_de_usuarios }}" 
