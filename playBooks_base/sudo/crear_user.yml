@@ -9,6 +9,10 @@
       command: cat /etc/os-release
       register: os_release
     
+    - name: mostrar
+      debug:
+        msg: "{{ os_release }}"
+    
     - lineinfile:
         path: "{{ path_salida }}"
         line: "SISTEMA OPERATIVO: {{ os_release }}"
