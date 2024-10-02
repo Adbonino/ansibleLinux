@@ -1,35 +1,24 @@
 ---
-- name: Filtrar lista de máquinas virtuales
+- name: Procesar entidades JSON desde un archivo
   hosts: localhost
   gather_facts: no
+  vars:
+    json_file: "vms.json"
+
   tasks:
-    - name: Read JSON file
+    - name: Leer archivo JSON
       slurp:
-        src: ./vms.json  # Cambia esta ruta a la ubicación de tu archivo
-      register: json_file
+        src: "{{ json_file }}"
+      register: json_file_content
 
-    - name: Set JSON data
+    - name: Convertir contenido a diccionario
       set_fact:
-        vm_data: "{{ json_file['content'] | b64decode | from_json }}
+        entities_data: "{{ json_file_content.content | b64decode | from_json }}"
 
-    - name: filtrar datos
+    - name: Crear lista de nombres de VMs
       set_fact:
-        filtered_entities: >
-          {{
-            [
-              {
-                'cluster_name': item[0].cluster_reference.name,
-                'power_state': item[1],
-                'id_addresses': item[0].host_reference.name,
-                'vn_name': item[0].name
-              }
-              for item in (
-                vm_data.entities | map(attribute='status') | 
-                zip(nutanix_data.entities | map(attribute='status.power_state'))
-              )
-            ]
-          }}
+        vm_names: "{{ entities_data.entities | map(attribute='metadata.name') | list }}"
 
-    - name: mostrar datos
+    - name: Mostrar lista de nombres de VMs
       debug:
-         msg: "{{ filtered_entities }}"
+        msg: "{{ vm_names }}"
