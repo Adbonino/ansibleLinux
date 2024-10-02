@@ -10,16 +10,7 @@
 
     - name: Set JSON data
       set_fact:
-        vm_data: "{{ json_file['content'] | b64decode | from_json }}"
-
-    - name: Read another JSON file (if needed)
-      slurp:
-        src: ./nutanix_data.json  # Cambia esta ruta a la ubicación de tu archivo
-      register: nutanix_file
-
-    - name: Set Nutanix JSON data
-      set_fact:
-        nutanix_data: "{{ nutanix_file['content'] | b64decode | from_json }}"
+        vm_data: "{{ json_file['content'] | b64decode | from_json }}
 
     - name: filtrar datos
       set_fact:
