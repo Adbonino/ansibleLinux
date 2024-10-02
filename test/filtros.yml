@@ -12,14 +12,11 @@
       set_fact:
         vm_data: "{{ json_file['content'] | b64decode | from_json }}"
 
-    - name: Extract VM name
-      debug:
-        msg: "VM Name: {{ vm_data.entities[0].status.name }}"
-
-    - name: Extract Memory Size
-      debug:
-        msg: "Memory Size (MiB): {{ vm_data.entities[0].status.resources.memory_size_mib }}"
-
-    - name: Extract Cluster Name
-      debug:
-        msg: "Cluster Name: {{ vm_data.entities[0].status.cluster_reference.name }}"
+    - name: filtrar datos
+      set_fact: filtered_entities: "{{ vm_data.json.entities | map(attribute='status') | map(attribute='cluster_reference.name') | zip(nutanix_data.json.entities | map(attribute='status.power_state')) | map('combine', {'cluster_name': item[0], 'power_state': item[1], 'id_addresses': item[0].host_reference.name, 'vn_name': item[0].name}) }}"
+    
+    
+     - name: mostas datos
+       debug:
+         msg: {{ filtered_entities }}
+       
