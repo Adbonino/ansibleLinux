@@ -1,0 +1,25 @@
+---
+- name: Filtrar listaod de maquinas virtuales
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Read JSON file
+      slurp:
+        src: ./vms.json  # Cambia esta ruta a la ubicación de tu archivo
+      register: json_file
+
+    - name: Set JSON data
+      set_fact:
+        vm_data: "{{ json_file['content'] | b64decode | from_json }}"
+
+    - name: Extract VM name
+      debug:
+        msg: "VM Name: {{ vm_data.entities[0].status.name }}"
+
+    - name: Extract Memory Size
+      debug:
+        msg: "Memory Size (MiB): {{ vm_data.entities[0].status.resources.memory_size_mib }}"
+
+    - name: Extract Cluster Name
+      debug:
+        msg: "Cluster Name: {{ vm_data.entities[0].status.cluster_reference.name }}"
