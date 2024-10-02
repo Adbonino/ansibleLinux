@@ -8,14 +8,7 @@
         src: ./vms.json  # Cambia esta ruta a la ubicación de tu archivo
       register: json_file
 
-    - name: Set JSON data
-      set_fact:
-        vm_data: "{{ json_file['content'] | b64decode | from_json }}"
-
-    - name: filtrar datos
-      set_fact:
-        filtered_entities: >
-          {{
+    - name: Set JSON{{
             [
               {
                 'cluster_name': item.0.cluster_reference.name,
@@ -28,7 +21,27 @@
                 zip(nutanix_data.entities | map(attribute='status.power_state'))
               )
             ]
-          }}
+          }} data
+      set_fact:
+        vm_data: "{{ json_file['content'] | b64decode | from_json }}"
+
+    - name: filtrar datos
+      set_fact:
+        filtered_entities: >
+          {{
+        [
+          {
+            'cluster_name': item[0].cluster_reference.name,
+            'power_state': item[1],
+            'id_addresses': item[0].host_reference.name,
+            'vn_name': item[0].name
+          }
+          for item in (
+            vm_data.entities | map(attribute='status') | 
+            zip(nutanix_data.entities | map(attribute='status.power_state'))
+          )
+        ]
+      }}
 
     - name: mostrar datos
       debug:
