@@ -28,7 +28,7 @@
             for item in _ 
           }}
       
-     - name: mostas datos
-       debug:
+    - name: mostas datos
+      debug:
          msg: {{ filtered_entities }}
        
