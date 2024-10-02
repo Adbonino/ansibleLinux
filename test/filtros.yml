@@ -17,7 +17,7 @@
 
     - name: Crear lista de nombres de VMs
       set_fact:
-        vm_names: "{{ entities_data.entities | map(attribute='metadata.name') | list }}"
+        vm_names: "{{ entities_data.entities |  map(attribute='spec.name') | list }}"
 
     - name: Mostrar lista de nombres de VMs
       debug:
