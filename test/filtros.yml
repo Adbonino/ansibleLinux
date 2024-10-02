@@ -13,9 +13,21 @@
         vm_data: "{{ json_file['content'] | b64decode | from_json }}"
 
     - name: filtrar datos
-      set_fact: filtered_entities: "{{ vm_data.json.entities | map(attribute='status') | map(attribute='cluster_reference.name') | zip(nutanix_data.json.entities | map(attribute='status.power_state')) | map('combine', {'cluster_name': item[0], 'power_state': item[1], 'id_addresses': item[0].host_reference.name, 'vn_name': item[0].name}) }}"
-    
-    
+      set_fact:
+        filtered_entities: >
+          {{
+            vm_data.entities | 
+            map(attribute='status') | 
+            zip(nutanix_data.entities | map(attribute='status.power_state')) | 
+            map('combine', {
+              'cluster_name': item[0].cluster_reference.name,
+              'power_state': item[1],
+              'id_addresses': item[0].host_reference.name,
+              'vn_name': item[0].name
+            }) 
+            for item in _ 
+          }}
+      
      - name: mostas datos
        debug:
          msg: {{ filtered_entities }}
