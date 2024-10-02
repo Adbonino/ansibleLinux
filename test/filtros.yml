@@ -30,5 +30,5 @@
       
     - name: mostas datos
       debug:
-         msg: {{ filtered_entities }}
+         msg: "{{ filtered_entities }}"
        
