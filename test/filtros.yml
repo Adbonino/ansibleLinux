@@ -1,5 +1,5 @@
 ---
-- name: Filtrar listaod de maquinas virtuales
+- name: Filtrar lista de máquinas virtuales
   hosts: localhost
   gather_facts: no
   tasks:
@@ -12,23 +12,33 @@
       set_fact:
         vm_data: "{{ json_file['content'] | b64decode | from_json }}"
 
+    - name: Read another JSON file (if needed)
+      slurp:
+        src: ./nutanix_data.json  # Cambia esta ruta a la ubicación de tu archivo
+      register: nutanix_file
+
+    - name: Set Nutanix JSON data
+      set_fact:
+        nutanix_data: "{{ nutanix_file['content'] | b64decode | from_json }}"
+
     - name: filtrar datos
       set_fact:
         filtered_entities: >
           {{
-            vm_data.entities | 
-            map(attribute='status') | 
-            zip(nutanix_data.entities | map(attribute='status.power_state')) | 
-            map('combine', {
-              'cluster_name': item[0].cluster_reference.name,
-              'power_state': item[1],
-              'id_addresses': item[0].host_reference.name,
-              'vn_name': item[0].name
-            }) 
-            for item in _ 
+            [
+              {
+                'cluster_name': item.0.cluster_reference.name,
+                'power_state': item.1,
+                'id_addresses': item.0.host_reference.name,
+                'vn_name': item.0.name
+              }
+              for item in (
+                vm_data.entities | map(attribute='status') | 
+                zip(nutanix_data.entities | map(attribute='status.power_state'))
+              )
+            ]
           }}
-      
-    - name: mostas datos
+
+    - name: mostrar datos
       debug:
          msg: "{{ filtered_entities }}"
-       
