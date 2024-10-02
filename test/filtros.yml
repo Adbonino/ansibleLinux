@@ -21,15 +21,12 @@
 
     - name: Crear lista de nombres de VMs y sus direcciones IP
       set_fact:
-        vm_info: >
-          {{
-            entities_data.entities | map(
-              lambda e: {
-                'name': e.spec.name,
-                'ip_address': e.status.resources.nic_list[0].ip_endpoint_list[0].ip if e.status.resources.nic_list | length > 0 and e.status.resources.nic_list[0].ip_endpoint_list | length > 0 else 'No IP'
-              }
-            ) | list
-          }}
+        vm_info: []
+
+    - name: Agregar nombre y IP a la lista
+      set_fact:
+        vm_info: "{{ vm_info + [ {'name': item.spec.name, 'ip_address': (item.status.resources.nic_list[0].ip_endpoint_list[0].ip if item.status.resources.nic_list | length > 0 and item.status.resources.nic_list[0].ip_endpoint_list | length > 0 else 'No IP')} ) ] }}"
+      with_items: "{{ entities_data.entities }}"
 
     - name: Mostrar lista de nombres de VMs
       debug:
