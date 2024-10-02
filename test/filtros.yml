@@ -31,10 +31,10 @@
           {{
         [
           {
-            'cluster_name': item[0].cluster_reference.name,
-            'power_state': item[1],
-            'id_addresses': item[0].host_reference.name,
-            'vn_name': item[0].name
+            "cluster_name": item[0].cluster_reference.name,
+            "power_state": item[1],
+            "id_addresses": item[0].host_reference.name,
+            "vn_name": item[0].name
           }
           for item in (
             vm_data.entities | map(attribute='status') | 
