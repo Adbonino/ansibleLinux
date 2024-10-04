@@ -13,6 +13,6 @@
       delegate_to: localhost
       register: tenant_response
 
-   - name: Mostrar información del Tenant
-     debug:
+    - name: Mostrar información del Tenant
+      debug:
         var: tenant_response.json
