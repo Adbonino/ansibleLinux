@@ -7,4 +7,4 @@
 
     tasks:
       - name: test ping
-        ansible.windows.win_ping:
+        ansible.windows.win_ping:klaljñkjñkñolñjdññh
