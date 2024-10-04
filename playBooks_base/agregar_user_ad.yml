@@ -2,6 +2,8 @@
 - name: Add users to Active Directory
   hosts: localhost
   gather_facts: no
+  vars_files:
+    -secret.yml
   tasks:
     - name: Create AD users and add them to a group
       community.general.win_ad_user:
