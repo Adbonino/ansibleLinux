@@ -1,18 +1,21 @@
 ---
-- name: Consultar info de un tenenet de ACI
-  host: localhost
+- name: Consultar info de un tenant de ACI
+  hosts: localhost
   gather_facts: no
 
   tasks:
     - name: Query all tenants
-      cisco.aci.aci_tenant:
+      cisco.aci.aci_tenant_info:
         host: 10.54.100.243
         username: admin
         password: cisco123
-        state: query
-      delegate_to: localhost
       register: tenant_response
 
     - name: Mostrar información del Tenant
       debug:
-        var: tenant_response.json
+        var: tenant_response
+
+
+ 
+
+
