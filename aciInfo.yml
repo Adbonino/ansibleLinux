@@ -9,6 +9,7 @@
         username: admin
         password: cisco123
         state: query
+        validate_certs: no
       register: tenant_response
 
     - name: Mostrar información del Tenant
