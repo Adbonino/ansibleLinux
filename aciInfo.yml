@@ -4,7 +4,7 @@
 
   tasks:
     - name: Query all tenants
-      cisco.aci.aci_tenant_info:
+      cisco.aci.aci_tenant:
         host: 10.54.100.243
         username: admin
         password: cisco123
