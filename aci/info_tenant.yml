@@ -6,9 +6,9 @@
   tasks:
     - name: Query all tenants
       cisco.aci.aci_tenant:
-        host: apic
+        host: 10.54.100.243
         username: admin
-        password: SomeSecretPassword
+        password: cisco123
         state: query
       delegate_to: localhost
       register: tenant_response
