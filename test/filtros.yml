@@ -1,0 +1,38 @@
+---
+- name: Procesar entidades JSON desde un archivo
+  hosts: localhost
+  gather_facts: no
+  vars:
+    json_file: "vms.json"
+
+  tasks:
+    - name: Leer archivo JSON
+      slurp:
+        src: "{{ json_file }}"
+      register: json_file_content
+
+    - name: Convertir contenido a diccionario
+      set_fact:
+        entities_data: "{{ json_file_content.content | b64decode | from_json }}"
+
+    - name: Crear lista de nombres de VMs
+      set_fact:
+        vm_names: "{{ entities_data.entities |  map(attribute='spec.name') | list }}"
+
+    - name: Crear lista de nombres de VMs y sus direcciones IP
+      set_fact:
+        vm_info: []
+
+    #- name: Agregar nombre y IP a la lista
+    #  set_fact:
+    #    vm_info: "{{ vm_info + [{'name': item.spec.name, 'ip_address': (item.status.resources.nic_list[0].ip_endpoint_list[0].ip if item.status.resources.nic_list | length > 0 and item.status.resources.nic_list[0].ip_endpoint_list | length > 0 else 'No IP')}] }}"
+    #  with_items: "{{ entities_data.entities }}"
+
+    - name: Agregar nombre, IP, cluster_name y power_state a la lista
+      set_fact:
+        vm_info: "{{ vm_info + [{'name': item.spec.name, 'ip_address': (item.status.resources.nic_list[0].ip_endpoint_list[0].ip if item.status.resources.nic_list | length > 0 and item.status.resources.nic_list[0].ip_endpoint_list | length > 0 else 'No IP'), 'cluster_name': item.status.cluster_reference.name, 'power_state': item.status.state}] }}"
+      with_items: "{{ entities_data.entities }}"
+
+    - name: Mostrar lista de nombres de VMs
+      debug:
+        msg: "{{ vm_info }}"
