@@ -1,16 +1,16 @@
 ---
-  - name: "Configuracion Base"
-    hosts: all
-    become: true
-    
-    tasks:
+- name: Consultar info de un tenenet de ACI
+  host: localhost
+  gather_facts: no
 
-      - name: cargar variables de un archivo
-        include_vars:
-          file: data/{{ ansible_hostname }}.yaml
-
-      - name: Configurar archivo de sitio
-        template:
-          src: templates/serverconfig.j2
-          dest: "/home/abonino/server.conf"
-       
+  tasks:
+  - name: Query all tenants
+    cisco.aci.aci_tenant:
+      host: 10.54.100.243
+      username: admin
+      password: cisco123
+      state: query
+    register: tenant_response
+  - name: Mostrar información del Tenant
+    debug:
+      var: tenant_response.json

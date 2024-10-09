@@ -1,0 +1,15 @@
+---
+- name: Agregar una vlan pool en ACI
+  hosts: localhost
+
+  tasks:
+    - name: Add a new VLAN pool
+      cisco.aci.aci_vlan_pool:
+        host: apic
+        username: admin
+        password: SomeSecretPassword
+        pool: production
+        pool_allocation_mode: dynamic
+        description: Production VLANs
+        state: present
+      delegate_to: localhost
