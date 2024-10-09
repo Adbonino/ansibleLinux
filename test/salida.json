@@ -1,2 +1,69 @@
-{'data': [{'data_type': 'string', 'name': 'vm_name', 'values': [{'time': 1582583708206948, 'values': ['NTNX-19FM6K510068-B-CVM']}]}, {'data_type': 'string', 'name': 'power_state', 'values': [{'time': 1713636250580827, 'values': ['on']}]}, {'data_type': 'string', 'name': 'cluster_name', 'values': [{'time': 1582737936380467, 'values': ['ntnx-01']}]}, {'data_type': 'string_list', 'name': 'ip_addresses', 'values': [{'time': 1728043880842478, 'values': ['10.192.102.6', 'fe80::20c:29ff:fe91:2d63', '192.168.5.2', '192.168.5.254', 'fe80::20c:29ff:fe91:2d6d']}]}, {'data_type': 'uint64', 'name': '_created_timestamp_usecs_', 'values': [{'time': 1582583708206948, 'values': ['1582583708206948']}]}], 'entity_id': '79b2efb1-48e2-4bf4-b556-df6049538398'}
-
+{
+    "data": [
+        {
+            "data_type": "string",
+            "name": "vm_name",
+            "values": [
+                {
+                    "time": 1582583695482869,
+                    "values": [
+                        "NTNX-19FM6K510068-A-CVM"
+                    ]
+                }
+            ]
+        },
+        {
+            "data_type": "string",
+            "name": "power_state",
+            "values": [
+                {
+                    "time": 1726865506274502,
+                    "values": [
+                        "on"
+                    ]
+                }
+            ]
+        },
+        {
+            "data_type": "string",
+            "name": "cluster_name",
+            "values": [
+                {
+                    "time": 1582737929058204,
+                    "values": [
+                        "ntnx-01"
+                    ]
+                }
+            ]
+        },
+        {
+            "data_type": "string_list",
+            "name": "ip_addresses",
+            "values": [
+                {
+                    "time": 1726865575487364,
+                    "values": [
+                        "10.192.102.3",
+                        "fe80::20c:29ff:fe6c:193d",
+                        "192.168.5.2",
+                        "192.168.5.254",
+                        "fe80::20c:29ff:fe6c:1947"
+                    ]
+                }
+            ]
+        },
+        {
+            "data_type": "uint64",
+            "name": "_created_timestamp_usecs_",
+            "values": [
+                {
+                    "time": 1582583695482869,
+                    "values": [
+                        "1582583695482869"
+                    ]
+                }
+            ]
+        }
+    ],
+    "entity_id": "aac3ed9c-5ad1-416f-a18a-15b36815e32d"
+}
