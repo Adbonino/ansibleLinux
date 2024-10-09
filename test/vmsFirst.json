@@ -1,0 +1,120 @@
+ {
+    "msg": {
+        "changed": false,
+        "connection": "close",
+        "content_length": "306699",
+        "content_security_policy": "default-src 'self' https://*.nutanix.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' wss: https://downloads.frame.nutanix.com https://downloads.frame.nutanix.us; img-src 'self' blob: data:; frame-src 'self' https://*.nutanix.com blob: data:",
+        "content_type": "application/json",
+        "cookies": {
+            "NTNX_IAM_SESSION": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImExNmI5ZDllYjUzMWQ3OTViMTE4MWFiNmM2MmQ1YzZiNDBmMTY0YjYifQ.eyJpc3MiOiJodHRwczovLzEwLjE5Mi4xMDIuMjUyOjk0NDAvYXBpL2lhbS9hdXRobiIsInN1YiI6ImFkbWluIiwic3ViX3R5cGUiOiJsb2NhbCIsImF1ZCI6Ijg2NDFlZDFjLTAyOTctNTRjOS1iYjJhLWUwZjRlMGYwZTlkZSIsImV4cCI6MTcyODQxMDM0MCwiaWF0IjoxNzI4NDA5NDQwLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6ImFkbWluIiwidXNlcl91dWlkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiwiY29ubmVjdG9yX3V1aWQiOiIzN2YzMDEzNS00NTViLTVlYmQtOTk1Zi1iNDdlODE3YTU5ZjIiLCJ0ZW5hbnQiOnsidXVpZCI6IjU5ZDVkZTc4LWE5NjQtNTc0Ni04YzZlLTY3N2M0YzdhNzlkZiIsIm5hbWUiOiJpYW12MmluZnJhIn0sImxlZ2FjeV9yb2xlcyI6WyJST0xFX0NMVVNURVJfQURNSU4iLCJST0xFX0NMVVNURVJfVklFV0VSIiwiUk9MRV9VU0VSX0FETUlOIl0sInVzZXJfcHJvZmlsZSI6IntcInVzZXJuYW1lXCI6XCJhZG1pblwiLFwiZG9tYWluXCI6XCJcIixcImxlZ2FjeV9hZG1pbl9hdXRob3JpdGllc1wiOltcIlJPTEVfQ0xVU1RFUl9BRE1JTlwiLFwiUk9MRV9DTFVTVEVSX1ZJRVdFUlwiLFwiUk9MRV9VU0VSX0FETUlOXCJdLFwiYXV0aGVudGljYXRlZFwiOnRydWUsXCJ1c2VydHlwZVwiOlwibG9jYWxcIixcImF1dGhfaW5mb1wiOntcInVzZXJuYW1lXCI6XCJhZG1pblwiLFwidXNlcl91dWlkXCI6XCIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDBcIixcInVzZXJfZ3JvdXBfdXVpZHNcIjpbXSxcInRlbmFudF91dWlkXCI6XCIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDBcIixcInRva2VuX2F1ZGllbmNlXCI6XCJcIixcInRva2VuX2lzc3VlclwiOlwiXCIsXCJyZW1vdGVfYXV0aG9yaXphdGlvblwiOlwiXCIsXCJyZW1vdGVfYXV0aF9qc29uXCI6XCJcIn19IiwibGVnYWN5X3RlbmFudF9pZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCJ9.UA_XZ60RZCQTSnkua_bF1SMtg0zt19txScNLTwtHI_y3Xva0uHBQaAMvK-X4Wv-esKZaj6xq3j4T8DSDcLTXECm_ErLe0w2wmEWfRdtZVoYgK8gHE4kUwgbk2f0qyvqw-zjIXTAqPtDGZZVyt8cqtEOijeoSeO6Bt02nj5JOtJ555dFGQKhhHOPwpWa6KDT-hO5rF16s5snZypCaKHX2Fnj2Z_LjlPupvY3KkmJpZWFs0jjfmtaKWfHfM7UX3sijuYb2LmFV2qaJqAYs7J1pOAWRwRUp1QKEzPc6D-e1VQlilzpGciXyXMXz7P7zZRvT41BZAsjl_0sgUv-1qakmKg",
+            "NTNX_MERCURY_IAM_REFRESH_TOKEN": "ChloZ3Vsdm1kNmt0Njd6NG5zNG1lbzV4aHcyEhlwaWs2MmVhcDdvaHo3bnJwYnl0NWRiaGU3",
+            "NTNX_MERCURY_IAM_SESSION": "CgVhZG1pbhDk5ZW4BhoHTWVyY3VyeSAAKihhMTZiOWQ5ZWI1MzFkNzk1YjExODFhYjZjNjJkNWM2YjQwZjE2NGI2|lqCgrkPIpEOikteWjlhZiK4+WleNo4Ipdupbe3c8FEw="
+        },
+        "cookies_string": "NTNX_IAM_SESSION=eyJhbGciOiJSUzI1NiIsImtpZCI6ImExNmI5ZDllYjUzMWQ3OTViMTE4MWFiNmM2MmQ1YzZiNDBmMTY0YjYifQ.eyJpc3MiOiJodHRwczovLzEwLjE5Mi4xMDIuMjUyOjk0NDAvYXBpL2lhbS9hdXRobiIsInN1YiI6ImFkbWluIiwic3ViX3R5cGUiOiJsb2NhbCIsImF1ZCI6Ijg2NDFlZDFjLTAyOTctNTRjOS1iYjJhLWUwZjRlMGYwZTlkZSIsImV4cCI6MTcyODQxMDM0MCwiaWF0IjoxNzI4NDA5NDQwLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6ImFkbWluIiwidXNlcl91dWlkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiwiY29ubmVjdG9yX3V1aWQiOiIzN2YzMDEzNS00NTViLTVlYmQtOTk1Zi1iNDdlODE3YTU5ZjIiLCJ0ZW5hbnQiOnsidXVpZCI6IjU5ZDVkZTc4LWE5NjQtNTc0Ni04YzZlLTY3N2M0YzdhNzlkZiIsIm5hbWUiOiJpYW12MmluZnJhIn0sImxlZ2FjeV9yb2xlcyI6WyJST0xFX0NMVVNURVJfQURNSU4iLCJST0xFX0NMVVNURVJfVklFV0VSIiwiUk9MRV9VU0VSX0FETUlOIl0sInVzZXJfcHJvZmlsZSI6IntcInVzZXJuYW1lXCI6XCJhZG1pblwiLFwiZG9tYWluXCI6XCJcIixcImxlZ2FjeV9hZG1pbl9hdXRob3JpdGllc1wiOltcIlJPTEVfQ0xVU1RFUl9BRE1JTlwiLFwiUk9MRV9DTFVTVEVSX1ZJRVdFUlwiLFwiUk9MRV9VU0VSX0FETUlOXCJdLFwiYXV0aGVudGljYXRlZFwiOnRydWUsXCJ1c2VydHlwZVwiOlwibG9jYWxcIixcImF1dGhfaW5mb1wiOntcInVzZXJuYW1lXCI6XCJhZG1pblwiLFwidXNlcl91dWlkXCI6XCIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDBcIixcInVzZXJfZ3JvdXBfdXVpZHNcIjpbXSxcInRlbmFudF91dWlkXCI6XCIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDBcIixcInRva2VuX2F1ZGllbmNlXCI6XCJcIixcInRva2VuX2lzc3VlclwiOlwiXCIsXCJyZW1vdGVfYXV0aG9yaXphdGlvblwiOlwiXCIsXCJyZW1vdGVfYXV0aF9qc29uXCI6XCJcIn19IiwibGVnYWN5X3RlbmFudF9pZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCJ9.UA_XZ60RZCQTSnkua_bF1SMtg0zt19txScNLTwtHI_y3Xva0uHBQaAMvK-X4Wv-esKZaj6xq3j4T8DSDcLTXECm_ErLe0w2wmEWfRdtZVoYgK8gHE4kUwgbk2f0qyvqw-zjIXTAqPtDGZZVyt8cqtEOijeoSeO6Bt02nj5JOtJ555dFGQKhhHOPwpWa6KDT-hO5rF16s5snZypCaKHX2Fnj2Z_LjlPupvY3KkmJpZWFs0jjfmtaKWfHfM7UX3sijuYb2LmFV2qaJqAYs7J1pOAWRwRUp1QKEzPc6D-e1VQlilzpGciXyXMXz7P7zZRvT41BZAsjl_0sgUv-1qakmKg; NTNX_MERCURY_IAM_REFRESH_TOKEN=ChloZ3Vsdm1kNmt0Njd6NG5zNG1lbzV4aHcyEhlwaWs2MmVhcDdvaHo3bnJwYnl0NWRiaGU3; NTNX_MERCURY_IAM_SESSION=CgVhZG1pbhDk5ZW4BhoHTWVyY3VyeSAAKihhMTZiOWQ5ZWI1MzFkNzk1YjExODFhYjZjNjJkNWM2YjQwZjE2NGI2|lqCgrkPIpEOikteWjlhZiK4+WleNo4Ipdupbe3c8FEw=",
+        "date": "Tue, 08 Oct 2024 17:44:34 GMT",
+        "elapsed": 0,
+        "failed": false,
+        "json": {
+            "entity_type": "vm",
+            "filtered_entity_count": 668,
+            "filtered_group_count": 1,
+            "group_results": [
+                {
+                    "entity_results": [
+                        {
+                            "data": [
+                                {
+                                    "data_type": "string",
+                                    "name": "vm_name",
+                                    "values": [
+                                        {
+                                            "time": 1582583695482869,
+                                            "values": [
+                                                "NTNX-19FM6K510068-A-CVM"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "data_type": "string",
+                                    "name": "power_state",
+                                    "values": [
+                                        {
+                                            "time": 1726865506274502,
+                                            "values": [
+                                                "on"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "data_type": "string",
+                                    "name": "cluster_name",
+                                    "values": [
+                                        {
+                                            "time": 1582737929058204,
+                                            "values": [
+                                                "ntnx-01"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "data_type": "string_list",
+                                    "name": "ip_addresses",
+                                    "values": [
+                                        {
+                                            "time": 1726865575487364,
+                                            "values": [
+                                                "10.192.102.3",
+                                                "fe80::20c:29ff:fe6c:193d",
+                                                "192.168.5.2",
+                                                "192.168.5.254",
+                                                "fe80::20c:29ff:fe6c:1947"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "data_type": "uint64",
+                                    "name": "_created_timestamp_usecs_",
+                                    "values": [
+                                        {
+                                            "time": 1582583695482869,
+                                            "values": [
+                                                "1582583695482869"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ],
+                            "entity_id": "aac3ed9c-5ad1-416f-a18a-15b36815e32d"
+                        }
+                    ],
+                    "group_by_column_value": "",
+                    "group_summaries": {},
+                    "total_entity_count": 668
+                }
+            ],
+            "total_entity_count": 668,
+            "total_group_count": 1
+        },
+        "msg": "OK (306699 bytes)",
+        "redirected": false,
+        "server": "envoy",
+        "set_cookie": "NTNX_MERCURY_IAM_SESSION=CgVhZG1pbhDk5ZW4BhoHTWVyY3VyeSAAKihhMTZiOWQ5ZWI1MzFkNzk1YjExODFhYjZjNjJkNWM2YjQwZjE2NGI2|lqCgrkPIpEOikteWjlhZiK4+WleNo4Ipdupbe3c8FEw=;Expires=Tue, 08-Oct-2024 17:59:00 GMT;Path=/;Secure;HttpOnly;SameSite=Lax, NTNX_IAM_SESSION=eyJhbGciOiJSUzI1NiIsImtpZCI6ImExNmI5ZDllYjUzMWQ3OTViMTE4MWFiNmM2MmQ1YzZiNDBmMTY0YjYifQ.eyJpc3MiOiJodHRwczovLzEwLjE5Mi4xMDIuMjUyOjk0NDAvYXBpL2lhbS9hdXRobiIsInN1YiI6ImFkbWluIiwic3ViX3R5cGUiOiJsb2NhbCIsImF1ZCI6Ijg2NDFlZDFjLTAyOTctNTRjOS1iYjJhLWUwZjRlMGYwZTlkZSIsImV4cCI6MTcyODQxMDM0MCwiaWF0IjoxNzI4NDA5NDQwLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6ImFkbWluIiwidXNlcl91dWlkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiwiY29ubmVjdG9yX3V1aWQiOiIzN2YzMDEzNS00NTViLTVlYmQtOTk1Zi1iNDdlODE3YTU5ZjIiLCJ0ZW5hbnQiOnsidXVpZCI6IjU5ZDVkZTc4LWE5NjQtNTc0Ni04YzZlLTY3N2M0YzdhNzlkZiIsIm5hbWUiOiJpYW12MmluZnJhIn0sImxlZ2FjeV9yb2xlcyI6WyJST0xFX0NMVVNURVJfQURNSU4iLCJST0xFX0NMVVNURVJfVklFV0VSIiwiUk9MRV9VU0VSX0FETUlOIl0sInVzZXJfcHJvZmlsZSI6IntcInVzZXJuYW1lXCI6XCJhZG1pblwiLFwiZG9tYWluXCI6XCJcIixcImxlZ2FjeV9hZG1pbl9hdXRob3JpdGllc1wiOltcIlJPTEVfQ0xVU1RFUl9BRE1JTlwiLFwiUk9MRV9DTFVTVEVSX1ZJRVdFUlwiLFwiUk9MRV9VU0VSX0FETUlOXCJdLFwiYXV0aGVudGljYXRlZFwiOnRydWUsXCJ1c2VydHlwZVwiOlwibG9jYWxcIixcImF1dGhfaW5mb1wiOntcInVzZXJuYW1lXCI6XCJhZG1pblwiLFwidXNlcl91dWlkXCI6XCIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDBcIixcInVzZXJfZ3JvdXBfdXVpZHNcIjpbXSxcInRlbmFudF91dWlkXCI6XCIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDBcIixcInRva2VuX2F1ZGllbmNlXCI6XCJcIixcInRva2VuX2lzc3VlclwiOlwiXCIsXCJyZW1vdGVfYXV0aG9yaXphdGlvblwiOlwiXCIsXCJyZW1vdGVfYXV0aF9qc29uXCI6XCJcIn19IiwibGVnYWN5X3RlbmFudF9pZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCJ9.UA_XZ60RZCQTSnkua_bF1SMtg0zt19txScNLTwtHI_y3Xva0uHBQaAMvK-X4Wv-esKZaj6xq3j4T8DSDcLTXECm_ErLe0w2wmEWfRdtZVoYgK8gHE4kUwgbk2f0qyvqw-zjIXTAqPtDGZZVyt8cqtEOijeoSeO6Bt02nj5JOtJ555dFGQKhhHOPwpWa6KDT-hO5rF16s5snZypCaKHX2Fnj2Z_LjlPupvY3KkmJpZWFs0jjfmtaKWfHfM7UX3sijuYb2LmFV2qaJqAYs7J1pOAWRwRUp1QKEzPc6D-e1VQlilzpGciXyXMXz7P7zZRvT41BZAsjl_0sgUv-1qakmKg;Expires=Tue, 08-Oct-2024 17:59:00 GMT;Path=/;Secure;HttpOnly;SameSite=Lax, NTNX_MERCURY_IAM_REFRESH_TOKEN=ChloZ3Vsdm1kNmt0Njd6NG5zNG1lbzV4aHcyEhlwaWs2MmVhcDdvaHo3bnJwYnl0NWRiaGU3;Expires=Tue, 08-Oct-2024 17:59:00 GMT;Path=/;Secure;HttpOnly;SameSite=Lax",
+        "status": 200,
+        "strict_transport_security": "max-age=8640000:includeSubdomains",
+        "url": "https://prism-central.bcp.gov.py:9440/api/nutanix/v3/groups",
+        "vary": "Accept-Encoding",
+        "x_content_type_options": "nosniff",
+        "x_dns_prefetch_control": "off",
+        "x_envoy_upstream_service_time": "268",
+        "x_frame_options": "SAMEORIGIN",
+        "x_ntnx_env": "pc",
+        "x_ntnx_product": "pc.2023.4.0.2",
+        "x_permitted_cross_domain_policies": "master-only",
+        "x_xss_protection": "1; mode=block"
+    }
+}
+
