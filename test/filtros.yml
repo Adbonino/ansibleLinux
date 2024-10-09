@@ -26,7 +26,7 @@
 
     - name: Agregar nombre, IP, cluster_name y power_state a la lista
       set_fact:
-        vm_info: "{{ vm_info + [{'vm_name': item.data[0].values.vlues[0], 'ip_address': item.data.values.values, 'cluster_name': item.status.data.values.values[2], 'power_state': item.data[1].values.vlues[0]}] }}"
+        vm_info: "{{ vm_info + [{'vm_name': item.data[0].values.values[0], 'ip_address': item.data.values.values, 'cluster_name': item.status.data.values.values[2], 'power_state': item.data[1].values.values[0]}] }}"
       with_items: "{{ entities_data.msg.json.group_results[0].entity_results }}"
 
     - name: Mostrar lista de nombres de VMs
