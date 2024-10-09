@@ -1,4 +1,4 @@
- {
+ok: [localhost] => {
     "msg": {
         "changed": false,
         "connection": "close",
@@ -32052,3 +32052,9 @@
     }
 }
 
+TASK [Procesar y limpiar la información de las VMs] ****************************
+task path: /runner/project/nutanix_groups.yml:36
+fatal: [localhost]: FAILED! => {"msg": "'dict object' has no attribute 'entities'. 'dict object' has no attribute 'entities'"}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
