@@ -22,4 +22,4 @@
     - name: Crear lista 
       set_fact:
         vm_info: []
-h
+
