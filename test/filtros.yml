@@ -21,13 +21,10 @@
 
     - name: Agregar vm_name a la lista
       set_fact:
-        vm_info: "{{ vm_info | default([]) + [{'vm_name': vm_name}] }}"
+        vm_info: "{{ vm_info | default([]) + [{'vm_name': (item.data | selectattr('name', 'equalto', 'vm_name') | first).values[0].values[0] if (item.data | selectattr('name', 'equalto', 'vm_name') | first is defined) else None}] }}"
       with_items: "{{ entities_data.msg.json.group_results[0].entity_results }}"
-      vars:
-        vm_name: >-
-          {%- set result = item.data | selectattr('name', 'equalto', 'vm_name') | first -%}
-          {{ result.values[0].values[0] if result is defined and result.values | length > 0 else None }}
-      when: vm_name is not none
+      when: (item.data | selectattr('name', 'equalto', 'vm_name') | first is defined)
+
     
     - name: Mostrar lista de nombres de VMs
       debug:
