@@ -24,13 +24,11 @@
         vm_info: "{{ vm_info | default([]) + [{'vm_name': vm_name}] }}"
       with_items: "{{ entities_data.msg.json.group_results[0].entity_results }}"
       vars:
-        vm_name: "{{ (item.data | selectattr('name', 'equalto', 'vm_name') | first).values[0].values[0] if (item.data | selectattr('name', 'equalto', 'vm_name') | list | length > 0) else None }}"
+        vm_name: >-
+          {%- set result = item.data | selectattr('name', 'equalto', 'vm_name') | first -%}
+          {{ result.values[0].values[0] if result is defined and result.values | length > 0 else None }}
       when: vm_name is not none
-
-
-       
     
-
     - name: Mostrar lista de nombres de VMs
       debug:
         msg: "{{ vm_info }}"
