@@ -21,9 +21,12 @@
 
     - name: Agregar vm_name a la lista
       set_fact:
-        vm_info: "{{ vm_info | default([]) + [{'vm_name': (item.data | selectattr('name', 'equalto', 'vm_name') | first).values[0].values[0]}] }}"
+        vm_info: "{{ vm_info | default([]) + [{'vm_name': vm_name}] }}"
       with_items: "{{ entities_data.msg.json.group_results[0].entity_results }}"
-      when: item.data | selectattr('name', 'equalto', 'vm_name') | list | length > 0
+      vars:
+        vm_name: "{{ (item.data | selectattr('name', 'equalto', 'vm_name') | first).values[0].values[0] if (item.data | selectattr('name', 'equalto', 'vm_name') | list | length > 0) else None }}"
+      when: vm_name is not none
+
 
        
     
