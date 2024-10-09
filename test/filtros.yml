@@ -21,7 +21,7 @@
     
     - name: Agregar vm_name a la lista
       set_fact:
-        vm_info: "{{ vm_info  + [{'vm_name': item.data[0].['values'][0].['values'][0]},{'power_status': item.data[1].['values'][0].['values'][0]},{'cluster_name': item.data[2].['values'][0].['values'][0]},{'ip_addresses': item.data[3].['values'][0].['values']} ] }}"
+        vm_info: "{{ vm_info  + [{'vm_name': item.data[0].['values'][0]['values'][0]},{'power_status': item.data[1].['values'][0]['values'][0]},{'cluster_name': item.data[2].['values'][0]['values'][0]},{'ip_addresses': item.data[3].['values'][0]['values']} ] }}"
       with_items: "{{ entities_data.msg.json.group_results[0].entity_results }}"
 
     
