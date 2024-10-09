@@ -11,6 +11,10 @@
         src: "{{ json_file }}"
       register: json_file_content
 
+    - name: Convertir contenido a diccionario
+      set_fact:
+        entities_data: "{{ json_file_content.content | b64decode | from_json }}"
+
     - name: Crear lista de nombres de VMs y sus direcciones IP
       set_fact:
         vm_info: []
