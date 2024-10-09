@@ -31,7 +31,7 @@
     - name: Agregar nombre, IP, cluster_name y power_state a la lista
       set_fact:
         vm_info: "{{ vm_info + [{'name': item.spec.name, 'ip_address': (item.status.resources.nic_list[0].ip_endpoint_list[0].ip if item.status.resources.nic_list | length > 0 and item.status.resources.nic_list[0].ip_endpoint_list | length > 0 else 'No IP'), 'cluster_name': item.status.cluster_reference.name, 'power_state': item.status.state}] }}"
-      with_items: "{{ entities_data.entities }}"
+      with_items: "{{ entities_data.entity_results }}"
 
     - name: Mostrar lista de nombres de VMs
       debug:
