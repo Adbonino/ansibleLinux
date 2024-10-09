@@ -14,17 +14,12 @@
     - name: Convertir contenido a diccionario
       set_fact:
         entities_data: "{{ json_file_content.content | b64decode | from_json }}"
+
+    - name: Mostrar lista de nombres de VMs
+      debug:
+        msg: "{{ entities_data  }}"
     
-    - name: Crear lista de nombres de VMs y sus direcciones IP
+    - name: Crear lista 
       set_fact:
         vm_info: []
 
-    - name: Agregar vm_name a la lista
-      set_fact:
-        vm_info: "{{ vm_info  + [{'vm_name': item.data[0].values[0].values[0]  }] }}"
-      with_items: "{{ entities_data.msg.json.group_results[0].entity_results }}"
-
-    
-    - name: Mostrar lista de nombres de VMs
-      debug:
-        msg: "{{ vm_info }}"
