@@ -3,7 +3,7 @@
   hosts: localhost
   gather_facts: no
   vars:
-    json_file: "vmsFirst.json"
+    json_file: "vms.json"
 
   tasks:
     - name: Leer archivo JSON
