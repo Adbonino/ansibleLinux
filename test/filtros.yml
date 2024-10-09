@@ -17,7 +17,7 @@
 
     - name: Mostrar lista de nombres de VMs
       debug:
-        msg: "{{ entities_data.msg.json.group_results[0].entity_results[0].data[0]  }}"
+        msg: "{{ entities_data.msg.json.group_results[0].entity_results[0].data[0].values[0].values[0]  }}"
     
     - name: Crear lista 
       set_fact:
