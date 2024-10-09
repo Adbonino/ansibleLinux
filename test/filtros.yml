@@ -21,9 +21,8 @@
 
     - name: Agregar vm_name a la lista
       set_fact:
-        vm_info: "{{ vm_info | default([]) + [{'vm_name': (item.data | selectattr('name', 'equalto', 'vm_name') | first).values[0].values[0] if (item.data | selectattr('name', 'equalto', 'vm_name') | first is defined) else None}] }}"
+        vm_info: "{{ vm_info  + [{'vm_name': item.data[0].values[0].values[0]}] }}"
       with_items: "{{ entities_data.msg.json.group_results[0].entity_results }}"
-      when: (item.data | selectattr('name', 'equalto', 'vm_name') | first is defined)
 
     
     - name: Mostrar lista de nombres de VMs
