@@ -19,12 +19,12 @@
       set_fact:
         vm_info: []
 
-    - name: Agregar nombre, IP, cluster_name y power_state a la lista
+    - name: Agregar vm_name a la lista
       set_fact:
-        vm_info: "{{ vm_info | default([]) +  }}"
-      with_items: "{{ entities_data.msg.json.group_results[0].entity_results [{'vm_name': (item.data | selectattr('name', 'equalto', 'vm_name') | first).values[0].values[0]}] }}"
-      when: 
-       - item.data[0].values[0].values[0] is defined
+        vm_info: "{{ vm_info | default([]) + [{'vm_name': (item.data | selectattr('name', 'equalto', 'vm_name') | first).values[0].values[0]}] }}"
+      with_items: "{{ entities_data.msg.json.group_results[0].entity_results }}"
+      when: item.data | selectattr('name', 'equalto', 'vm_name') | list | length > 0
+
        
     
 
