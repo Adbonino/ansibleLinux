@@ -11,7 +11,7 @@
         src: "{{ json_file }}"
       register: json_file_content
       delegate_to: localhost
-      
+
     - name: Convertir contenido a diccionario
       set_fact:
         entities_data: "{{ json_file_content.content | b64decode | from_json }}"
@@ -46,5 +46,5 @@
           {% for vm in vm_info %}
           {{ vm.vm_name }},{{ vm.cluster_name }},{{ vm.power_status }},{{ vm.ip_addresses | join(', ') }}
           {% endfor %}
-      delegate_to: localhost
+      delegate_to: 10.54.107.180
 
