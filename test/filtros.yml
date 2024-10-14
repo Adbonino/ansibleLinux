@@ -62,7 +62,9 @@
           to: Adrian Bonino <adrian.bonino@la.logicalis.com>
           subject: Ansible-report
           body: "Se adjunta archivo con el listado de maquinas virtuales."
-          attachments:
-          - "vm_info.csv"
+          attach:
+          - "vm_info.csv" 
+          secure: starttls
+          
       
  
