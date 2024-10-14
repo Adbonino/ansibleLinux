@@ -34,14 +34,13 @@
       debug:
         msg: "{{ vm_info }}"
 
-    - name: Escribir datos en un archivo CSV
-      community.general.csv:
-        path: /home/ansible/vm_info.csv
-        fieldnames:
-          - vm_name
-          - cluster_name
-          - power_status
-          - ip_addresses
-        data: "{{ vm_info }}"
-
+    - name: Crear archivo CSV
+      copy:
+        dest: /home/ansible/vm_info.csv
+        content: |
+          vm_name,cluster_name,power_status,ip_addresses
+          {% for vm in vm_info %}
+          {{ vm.vm_name }},{{ vm.cluster_name }},{{ vm.power_status }},{{ vm.ip_addresses | join(', ') }}
+          {% endfor %}
+      delegate_to: localhost
 
