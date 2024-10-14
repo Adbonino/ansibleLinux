@@ -44,7 +44,7 @@
         content: |
           vm_name,cluster_name,power_status,ip_addresses
           {% for vm in vm_info %}
-          {{ vm.vm_name }},{{ vm.cluster_name }},{{ vm.power_status }},{{ vm.ip_addresses }}
+          {{ vm.vm_name }},{{ vm.cluster_name }},{{ vm.power_status }},{{ vm.ip_addresses | join('  ') }}
           {% endfor %}
       
 
