@@ -21,10 +21,10 @@
     
     - name: Agregar vm_name a la lista
       set_fact:
-        vm_info: "{{ vm_info  + [{'vm_name': (item.data[0]['values'][0]['values'][0] if item.data[0]['values'][0]['values'] | length > 0 else none),
-                                  'power_status': (item.data[1]['values'][0]['values'][0] if item.data[1]['values'][0]['values'] | length > 0 else none), 
-                                  'cluster_name': (item.data[2]['values'][0]['values'][0] if item.data[2]['values'][0]['values'] | length > 0 else none),
-                                  'ip_addresses': (item.data[3]['values'][0]['values'] | select('match', '^\\d+\\.\\d+\\.\\d+\\.\\d+$') | list if item.data[3]['values'] | length > 0 else none)
+        vm_info: "{{ vm_info  + [{'vm_name': (item.data[0]['values'][0]['values'][0] if item.data[0]['values'][0]['values'] | length > 0 else 'N/A'),
+                                  'power_status': (item.data[1]['values'][0]['values'][0] if item.data[1]['values'][0]['values'] | length > 0 else 'N/A'), 
+                                  'cluster_name': (item.data[2]['values'][0]['values'][0] if item.data[2]['values'][0]['values'] | length > 0 else 'N/A'),
+                                  'ip_addresses': (item.data[3]['values'][0]['values'] | select('match', '^\\d+\\.\\d+\\.\\d+\\.\\d+$') | list if item.data[3]['values'] | length > 0 else [])
                                   }] 
                   }}"
       with_items: "{{ entities_data.msg.json.group_results[0].entity_results }}"
