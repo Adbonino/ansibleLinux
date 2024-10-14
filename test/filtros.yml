@@ -40,11 +40,28 @@
 
     - name: Crear archivo CSV
       copy:
-        dest: /resultados/vm_info.csv
+        dest: vm_info.csv
         content: |
           vm_name,cluster_name,power_status,ip_addresses
           {% for vm in vm_info %}
           {{ vm.vm_name }},{{ vm.cluster_name }},{{ vm.power_status }},{{ vm.ip_addresses | join(', ') }}
           {% endfor %}
-      delegate_to: 10.54.107.180
+      
 
+    - name: Leer contenido del archivo temporal
+      slurp:
+          src: vm_info.csv
+      register: file_content
+
+    - name: enviar mail
+      community.general.mail:
+          host: smtp.gmail.com
+          port: 587
+          username: reportes.automatizados@gmail.com
+          password: dgmgnirbrcrttphr
+          to: Adrian Bonino <adrian.bonino@la.logicalis.com>
+          subject: Ansible-report
+          body: "Archivo de salida:
+            {{ file_content['content'] | b64decode }}"
+      
+ 
