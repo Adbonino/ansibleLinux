@@ -17,7 +17,7 @@
         ips_no_validas: []    # listado de Ips mal formadas
         ips_publicas: []      # listado de IPs publicas 
         ips_privadas: []      # listado de IPs privadas
-        ips_owner: []         # para guardar las IPs ingresadas que tambien estan en el listado de ip_propias_BCP
+        ips_owner: []         # para guardar las IPs ingresadas que tambien estan en el listado de ip_propias
         ips_blocks: []        # listado de IPs que se enviaran al proceso de bloqueo
       delegate_to: localhost
 
