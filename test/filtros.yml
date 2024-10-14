@@ -61,7 +61,8 @@
           password: dgmgnirbrcrttphr
           to: Adrian Bonino <adrian.bonino@la.logicalis.com>
           subject: Ansible-report
-          body: "Archivo de salida:
-            {{ file_content['content'] | b64decode }}"
+          body: "Se adjunta archivo con el listado de maquinas virtuales."
+          attachments:
+          - "vm_info.csv"
       
  
