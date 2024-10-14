@@ -10,14 +10,17 @@
       slurp:
         src: "{{ json_file }}"
       register: json_file_content
-
+      delegate_to: localhost
+      
     - name: Convertir contenido a diccionario
       set_fact:
         entities_data: "{{ json_file_content.content | b64decode | from_json }}"
+      delegate_to: localhost
 
     - name: Crear lista 
       set_fact:
         vm_info: []
+      delegate_to: localhost
     
     - name: Agregar vm_name a la lista
       set_fact:
@@ -28,6 +31,7 @@
                                   }] 
                   }}"
       with_items: "{{ entities_data.msg.json.group_results[0].entity_results }}"
+      delegate_to: localhost
 
     
     - name: Mostrar lista de nombres de VMs
