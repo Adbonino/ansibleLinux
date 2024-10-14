@@ -36,7 +36,7 @@
 
     - name: Crear archivo CSV
       copy:
-        dest: /home/ansible/vm_info.csv
+        dest: /resultados/vm_info.csv
         content: |
           vm_name,cluster_name,power_status,ip_addresses
           {% for vm in vm_info %}
